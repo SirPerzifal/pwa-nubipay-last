@@ -1,0 +1,633 @@
+/* Set global font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.login-page {
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  position: relative; /* Untuk mengatur maskot di luar kolom */
+}
+
+.left-section {
+  flex: 7;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.right-section {
+  flex: 5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Agar section ini tetap di atas maskot */
+}
+
+.logo {
+  width: 235px;
+  position: absolute;
+  top: 25px;
+  left: 38px;
+}
+
+.welcome-text {
+  text-align: center;
+  font-weight: 530 !important;
+  font-size: 56px;
+  margin: 80px 0 0 0; /* Hilangkan semua margin */
+  padding: 0; /* Hilangkan padding */
+  line-height: 1; /* Atur line-height menjadi 1 untuk menghilangkan jarak antar baris */
+}
+
+.brand-text {
+  font-size: 110px;
+  font-weight: 550 !important;
+  margin: 0; /* Hilangkan margin */
+  padding: 0; /* Hilangkan padding */
+  line-height: 1; /* Pastikan line-height juga 1 */
+}
+
+/* Maskot sebagai latar belakang */
+.mascot-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  width: 1150px; /* Perbesar ukuran maskot */
+  z-index: 1; /* Pastikan maskot di belakang elemen lain */
+}
+
+.bypass-button-login {
+  position: absolute;
+  left: 230px;
+  bottom: 180px;
+  z-index: 2;
+  color: transparent;
+  background: none;
+  border: none;
+}
+
+.command-text {
+  font-size: 46px;
+  font-weight: 600 !important;
+  margin: 0;
+}
+
+/* Phone input dan keypad */
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.country-code {
+  display: block;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  padding: 10px;
+  height: 100px;
+  width: 135px;
+  border-radius: 10px;
+}
+
+.country-code p {
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.phone-input {
+  background-color: white;
+  padding: 10px;
+  width: 487px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 52px
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+/* Efek hover dan active untuk tombol keypad */
+.keypad-button {
+  max-height: 111px;
+  height: 111px;
+  width: 216px;
+  padding: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Transisi untuk smooth effect */
+}
+
+/* Efek hover: tombol bergerak ke sudut kanan bawah */
+.keypad-button:hover {
+  transform: translate(3px, 3px); /* Tombol bergerak ke kanan bawah */
+}
+
+/* Efek active (tekan): tombol lebih turun ke sudut kanan bawah */
+.keypad-button:active {
+  transform: translate(5px, 5px); /* Tombol bergerak lebih jauh ke kanan bawah */
+}
+
+/* Efek hover dan active untuk tombol CLEAR dan BACKSPACE */
+.clear-button,
+.backspace-button {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+/* Efek hover untuk tombol CLEAR dan BACKSPACE */
+.clear-button:hover,
+.backspace-button:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Efek active untuk tombol CLEAR dan BACKSPACE */
+.clear-button:active,
+.backspace-button:active {
+  transform: translate(5px, 5px);
+}
+
+/* Efek hover dan active untuk tombol Lanjut */
+.submit-button {
+  transition: all 0.2s ease;
+}
+
+/* Tombol submit saat hover */
+.submit-button:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Tombol submit saat ditekan */
+.submit-button:active {
+  transform: translate(5px, 5px);
+}
+
+.clear-button,
+.backspace-button {
+  width: 201px;
+  height: 111px;
+  background-color: transparent;
+  color: #000;
+}
+
+.clear-button {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.delete-img {
+  width: 108px;
+  height: auto;
+}
+
+.sk {
+  font-style: italic;
+}
+
+.buttonSK {
+  background: none;
+  border: none;
+}
+
+/* modal S&K*/
+.modal-overlay-sk {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-sk {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  max-height: 900px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header-modal-sk {
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+  background-color: #ffcc00;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  border-radius: 8px 8px 0 0;
+}
+.container-modal-sk {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+.container-modal-sk::-webkit-scrollbar {
+width: 10px; /* Ukuran scroll bar */
+}
+
+.container-modal-sk::-webkit-scrollbar-thumb {
+background-color: #777777; /* Warna scroll bar */
+}
+
+.container-modal-sk::-webkit-scrollbar-track {
+background-color: none; /* Background track scroll bar */
+}
+.content-modal-sk {
+  justify-content: flex-start;
+  padding: 20px;
+}
+.content-modal-sk h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #333333;
+}
+.content-modal-sk h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+}
+.content-modal-sk p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.5;
+  font-weight: lighter !important;
+  text-align: justify;
+}
+.section-modal-sk {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+hr {
+  margin: 0;
+}
+hr .solid-hr-sk {
+  border-top: 3px solid rgb(108, 108, 108);
+}
+.footer-modal-sk {
+  border-radius: 0 0 8px 8px;
+  background-color: white;
+  position: sticky;
+  text-align: right;
+  padding: 10px;
+}
+.footer-modal-sk button {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.overlay-modal-suspend {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.container-modal-suspend {
+  text-align: center;
+  background-color: #F4B000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.error-title-suspend {
+  color: #E53935;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+.error-message-supend {
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.error-submessage-suspend {
+  color: #5F5F5F;
+  font-size: 18px;
+  margin: 10px 0;
+}
+.contact-button-suspend {
+  background-color: #000;
+  color: #FFF;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 0 auto;
+  width: fit-content;
+}
+.contact-button-suspend .icon-suspend {
+  margin-right: 10px;
+}
+.illustration-suspend {
+  margin: 20px 0;
+}
+.close-modal-suspend {
+  position: absolute;
+  top: 170px;
+  right: 675px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 38px;
+}
+.illusadmin-suspend {
+  width: 500px;
+}
+@keyframes anm-slide-down-modal-sk {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anm-slide-up-modal-sk {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.anm-slide-down-modal-sk {
+  animation: anm-slide-down-modal-sk 0.3s ease-out;
+}
+
+.closing-modal-sk .anm-slide-up-modal-sk {
+  animation: anm-slide-up-modal-sk 0.3s ease-out;
+}
+/* end modal */
+
+.right-section i {
+  color: rgb(205, 59, 59);
+}
+
+.submit-button {
+  height: 92px;
+  width: 660px;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 35px;
+}
+
+/* Footer untuk Copyright dan Help */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.copyright {
+  width: 200px;
+}
+
+/* Kontainer Help Icon dan SVG */
+.help-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.help-icon {
+  width: 80px;
+  margin-right: 10px; /* Jarak antara help-icon dan SVG */
+}
+
+.additional-svg {
+  background: none;
+  width: 150px;
+  height: auto;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin: 0 0 13px 0;
+}
+
+/* Layout untuk layar besar (Desktop) */
+@media (max-width: 1152px) {
+  .mascot-background {
+    width: 500px;
+  }
+}
+
+/* Layout untuk layar besar (Desktop) */
+@media (min-width: 1024px) {
+  .login-page {
+    flex-direction: row; /* Elemen kiri dan kanan berdampingan */
+  }
+
+  .mascot-background {
+    display: flex; /* Gambar maskot terlihat */
+  }
+}
+
+/* Layout untuk layar medium (Tablet) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .left-section {
+    align-items: center;
+    text-align: center; /* Text dan konten di tengah */
+  }
+
+  .right-section {
+    align-items: center;
+  }
+
+  .mascot-background {
+    display: none; /* Gambar maskot hilang */
+  }
+
+  .help-icon {
+    width: 70px;
+    margin-right: 10px; /* Jarak antara help-icon dan SVG */
+  }
+  
+  .additional-svg {
+    width: 200px;
+    height: auto;
+  }
+}
+
+/* Layout untuk layar kecil (Mobile) */
+@media (max-width: 767px) {
+  .login-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .right-section {
+    align-items: center;
+    padding: 20px;
+  }
+
+  .welcome-text {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .brand-text {
+    font-size: 32px;
+  }
+
+  .command-text {
+    font-size: 24px;
+    font-weight: 530 !important;
+    margin: 0;
+  }
+  
+  .country-code {
+    display: block;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    padding: 10px;
+    height: 50px;
+    width: 55px;
+    border-radius: 10px;
+  }
+  
+  .country-code p {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  
+  .phone-input {
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 52px
+  }
+
+  .mascot-background {
+    display: none; /* Gambar maskot hilang */
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Error message di bawah input */
+  .error-message {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  /* Sesuaikan tampilan keypad */
+  .keypad-button {
+    width: 95px;
+    padding: 15px;
+    font-size: 20px;
+  }
+
+  .phone-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .delete-img {
+    width: 68px;
+  }
+
+  /* Logo tetap di pojok kiri atas */
+  .left-section .logo {
+    position: relative;
+    width: 280px; /* Ukuran logo lebih kecil di mobile */
+    margin: 0 80px 30px 0;
+  }
+
+  .help-container {
+    display: none;
+  }
+
+  .copyright {
+    width: 150px; /* Ukuran copyright lebih kecil */
+  }
+}

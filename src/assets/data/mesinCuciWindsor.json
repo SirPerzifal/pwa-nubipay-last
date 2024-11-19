@@ -1,0 +1,23 @@
+[
+  { "id": 1, "tipe": "10KG", "nama": "W1", "harga": 10000, "waktu" : 25, "status": "tersedia" },
+  { "id": 2, "tipe": "10KG", "nama": "W2", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 3, "tipe": "10KG", "nama": "W3", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 4, "tipe": "10KG", "nama": "W4", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
+  { "id": 5, "tipe": "10KG", "nama": "W5", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 6, "tipe": "10KG", "nama": "W6", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1754 },
+  { "id": 7, "tipe": "10KG", "nama": "W7", "harga": 10000, "waktu" : 25 , "status": "perbaikan" },
+  { "id": 8, "tipe": "10KG", "nama": "W8", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 9, "tipe": "10KG", "nama": "W9", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 10, "tipe": "10KG", "nama": "W10", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 11, "tipe": "16KG", "nama": "W11", "harga": 12000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1323 },
+  { "id": 12, "tipe": "16KG", "nama": "W12", "harga": 12000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 13, "tipe": "21KG", "nama": "W13", "harga": 15000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 2934 },
+  { "id": 14, "tipe": "pengering", "nama": "14A", "harga": 8000, "waktu" : 35 ,   "status": "tersedia" },
+  { "id": 15, "tipe": "pengering", "nama": "14B", "harga": 8000, "waktu" : 35 , "status": "tersedia" },
+  { "id": 16, "tipe": "pengering", "nama": "15A", "harga": 8000, "waktu" : 35 , "status": "digunakan", "waktu-tunggu": 4934 },
+  { "id": 17, "tipe": "pengering", "nama": "15B", "harga": 8000, "waktu" : 35 , "status": "tersedia" },
+  { "id": 18, "tipe": "pengering", "nama": "16A", "harga": 8000, "waktu" : 35 , "status": "tersedia" },
+  { "id": 19, "tipe": "pengering", "nama": "16B", "harga": 8000, "waktu" : 35 , "status": "tersedia" },
+  { "id": 20, "tipe": "pengering", "nama": "17A", "harga": 8000, "waktu" : 35 , "status": "digunakan", "waktu-tunggu": 3934 },
+  { "id": 21, "tipe": "pengering", "nama": "17B", "harga": 8000, "waktu" : 35 , "status": "digunakan", "waktu-tunggu": 1934 }
+]

@@ -1,0 +1,549 @@
+/* Set global font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.otp-page {
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  position: relative; /* Untuk mengatur maskot di luar kolom */
+}
+
+.otp-left-section {
+  flex: 7;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.right-section-otp {
+  flex: 5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Agar section ini tetap di atas maskot */
+}
+
+.logo-otp {
+  width: 235px;
+  position: absolute;
+  top: 25px;
+  left: 38px;
+}
+
+.command-text-otp {
+  text-align: center;
+  font-weight: 530 !important;
+  font-size: 56px;
+  margin: 80px 0 0 0; /* Hilangkan semua margin */
+  padding: 0; /* Hilangkan padding */
+  line-height: 1; /* Atur line-height menjadi 1 untuk menghilangkan jarak antar baris */
+}
+
+.announce-text-otp {
+  font-size: 30px;
+  font-weight: lighter !important;
+  margin: 0; /* Hilangkan margin */
+  padding: 0; /* Hilangkan padding */
+  line-height: 1; /* Pastikan line-height juga 1 */
+}
+
+.ulang-kirim-otp {
+  position: absolute;
+  font-size: 30px;
+  font-weight: lighter !important;
+  bottom: 50px;
+}
+
+.ulang-kirim-otp button {
+  font-size: 30px;
+  font-weight: 900 !important;
+  border: none;
+  background: none;
+}
+
+/* Maskot sebagai latar belakang */
+.illustrasi-background-otp {
+  position: absolute;
+  bottom: 200px;
+  left: 130px;
+  width: 800px; /* Perbesar ukuran maskot */
+  z-index: 1; /* Pastikan maskot di belakang elemen lain */
+}
+
+/* otp input dan keypad */
+.otp-input-container {
+  display: flex;
+  gap: 22px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.otp-box {
+  width: 150px;
+  height: 130px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.keypad-otp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+/* Efek hover dan active untuk tombol keypad */
+.keypad-button-otp {
+  max-height: 111px;
+  height: 111px;
+  width: 216px;
+  padding: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Transisi untuk smooth effect */
+}
+
+/* Efek hover: tombol bergerak ke sudut kanan bawah */
+.keypad-button-otp:hover {
+  transform: translate(3px, 3px); /* Tombol bergerak ke kanan bawah */
+}
+
+/* Efek active (tekan): tombol lebih turun ke sudut kanan bawah */
+.keypad-button-otp:active {
+  transform: translate(5px, 5px); /* Tombol bergerak lebih jauh ke kanan bawah */
+}
+
+/* Efek hover dan active untuk tombol CLEAR dan BACKSPACE */
+.clear-button-otp,
+.backspace-button-otp {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+/* Efek hover untuk tombol CLEAR dan BACKSPACE */
+.clear-button-otp:hover,
+.backspace-button-otp:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Efek active untuk tombol CLEAR dan BACKSPACE */
+.clear-button-otp:active,
+.backspace-button-otp:active {
+  transform: translate(5px, 5px);
+}
+
+/* Efek hover dan active untuk tombol Lanjut */
+.submit-button-otp {
+  transition: all 0.2s ease;
+}
+
+/* Tombol submit saat hover */
+.submit-button-otp:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Tombol submit saat ditekan */
+.submit-button-otp:active {
+  transform: translate(5px, 5px);
+}
+
+.clear-button-otp,
+.backspace-button-otp {
+  width: 201px;
+  height: 111px;
+  background-color: transparent;
+  color: #000;
+}
+
+.clear-button-otp {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.delete-img-otp {
+  width: 108px;
+  height: auto;
+}
+
+.sk {
+  font-style: italic;
+}
+
+.buttonSK {
+  background: none;
+  border: none;
+}
+
+/* modal S&K*/
+.modal-overlay-sk {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-sk {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  max-height: 900px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header-modal-sk {
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+  background-color: #ffcc00;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  border-radius: 8px 8px 0 0;
+}
+.container-modal-sk {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+.container-modal-sk::-webkit-scrollbar {
+width: 10px; /* Ukuran scroll bar */
+}
+
+.container-modal-sk::-webkit-scrollbar-thumb {
+background-color: #777777; /* Warna scroll bar */
+}
+
+.container-modal-sk::-webkit-scrollbar-track {
+background-color: none; /* Background track scroll bar */
+}
+.content-modal-sk {
+  justify-content: flex-start;
+  padding: 20px;
+}
+.content-modal-sk h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #333333;
+}
+.content-modal-sk h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+}
+.content-modal-sk p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.5;
+  font-weight: lighter !important;
+  text-align: justify;
+}
+.section-modal-sk {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+hr {
+  margin: 0;
+}
+hr .solid-hr-sk {
+  border-top: 3px solid rgb(108, 108, 108);
+}
+.footer-modal-sk {
+  border-radius: 0 0 8px 8px;
+  background-color: white;
+  position: sticky;
+  text-align: right;
+  padding: 10px;
+}
+.footer-modal-sk button {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+@keyframes anm-slide-down-modal-sk {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anm-slide-up-modal-sk {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.anm-slide-down-modal-sk {
+  animation: anm-slide-down-modal-sk 0.3s ease-out;
+}
+
+.closing-modal-sk .anm-slide-up-modal-sk {
+  animation: anm-slide-up-modal-sk 0.3s ease-out;
+}
+/* end modal */
+
+.right-section i {
+  color: rgb(205, 59, 59);
+}
+
+.button-container-otp {
+  column-gap: 30px;
+  margin-top: 40px;
+  display: flex;
+}
+
+.submit-button-otp {
+  height: 92px;
+  width: 320px;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.back-button-otp {
+  background: none;
+  border: 4px solid black;
+  border-radius: 10px;
+}
+
+/* Footer untuk Copyright dan Help */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.copyright {
+  width: 200px;
+}
+
+/* Kontainer Help Icon dan SVG */
+.help-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.help-icon {
+  width: 80px;
+  margin-right: 10px; /* Jarak antara help-icon dan SVG */
+}
+
+.additional-svg {
+  width: 150px;
+  height: auto;
+}
+
+.error-message-otp {
+  color: red;
+  font-size: 14px;
+  margin: 0 0 13px 0;
+}
+
+/* Layout untuk layar besar (Desktop) */
+@media (max-width: 1152px) {
+  .illustrasi-background-otp {
+    width: 500px;
+  }
+}
+
+/* Layout untuk layar besar (Desktop) */
+@media (min-width: 1024px) {
+  .otp-page {
+    flex-direction: row; /* Elemen kiri dan kanan berdampingan */
+  }
+}
+
+/* Layout untuk layar medium (Tablet) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .otp-page {
+    flex-direction: column;
+  }
+
+  .left-section {
+    align-items: center;
+    text-align: center; /* Text dan konten di tengah */
+  }
+
+  .right-section {
+    align-items: center;
+  }
+
+  .illustrasi-background-otp {
+    display: none; /* Gambar maskot hilang */
+  }
+
+  .help-icon {
+    width: 70px;
+    margin-right: 10px; /* Jarak antara help-icon dan SVG */
+  }
+  
+  .additional-svg {
+    width: 200px;
+    height: auto;
+  }
+}
+
+/* Layout untuk layar kecil (Mobile) */
+@media (max-width: 767px) {
+  .otp-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .right-section {
+    align-items: center;
+    padding: 20px;
+  }
+
+  .welcome-text {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .brand-text {
+    font-size: 32px;
+  }
+
+  .command-text {
+    font-size: 24px;
+    font-weight: 530 !important;
+    margin: 0;
+  }
+  
+  .country-code {
+    display: block;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    padding: 10px;
+    height: 50px;
+    width: 55px;
+    border-radius: 10px;
+  }
+  
+  .country-code p {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  
+  .phone-input {
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 52px
+  }
+
+  .illustrasi-background-otp {
+    display: none; /* Gambar maskot hilang */
+  }
+
+  .submit-button-otp {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Error message di bawah input */
+  .error-message {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  /* Sesuaikan tampilan keypad */
+  .keypad-button {
+    width: 95px;
+    padding: 15px;
+    font-size: 20px;
+  }
+
+  .phone-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .delete-img {
+    width: 68px;
+  }
+
+  /* Logo tetap di pojok kiri atas */
+  .left-section .logo {
+    position: relative;
+    width: 280px; /* Ukuran logo lebih kecil di mobile */
+    margin: 0 80px 30px 0;
+  }
+
+  .help-container {
+    display: none;
+  }
+
+  .copyright {
+    width: 150px; /* Ukuran copyright lebih kecil */
+  }
+}

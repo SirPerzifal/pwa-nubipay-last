@@ -1,0 +1,393 @@
+/* Set global font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.register-page {
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  position: relative; /* Untuk mengatur maskot di luar kolom */
+}
+
+.left-section-regis {
+  flex: 7;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.right-section-regis {
+  flex: 5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Agar section ini tetap di atas maskot */
+}
+
+.logo-register {
+  width: 235px;
+  position: absolute;
+  top: 25px;
+  left: 38px;
+}
+
+.announce-register {
+  text-align: center;
+  font-weight: 530 !important;
+  font-size: 38px;
+  margin: 130px 0 0 0; /* Hilangkan semua margin */
+  padding: 0; /* Hilangkan padding */
+  line-height: 1; /* Atur line-height menjadi 1 untuk menghilangkan jarak antar baris */
+}
+
+.command-register {
+  font-size: 28px;
+  font-weight: 400 !important;
+  margin-top: 0; /* Hilangkan margin */
+  padding: 0; /* Hilangkan padding */
+  line-height: 1; /* Pastikan line-height juga 1 */
+}
+
+/* Maskot sebagai latar belakang */
+.illus-background-regis {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  display: flex;
+  align-items: flex-end;
+  width: 1100px; /* Perbesar ukuran maskot */
+  z-index: 1; /* Pastikan maskot di belakang elemen lain */
+}
+
+.command-input-regis {
+  font-size: 46px;
+  font-weight: 530 !important;
+  margin: 0;
+}
+
+/* Phone input dan keypad */
+.phone-input-regis-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.country-code-regis {
+  display: block;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  padding: 10px;
+  height: 100px;
+  width: 135px;
+  border-radius: 10px;
+}
+
+.country-code-regis p {
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.phone-input-regis {
+  background-color: white;
+  padding: 10px;
+  width: 487px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 52px
+}
+
+.keypad-regis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+/* Efek hover dan active untuk tombol keypad */
+.keypad-button-regis {
+  max-height: 111px;
+  height: 111px;
+  width: 216px;
+  padding: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Transisi untuk smooth effect */
+}
+
+/* Efek hover: tombol bergerak ke sudut kanan bawah */
+.keypad-button-regis:hover {
+  transform: translate(3px, 3px); /* Tombol bergerak ke kanan bawah */
+}
+
+/* Efek active (tekan): tombol lebih turun ke sudut kanan bawah */
+.keypad-button-regis:active {
+  transform: translate(5px, 5px); /* Tombol bergerak lebih jauh ke kanan bawah */
+}
+
+/* Efek hover dan active untuk tombol CLEAR dan BACKSPACE */
+.clear-button-regis,
+.backspace-button-regis {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+/* Efek hover untuk tombol CLEAR dan BACKSPACE */
+.clear-button-regis:hover,
+.backspace-button-regis:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Efek active untuk tombol CLEAR dan BACKSPACE */
+.clear-button-regis:active,
+.backspace-button-regis:active {
+  transform: translate(5px, 5px);
+}
+
+/* Efek hover dan active untuk tombol Lanjut */
+.submit-button-regis {
+  transition: all 0.2s ease;
+}
+
+/* Tombol submit saat hover */
+.submit-button-regis:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Tombol submit saat ditekan */
+.submit-button-regis:active {
+  transform: translate(5px, 5px);
+}
+
+.clear-button-regis,
+.backspace-button-regis {
+  width: 201px;
+  height: 111px;
+  background-color: transparent;
+  color: #000;
+}
+
+.clear-button-regis {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.delete-img-regis {
+  width: 108px;
+  height: auto;
+}
+
+.right-section-regis i {
+  color: rgb(205, 59, 59);
+}
+
+.submit-button-regis {
+  height: 92px;
+  width: 660px;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 35px;
+}
+
+.button-container-regis {
+  column-gap: 30px;
+  margin-top: 40px;
+  display: flex;
+}
+
+.submit-button-regis {
+  height: 92px;
+  width: 320px;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.back-button-regis {
+  background: none;
+  border: 4px solid black;
+  border-radius: 10px;
+}
+
+.error-message-regis {
+  color: red;
+  font-size: 14px;
+  margin: 0 0 13px 0;
+}
+
+/* Layout untuk layar besar (Desktop) */
+@media (max-width: 1152px) {
+  .illus-background {
+    width: 500px;
+  }
+}
+
+/* Layout untuk layar besar (Desktop) */
+@media (min-width: 1024px) {
+  .login-page {
+    flex-direction: row; /* Elemen kiri dan kanan berdampingan */
+  }
+
+  .illus-background {
+    display: flex; /* Gambar maskot terlihat */
+  }
+}
+
+/* Layout untuk layar medium (Tablet) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .left-section {
+    align-items: center;
+    text-align: center; /* Text dan konten di tengah */
+  }
+
+  .right-section {
+    align-items: center;
+  }
+
+  .illus-background {
+    display: none; /* Gambar maskot hilang */
+  }
+}
+
+/* Layout untuk layar kecil (Mobile) */
+@media (max-width: 767px) {
+  .login-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .right-section {
+    align-items: center;
+    padding: 20px;
+  }
+
+  .announce-register {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .brand-text {
+    font-size: 32px;
+  }
+
+  .command-text {
+    font-size: 24px;
+    font-weight: 530 !important;
+    margin: 0;
+  }
+  
+  .country-code {
+    display: block;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    padding: 10px;
+    height: 50px;
+    width: 55px;
+    border-radius: 10px;
+  }
+  
+  .country-code p {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  
+  .phone-input {
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 52px
+  }
+
+  .illus-background {
+    display: none; /* Gambar maskot hilang */
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Error message di bawah input */
+  .error-message {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  /* Sesuaikan tampilan keypad */
+  .keypad-button {
+    width: 95px;
+    padding: 15px;
+    font-size: 20px;
+  }
+
+  .phone-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .delete-img {
+    width: 68px;
+  }
+
+  /* Logo-register tetap di pojok kiri atas */
+  .left-section .logo-register {
+    position: relative;
+    width: 280px; /* Ukuran logo-register lebih kecil di mobile */
+    margin: 0 80px 30px 0;
+  }
+
+  .help-container {
+    display: none;
+  }
+
+  .copyright {
+    width: 150px; /* Ukuran copyright lebih kecil */
+  }
+}

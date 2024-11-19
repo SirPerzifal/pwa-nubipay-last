@@ -1,0 +1,162 @@
+.title-cash {
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.topup-container {
+    padding: 0 200px 200px 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #FFC107;
+    color: #333;
+}
+
+.container-left-section {
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+}
+.section-cash {
+    margin-bottom: 20px;
+}
+.section-cash:last-child {
+    margin-bottom: 0;
+}
+.section-title-cash {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.input-group-cash {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.input-group-cash input {
+    width: 60%;
+    flex: 1;
+    padding: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+.input-group-cash button {
+    padding: 10px 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.price-details-cash {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.price-details-cash div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.price-details-cash div:last-child {
+    margin-bottom: 0;
+}
+.price-details-cash span {
+    font-size: 28px;
+    font-weight: lighter;
+}
+.price-details-cash .bonus {
+    color: red;
+}
+.price-details-cash .total {
+    font-weight: bold;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+}
+
+.illustration p {
+    font-size: 40px;
+}
+
+.illustration img {
+    width: 80%;
+}
+
+.pay-btn{
+    font-size: 35px;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+}
+
+.back-btn {
+    background: none;
+    color: black;    font-size: 35px;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+}
+
+@media screen and (max-width: 1304px) {
+    .price-details-cash span {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1016px) {
+    .price-details-cash span {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 822px) {
+    .topup-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 543px) {
+    .title-cash {
+        font-size: 32px;
+    }
+    .section-title-cash {
+        font-size: 18px;
+    }
+    .input-group-cash input {
+        width: 40%;
+        font-size: 20px;
+    }
+    .container-left-section {
+        width: 250px;
+    }
+}

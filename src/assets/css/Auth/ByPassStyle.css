@@ -1,0 +1,111 @@
+.bypass-page {
+position: fixed;
+display: flex;
+height: 100vh;
+position: relative; /* Untuk mengatur maskot di luar kolom */
+}
+.left-section-bypass {
+flex: 7;
+padding: 20px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+position: relative;
+}
+
+.right-section-bypass {
+flex: 5;
+padding: 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 10; /* Agar section ini tetap di atas maskot */
+}
+
+.logo-bypass {
+width: 235px;
+position: absolute;
+top: 25px;
+left: 38px;
+}
+
+.welcome-text-bypass {
+text-align: center;
+font-weight: 530 !important;
+font-size: 56px;
+margin: 80px 0 0 0; /* Hilangkan semua margin */
+padding: 0; /* Hilangkan padding */
+line-height: 1; /* Atur line-height menjadi 1 untuk menghilangkan jarak antar baris */
+}
+
+.brand-text-bypass {
+font-size: 110px;
+font-weight: 550 !important;
+margin: 0; /* Hilangkan margin */
+padding: 0; /* Hilangkan padding */
+line-height: 1; /* Pastikan line-height juga 1 */
+}
+
+/* Maskot sebagai latar belakang */
+.mascot-background-bypass {
+position: absolute;
+bottom: 0;
+left: 0;
+display: flex;
+align-items: flex-end;
+width: 1150px; /* Perbesar ukuran maskot */
+z-index: 1; /* Pastikan maskot di belakang elemen lain */
+}
+
+.button-back-style-bypass {
+    background: none;
+    border: none;
+}
+
+.back-button-bypass {
+font-size: 32px;
+color: white;
+background-color: black;
+padding: 15px;
+border-radius: 50%;
+position: absolute;
+top: 15px;
+right: 15px;
+}
+
+.command-text-bypass {
+font-size: 46px;
+font-weight: 530 !important;
+margin: 0;
+}
+
+.submit-button-bypass {
+height: 92px;
+width: 660px;
+padding: 20px;
+font-size: 24px;
+background-color: #000;
+color: #FFF;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 40px;
+font-size: 35px;
+}
+
+/* Efek hover dan active untuk tombol Lanjut */
+.submit-button-bypass {
+transition: all 0.2s ease;
+}
+
+/* Tombol submit saat hover */
+.submit-button-bypass:hover {
+transform: translate(3px, 3px);
+}
+
+/* Tombol submit saat ditekan */
+.submit-button-bypass:active {
+transform: translate(5px, 5px);
+}

@@ -1,0 +1,58 @@
+.container-tabel {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.top-bar-tabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.select-value-tabel {
+    padding: 5px;
+    margin: 0 10px;
+    font-size: 14px;
+}
+.input-search-tabel {
+    padding: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.top-bar-tabel label {
+    font-size: 14px;
+}
+.data-tabel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.data-tabel-style th, .data-tabel-style tr, .data-tabel-style td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+.data-tabel-style th {
+    background-color: #000;
+    color: #fff;
+}
+.data-tabel-style tr:hover {
+    background-color: #b4b4b4; /* Ganti dengan warna yang Anda inginkan */
+    cursor: pointer; /* Tambahkan ini jika Anda ingin menunjukkan bahwa baris dapat diklik */
+}
+.data-tabel-style tr {
+    background-color: #fff;
+}
+.pagination-tabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+.prev-next a{
+    color: gray;
+    text-decoration: none;
+}
+.prev-next .next {
+    margin-left: 10px;
+}

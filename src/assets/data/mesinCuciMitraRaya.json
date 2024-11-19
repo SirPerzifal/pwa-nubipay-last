@@ -1,0 +1,21 @@
+[
+  { "id": 1, "tipe": "10KG", "nama": "W1", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 2, "tipe": "10KG", "nama": "W2", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
+  { "id": 3, "tipe": "mesin-tumbler", "nama": "D3", "harga": 10000, "waktu" : 25, "status": "tersedia" },
+  { "id": 4, "tipe": "mesin-tumbler", "nama": "W3", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 5, "tipe": "mesin-tumbler", "nama": "D4", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 6, "tipe": "mesin-tumbler", "nama": "W4", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
+  { "id": 7, "tipe": "mesin-tumbler", "nama": "D5", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 8, "tipe": "mesin-tumbler", "nama": "W5", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1754 },
+  { "id": 9, "tipe": "mesin-tumbler", "nama": "D6", "harga": 10000, "waktu" : 25 , "status": "perbaikan" },
+  { "id": 10, "tipe": "mesin-tumbler", "nama": "W6", "harga": 10000, "waktu" : 25 , "status": "tersedia" },    
+  { "id": 11, "tipe": "mesin-tumbler", "nama": "D7", "harga": 10000, "waktu" : 25, "status": "tersedia" },
+  { "id": 12, "tipe": "mesin-tumbler", "nama": "W7", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 13, "tipe": "mesin-tumbler", "nama": "D8", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 14, "tipe": "mesin-tumbler", "nama": "W8", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
+  { "id": 15, "tipe": "mesin-tumbler", "nama": "D9", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+  { "id": 16, "tipe": "mesin-tumbler", "nama": "W9", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1754 },
+  { "id": 17, "tipe": "pengering", "nama": "10A", "harga": 8000, "waktu" : 35 ,   "status": "tersedia" },
+  { "id": 18, "tipe": "pengering", "nama": "10B", "harga": 8000, "waktu" : 35 , "status": "digunakan", "waktu-tunggu": 1223 }
+]
+  

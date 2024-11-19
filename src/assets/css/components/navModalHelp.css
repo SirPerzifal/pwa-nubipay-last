@@ -1,0 +1,14 @@
+.ukuran-gambar {
+    max-width: 700px; /* Membuat gambar responsif dan menyesuaikan ukuran elemen induknya */
+    height: auto; /* Menyesuaikan tinggi gambar agar tetap proporsional */
+    object-fit: contain; /* Menjaga agar gambar tidak terdistorsi */
+    margin: 10px 0; /* Memberi sedikit ruang di sekitar gambar */
+}
+
+.scrollable-gambar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    overflow-y: scroll;
+}

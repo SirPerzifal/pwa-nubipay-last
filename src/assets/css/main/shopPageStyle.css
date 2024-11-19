@@ -1,0 +1,390 @@
+.shop-content{
+  padding: 0 180px 180px 180px;
+}
+
+.shop-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 600 !important;
+  margin-bottom: 20px;
+}
+
+/* Container produk dengan tinggi tetap di desktop */
+.products-container {
+  background-color: #fff2cd;
+  display: flex;
+  height: 555px; /* Tetapkan tinggi tetap di desktop */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.product-card {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  margin: 10px;
+  height: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-right: 5px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.product-info h3 {
+  margin: 5px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: 550 !important;
+}
+
+.quantity-control {
+  width: 150px;
+  margin: 5px 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.quantity-info {
+  color: white;
+  font-size: 20px;
+}
+
+.quantity-button {
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mines-button {
+  margin-right: auto;
+}
+
+.plus-button {
+  margin-left: auto;
+}
+
+.stock-info {
+  color: red;
+  font-size: 12px !important;
+  font-style: italic;
+  font-weight: bold !important;
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.total-shop-container {
+  display: flex;
+  flex-direction: column; /* Pastikan elemen ditumpuk secara vertikal */
+  align-items: flex-start; /* Pastikan semua elemen rata kiri */
+}
+
+.total-box-shop {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.total-box-shop h2 {
+  margin-bottom: 20px;
+}
+
+.total-box-shop p {
+  font-size: 21px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.total-box-shop span {
+  text-align: right;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 75px;
+}
+
+/* Tombol default untuk back-button dan confirm-button */
+.back-button, .confirm-button {
+  background-color: white;
+  color: black;
+  padding: 15px 40px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 28px;
+  transition: background-color 0.3s ease; /* Tambahkan transisi */
+}
+
+/* Tombol confirm ketika disable */
+.confirm-button.disabled {
+  background-color: #9E9E9E;
+  color: white;
+  cursor: not-allowed; /* Mengubah kursor untuk tombol yang nonaktif */
+}
+
+/* Tombol confirm ketika aktif (tidak disabled) */
+.confirm-button:not(.disabled) {
+  background-color: black;
+  color: white;
+}
+
+/* Hover effect untuk tombol yang aktif */
+.confirm-button:not(.disabled):hover {
+  background-color: #333; /* Warna lebih gelap saat di-hover */
+}
+
+.modal-shop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Background semi-transparan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-shop {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content-shop h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content-shop p {
+  margin-bottom: 20px;
+  font-weight: lighter !important;
+}
+
+.modal-content-shop h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-content-shop ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1px solid #ddd; /* Tambah garis pemisah antar baris */
+  text-align: center;
+}
+
+.modal-content-shop li {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: lighter !important;
+  text-align: center;
+}
+
+.modal-content-shop button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal-content-shop button:hover {
+  background-color: #218838;
+}
+
+
+@media only screen and (max-width: 1061px) {
+  .products-container {
+    height: auto;
+  }
+}
+
+/* Responsif untuk tablet (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  .shop-content {
+    padding: 20px 50px 50px 50px;
+  }
+
+  .product-card {
+    width: 100%;
+    margin: 10px 1%;
+  }
+
+  .products-container {
+    height: auto; /* Tinggi berubah menjadi otomatis pada layar kecil */
+    justify-content: space-between;
+  }
+
+  .total-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .total-box-shop {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .buttons-container {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .back-button, .confirm-button {
+    width: 48%;
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+/* Responsif untuk ponsel (max-width: 576px) */
+@media only screen and (max-width: 576px) {
+  .products-container {
+    display: block;
+    flex-direction: row; /* Atur produk dalam satu baris */
+    overflow-x: auto; /* Aktifkan scroll horizontal */
+    white-space: nowrap; /* Pastikan produk ditampilkan dalam satu baris */
+    padding: 10px;
+    scroll-behavior: smooth; /* Buat scroll lebih halus */
+  }
+
+  /* Product card menjadi horizontal */
+  .product-card {
+    display: inline-flex; /* Atur product card dalam satu baris */
+    flex-direction: row; /* Atur layout vertical di dalam setiap card */
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%; /* Sesuaikan lebar setiap product card */
+    height: auto; /* Biarkan tinggi menyesuaikan */
+    margin-right: 10px; /* Jarak antar product card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan shadow */
+  }
+
+  /* Gambar produk tetap di atas */
+  .product-image {
+    width: 150px; /* Ukuran gambar */
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px; /* Berikan jarak antara gambar dan info produk */
+  }
+
+  /* Sesuaikan elemen-elemen di dalam info produk */
+  .product-info h3 {
+    margin: 5px 0;
+    font-size: 14px; /* Ukuran teks lebih kecil untuk mobile */
+  }
+
+  .product-info p {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
+  /* Kontrol kuantitas produk tetap di layout vertikal */
+  .quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+
+  .quantity-info {
+    color: white;
+    font-size: 16px;
+  }
+
+  .quantity-button {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Scrollbar styling untuk produk */
+  .products-container::-webkit-scrollbar {
+    height: 8px; /* Ukuran scrollbar horizontal */
+  }
+
+  .products-container::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Warna scrollbar */
+    border-radius: 10px;
+  }
+
+  .products-container::-webkit-scrollbar-track {
+    background-color: #fff2cd; /* Warna track scrollbar */
+  }
+
+  .total-container {
+    width: 100%;
+  }
+
+  .total-box-shop {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .back-button, .confirm-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,20 @@
+[
+    { "tanggal": "2023-09-21", "No HP": 81234567890, "outlet": "Outlet C", "tipe": "Pakai", "info": "Info 3", "jumlah": 3000, "balance": 15000 },
+    { "tanggal": "2023-09-22", "No HP": 81234567890, "outlet": "Outlet B", "tipe": "Top Up", "info": "Info 2", "jumlah": 2000, "balance": 12000 },
+    { "tanggal": "2023-09-23", "No HP": 81234567890, "outlet": "Outlet A", "tipe": "Pakai", "info": "Info 1", "jumlah": 1000, "balance": 10000 },
+    { "tanggal": "2023-09-21", "No HP": 81234567890, "outlet": "Outlet C", "tipe": "Pakai", "info": "Info 3", "jumlah": 3000, "balance": 15000 },
+    { "tanggal": "2023-09-22", "No HP": 81234567890, "outlet": "Outlet B", "tipe": "Top Up", "info": "Info 2", "jumlah": 2000, "balance": 12000 },
+    { "tanggal": "2023-09-23", "No HP": 81234567890, "outlet": "Outlet A", "tipe": "Pakai", "info": "Info 1", "jumlah": 1000, "balance": 10000 },
+    { "tanggal": "2023-09-21", "No HP": 81234567890, "outlet": "Outlet C", "tipe": "Pakai", "info": "Info 3", "jumlah": 3000, "balance": 15000 },
+    { "tanggal": "2023-09-22", "No HP": 81234567890, "outlet": "Outlet B", "tipe": "Top Up", "info": "Info 2", "jumlah": 2000, "balance": 12000 },
+    { "tanggal": "2023-09-23", "No HP": 81234567890, "outlet": "Outlet A", "tipe": "Pakai", "info": "Info 1", "jumlah": 1000, "balance": 10000 },
+    { "tanggal": "2023-09-21", "No HP": 81234567890, "outlet": "Outlet C", "tipe": "Pakai", "info": "Info 3", "jumlah": 3000, "balance": 15000 },
+    { "tanggal": "2023-09-22", "No HP": 81234567890, "outlet": "Outlet B", "tipe": "Top Up", "info": "Info 2", "jumlah": 2000, "balance": 12000 },
+    { "tanggal": "2023-09-23", "No HP": 81234567890, "outlet": "Outlet A", "tipe": "Pakai", "info": "Info 1", "jumlah": 1000, "balance": 10000 },
+    { "tanggal": "2023-09-21", "No HP": 81234567890, "outlet": "Outlet C", "tipe": "Pakai", "info": "Info 3", "jumlah": 3000, "balance": 15000 },
+    { "tanggal": "2023-09-22", "No HP": 81234567890, "outlet": "Outlet B", "tipe": "Top Up", "info": "Info 2", "jumlah": 2000, "balance": 12000 },
+    { "tanggal": "2023-09-23", "No HP": 81234567890, "outlet": "Outlet A", "tipe": "Pakai", "info": "Info 1", "jumlah": 1000, "balance": 10000 },
+    { "tanggal": "2023-09-21", "No HP": 81234567890, "outlet": "Outlet C", "tipe": "Pakai", "info": "Info 3", "jumlah": 3000, "balance": 15000 },
+    { "tanggal": "2023-09-22", "No HP": 81234567890, "outlet": "Outlet B", "tipe": "Top Up", "info": "Info 2", "jumlah": 2000, "balance": 12000 },
+    { "tanggal": "2023-09-23", "No HP": 81234567890, "outlet": "Outlet A", "tipe": "Pakai", "info": "Info 1", "jumlah": 1000, "balance": 10000 }
+]

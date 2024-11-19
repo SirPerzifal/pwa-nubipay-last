@@ -1,0 +1,218 @@
+.container-qris {
+text-align: center;
+padding: 0px 200px 200px 200px;
+}
+
+.title-qris {
+font-size: 56px;
+font-weight: bold;
+}
+
+.subtitle-qris {
+font-size: 18px;
+margin-bottom: 20px;
+font-weight: 600 !important;
+}
+
+.buttons-qris {
+display: flex;
+flex-direction: column;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-bottom: 20px;
+}
+
+.tombol-kiri-qris {
+display: flex;
+justify-content: space-between;
+}
+
+.tombol-kanan-qris {
+display: flex;
+justify-content: space-between;
+}
+
+.buttons-qris button {
+background-color: #000;
+color: #fff;
+border: none;
+padding: 20px 40px;
+font-size: 46px;
+border-radius: 10px;
+cursor: pointer;
+width: 300px;
+}
+
+.wilayah-bawah-qris {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+}
+
+.wilayah-total-qris {
+width: 40%;
+}
+
+.total-payment-qris {
+font-size: 28px;
+margin-bottom: 10px;
+text-align: left;
+}
+
+.payment-input-qris {
+padding: 10px;
+background-color: white;
+border-radius: 7px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.payment-input-qris input {
+background: none;
+font-size: 32px;
+font-weight: bold !important;
+padding: 10px;
+width: 200px;
+text-align: left;
+border: none;
+margin-right: auto;
+}
+
+.payment-input-qris button {
+background-color: #000;
+color: #fff;
+border: none;
+padding: 10px 20px;
+font-size: 24px;
+border-radius: 5px;
+cursor: pointer;
+width: 150px;
+}
+
+.summary-qris {
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+text-align: left;
+margin-bottom: 20px;
+}
+
+.price-details-qris {
+    padding: 15px;
+    border-radius: 10px;
+}
+.price-details-qris div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.price-details-qris div:last-child {
+    margin-bottom: 0;
+}
+.price-details-qris span {
+    font-size: 28px;
+    font-weight: lighter;
+}
+.price-details-qris .bonus {
+    color: red;
+}
+.price-details-qris .total {
+    font-weight: bold;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.tombol-aksi-qris {
+margin-bottom: 30px;
+}
+
+.actions-qris {
+display: flex;
+justify-content: flex-end;
+gap: 20px;
+}
+
+.actions-qris button {
+background-color: #000;
+color: #fff;
+border: none;
+padding: 10px 20px;
+font-size: 24px;
+border-radius: 5px;
+cursor: pointer;
+width: 200px;
+max-width: 200px;
+}
+
+.actions-qris button.back-qris {
+background-color: #ffcc00;
+color: #000;
+border: 1px solid #000;
+}
+
+.separator-qris {
+border-top: 1px solid #000;
+margin: 20px 0;
+}
+
+@media screen and (max-width: 1461px) {
+    .price-details-qris span {
+        font-size: 18px;
+    }
+    .payment-input-qris input {
+        font-size: 22px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1143px) {
+    .wilayah-bawah-qris {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .wilayah-total-qris {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1007px) {
+    .container-qris{
+        padding: 0px 50px 50px 50px;
+    }
+    .buttons-qris button {
+        font-size: 28px;
+        width: 100%;
+        max-width: 200px;
+    }
+    .tombol-kanan-qris .tombol-kiri-qris {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 501px) {
+    .buttons-qris button {
+        font-size: 18px;
+        width: 100%;
+        max-width: 100;
+        padding: 20px 0;
+    }
+    .actions-qris button {
+        width: 100px;
+        padding: 20px 0;
+        font-size: 18px;
+    }
+    .total-payment-qris {
+        font-size: 18px;
+    }
+    .price-details-qris span {
+        font-size: 14px;
+    }
+    .payment-input-qris button {
+        font-size: 14px;
+    }
+}

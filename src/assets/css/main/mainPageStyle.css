@@ -1,0 +1,1110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+h1, h2, h3, h4, h5, h6, p, span, button {
+  font-family: 'Poppins', sans-serif; /* Terapkan Poppins ke semua heading, paragraph, span, dan tombol */
+  font-weight: bold; /* Terapkan bold ke semua teks */
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Ukuran scroll bar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #777777; /* Warna scroll bar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: none; /* Background track scroll bar */
+}
+
+.content {
+  padding: 20px;
+  border-radius: 10px;
+  padding: 20px 50px 50px 50px;
+}
+
+/* Container untuk saldo dan total agar saling bersampingan */
+.saldo-total-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.saldo-section {
+  width: 49%;
+}
+
+.total-section {
+  width: 50%;
+}
+
+.saldo-box, .total-box {
+  background-color: white;
+  padding: 20px;
+  display: flex; /* Menambahkan display flex */
+  flex-direction: row; /* Elemen ditata secara vertikal */
+  justify-content: space-between; /* Membuat elemen di dalamnya rata atas-bawah */
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  height: 120px;
+  align-items: center;
+}
+
+.ket-saldo {
+  background-color: #F5F5F5; /* Warna abu-abu */
+  padding: 15px;
+  border-radius: 25px;
+  position: relative; /* Agar refresh-icon bisa diatur posisinya relatif ke ket-saldo */  
+  box-sizing: border-box; /* Pastikan padding dihitung dalam lebar elemen */
+  width: 50%; /* Buat lebar elemen memenuhi container */
+  overflow: hidden; /* Hindari elemen melampaui container */
+}
+
+.ket-saldo h3 {
+  margin: 0;
+  font-size: 25px;
+  color: black;
+  text-align: left;
+}
+
+.ket-saldo p {
+  font-size: 42px;
+  color: black;
+  margin: 0;
+  text-align: left;
+}
+
+.refresh-button {
+  position: absolute;
+  top: 10px;   /* Sesuaikan posisi vertikal */
+  right: 10px; /* Sesuaikan posisi horizontal */
+  border: none;
+  background: none;
+}
+
+.refresh-icon {
+  font-size: 20px; /* Ukuran icon */
+  cursor: pointer; /* Agar icon bisa diklik */
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.loader-saldo {
+  top: 30px;
+  right: 25px;
+  color: black;
+  font-size: 5px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: absolute;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+}
+
+.topup-button, .buy-soap-button {
+  display: block;
+  height: 69px;
+  width: 239px;
+  margin: 5px 0 0 0;
+  padding: 9px;
+  background-color: black;
+  color: white;
+  border: 2.5px solid;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ket-sisa-saldo {
+  margin-top: 15px;
+  margin-right: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ket-total-belanja h3 {
+  font-family: 'Montserrat';
+  font-weight: 800;
+  font-size: 40px; /* Ukuran untuk TOTAL BELANJA */
+  font-style: normal;
+  margin: 0;
+  color: black;
+  text-align: left;
+}
+
+.terpotong {
+  font-size: 28px;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  color: black;
+  text-align: left;
+}
+
+.terpotong .p1{
+  font-weight: lighter;
+  margin: 0 140px 0 0;
+}
+
+.terpotong .p2{
+  margin: 0;
+}
+
+.ket-sisa-saldo h3 {
+  font-family: 'Montserrat';
+  font-weight: 800;
+  font-size: 30px; /* Ukuran untuk TOTAL BELANJA */
+  font-style: normal;
+  margin: 0;
+  color: black;
+  text-align: center;
+}
+
+.ket-sisa-saldo p {
+  margin-top: 30px;
+  font-size: 46px; /* Ukuran untuk Rp {saldo - totalBelanja} */
+  margin: 0;
+  color: black;
+  text-align: center;
+}
+
+/* Container untuk mesin dan status agar saling bersampingan */
+.mesin-status-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 26px;
+  padding: 20px;
+}
+
+.refresh-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.loader {
+  top: 30px;
+  right: 25px;
+  color: black;
+  font-size: 8px;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  position: absolute;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+
+.mesin-section {
+  width: 75%;
+  box-sizing: border-box; /* Pastikan padding dihitung dalam lebar elemen */
+  white-space: nowrap; /* Cegah mesin-mesin terpecah ke baris baru */
+}
+
+.judul {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  padding: 10px 0;
+  z-index: 1;
+  text-align: left;
+  font-size: 20px;
+  color: black;
+  border-radius: 10px;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap; /* Cegah teks menurun ke baris baru */
+  text-overflow: ellipsis; /* Tambahkan '...' jika teks terlalu panjang */
+  box-sizing: border-box; /* Pertahankan lebar kontainer */
+}
+
+.mesin-list::-webkit-scrollbar {
+  height: 15px; /* Ukuran scroll bar */
+}
+
+.mesin-list::-webkit-scrollbar-thumb {
+  background-color: #777777; /* Warna scroll bar */
+  border-radius: 10px;
+}
+
+.mesin-list::-webkit-scrollbar-track {
+  background-color: none; /* Background track scroll bar */
+}
+
+.mesin-list {
+  overflow-x: auto; /* Scroll horizontal untuk mesin cuci */
+  width: 100%;
+  height: 400px;
+  box-sizing: border-box; /* Pastikan padding dihitung dalam lebar elemen */
+  white-space: nowrap; /* Cegah mesin-mesin terpecah ke baris baru */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  margin-left: 10px;
+  margin-top: 50px;
+}
+
+.mesin-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 5px 0 0px;
+}
+
+.mesin-item-wrapper {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+}
+
+/* Nomor urut mesin di atas mesin */
+.machine-number {
+  display: block;
+  top: -40px; /* Sesuaikan nilai ini untuk jarak dari atas */
+  text-align: center;
+  transform: translateY(-50);
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.mesin-image {
+  height: 349px;
+  width: auto;
+}
+
+/* Label untuk mesin selain Pengering */
+.machine-label {
+  position: absolute;
+  color: black;
+  font-size: 12px;
+}
+
+/* Container group for Pengering machines */
+.mesin-item-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pengaturan untuk item pengering */
+.machine-pengering {
+  width: 150px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Label untuk nama A di atas gambar pengering */
+.machine-label-top {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  transform: translateX(-50%);
+  color: black;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Label untuk nama B di bawah gambar pengering */
+.machine-label-bottom {
+  position: absolute;
+  top: 187px;
+  left: 10%;
+  transform: translateX(-50%);
+  color: black;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Label di pojok kiri atas gambar mesin */
+.machine-10kg .machine-label {
+  top: 215px;
+  left: 2.5px;
+  color: black;
+}
+
+.machine-10kg .machine-button {
+  top: 76.8%;
+  left: 50%;
+}
+
+/* Label di pojok kiri atas gambar mesin */
+.machine-16kg .machine-label {
+  top: 145px;
+  left: 2.7px;
+  color: black;
+}
+
+.machine-16kg .machine-button {
+  top: 69%;
+  left: 50%;
+}
+
+/* Label di pojok kiri atas gambar mesin */
+.machine-21kg .machine-label {
+  top: 135px;
+  left: 2.7px;
+}
+
+.machine-21kg .machine-button {
+  top: 67.5%;
+  left: 50%;
+}
+
+/* Button di tengah gambar mesin */
+.mesin-item .machine-button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tombol untuk mesin "A" */
+.mesin-item .machine-button-a {
+  position: absolute;
+  top: 22.5%; /* Tombol di atas untuk mesin A */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tombol untuk mesin "B" */
+.mesin-item .machine-button-b {
+  position: absolute;
+  bottom: 7%; /* Tombol di bawah untuk mesin B */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.waktu-mundur-mesin {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: #3498db;
+  padding: 15px;
+  height: 1px;
+  border-radius: 10px;
+}
+
+.waktu-mundur-mesin p {
+  color: white;
+  margin: 0;
+  font-size: 16px;
+}
+
+.machine-10kg .waktu-mundur-mesin {
+  top: 290px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.machine-16kg .waktu-mundur-mesin {
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.machine-21kg .waktu-mundur-mesin {
+  top: 255px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.machine-pengering .waktu-mundur-mesin.a {
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.machine-pengering .waktu-mundur-mesin.b {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.machine-button-image {
+  width: 70px; /* Sesuaikan ukuran gambar */
+  height: 70px;
+}
+
+/* Pengaturan untuk item tumbler */
+.machine-tumbler {
+  height: 350px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Label untuk nama D di atas gambar tumbler */
+.machine-label-top-tumbler {
+  position: absolute;
+  top: 140px;
+  left: 16%;
+  transform: translateX(-50%);
+  color: black;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Label untuk nama W di bawah gambar tumbler */
+.machine-label-bottom-tumbler {
+  position: absolute;
+  top: 194px;
+  left: 17%;
+  transform: translateX(-50%);
+  color: black;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Tombol untuk mesin "D" */
+.mesin-item .machine-button-d {
+  position: absolute;
+  top: 16.8%; /* Tombol di atas untuk mesin D */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tombol untuk mesin "W" */
+.mesin-item .machine-button-w {
+  position: absolute;
+  bottom: 5%; /* Tombol di bawah untuk mesin W */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.machine-tumbler .waktu-mundur-mesin.d {
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.machine-tumbler .waktu-mundur-mesin.w {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Container untuk status mesin di bagian kanan */
+.status-section {
+  padding: 50px;
+  width: 30%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.margin-left-ownself {
+  margin-left: 5px;
+}
+
+.status-item p {
+  font-size: 22px;
+  font-weight: 500 !important;
+}
+
+.rotate-icon {
+  background-color: #3498db; /* Warna background */
+  padding: 10px;            /* Jarak di dalam background */
+  border-radius: 50%;       /* Membuat background menjadi lingkaran */
+  display: inline-flex;      /* Agar konten tetap di tengah */
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white; /* Warna icon putih */
+  margin-bottom: 6px;
+}
+
+.promo-container-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  max-width: 300px;
+  width: 100%;
+  height: 30px;
+}
+.promo-text-main {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: white;
+  padding: 0 5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.select-container-main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.select-container-main select {
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  padding-right: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+select:focus {
+  outline: none;
+  border-color: transparent;
+}
+.select-container-main::after {
+  content: '\f078';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 20px;
+  pointer-events: none;
+}
+
+.mesin-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.mesin-info, .mesin-type, .timer-control, .price-info {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.left-contain-mesin-info {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+
+.mesin-type {
+  margin-left: auto;
+}
+
+/* Mengatur posisi mesin-type agar berada di kanan */
+.mesin-type h4 {
+  margin-left: auto; /* Mendorong elemen ke kanan */
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* Flexbox untuk timer control dan price info */
+.timer-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tombol panah kiri dan kanan */
+.arrow-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.left-arrow {
+  margin-right: 10px;
+}
+
+/* Info waktu */
+.time-info {
+  background-color: black;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 16.338px;
+  font-size: 32.676px;
+}
+
+.right-arrow {
+  margin-left: 10px;
+}
+
+/* Info harga */
+.price-info {
+  font-size: 18px;
+  color: black;
+}
+
+/* Gaya untuk tombol jalankan */
+.jalankan-button {
+  margin-right: 50px;
+  margin-left: auto;
+  background-color: black;
+  color: white;
+  padding: 20px 50px;
+  border: none;
+  border-radius: 13px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.jalankan-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modal-overlay-main-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-main-page {
+  background-color: #FCC812;
+  padding: 20px;
+  border-radius: 10px;
+  width: 85%;
+  max-width: 500px;
+  height: 50%;
+  max-height: 350px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.close-modal-main-page {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 55px;
+  cursor: pointer;
+  color: black;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qris-option img {
+  height: 120px;
+  max-width: 410px;
+  width: 410px;
+}
+
+.cash-option img {
+  height: 120px;
+  max-width: 400px;
+  margin-right: 10px;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+.closing .slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+@media only screen and (max-width: 1690px) {
+  .status-item p {
+    font-size: 15px;
+  }
+
+  .ket-sisa-saldo h3 {
+    font-size: 28px;
+  }
+
+  .ket-sisa-saldo p {
+    font-size: 30px;
+  }
+
+  .ket-total-belanja h3 {
+    font-size: 28px;
+  }
+
+  .terpotong {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1177px) {
+  .ket-saldo {
+    width: 50%;
+    height: 100%;
+  }
+
+  .ket-saldo h3 {
+    font-size: 18px;
+  }
+
+  .ket-saldo p {
+  font-size: 22px;
+  }
+}
+
+/* Responsif untuk ukuran tablet (max-width: 986px) */
+@media only screen and (max-width: 986px) {
+  .content {
+    padding: 20px 70px 50px 30px;
+  }
+  /* Atur saldo box dan total box menjadi vertikal (atas bawah) */
+  .saldo-total-container {
+    flex-direction: column; /* Ubah posisi dari horizontal menjadi vertikal */
+    align-items: center;
+  }
+
+  .ket-saldo {
+    width: 100%; /* Buat lebar elemen memenuhi container */
+  }
+
+  .saldo-section, .total-section {
+    width: 100%; /* Lebar penuh untuk masing-masing section */
+    margin-bottom: 20px; /* Tambahkan sedikit jarak di antara section */
+  }
+
+  .saldo-box, .total-box {
+    width: 100%; /* Lebar penuh untuk masing-masing box */
+    height: auto; /* Biarkan tingginya otomatis mengikuti konten */
+  }
+
+  /* Atur mesin dan status section agar tetap di dalam kontainer */
+  .mesin-status-container {
+    flex-direction: column; /* Atur elemen dalam mesin status menjadi vertikal */
+    width: 100%;
+  }
+
+  .mesin-section {
+    width: 95%;
+  }
+
+  .status-section {
+    width: 100%; /* Lebar penuh untuk kedua section */
+  }
+
+  .status-item p {
+    font-size: 28px;
+  }
+
+  /* Ukuran icon di status section */
+  .status-icon {
+    font-size: 50px; /* Sesuaikan ukuran icon untuk layar kecil */
+  }
+
+  /* Kurangi padding untuk kontainer refresh button */
+  .refresh-button {
+    padding: 10px;
+  }
+
+  /* Mesin info mengikuti lebar layar dan menjaga tombol Jalankan tetap di bawah */
+  .mesin-info {
+    flex-direction: column; /* Atur mesin info menjadi vertikal */
+    text-align: center; /* Buat konten menjadi rata tengah */
+    align-items: center;
+  }
+
+  .mesin-type, .timer-control {
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Pindahkan tombol jalankan ke bawah */
+  .jalankan-button {
+    margin-top: 20px;
+    width: 100%; /* Sesuaikan lebar tombol agar penuh di layar kecil */
+  }
+
+  /* Mesin list tetap dalam kontainer tanpa keluar */
+  .mesin-list {
+    height: auto; /* Biarkan tinggi mesin menyesuaikan */
+    max-height: 400px; /* Batasi tinggi maksimal jika diperlukan */
+  }
+
+  .topup-button, .buy-soap-button {
+    display: inline-block;
+    width: 48%; /* Bagikan lebar agar keduanya berada di satu baris */
+    margin: 0 1%; /* Tambahkan margin di antara tombol */
+  }
+
+  .ket-sisa-saldo {
+    display: flex;
+    justify-content: space-between; /* Buat h3 dan p berada di posisi berlawanan */
+    align-items: center; /* Pastikan vertikal align */
+  }
+
+  .ket-sisa-saldo h3, .ket-sisa-saldo p {
+    margin: 0; /* Buang margin default */
+  }
+
+  .saldo-total-container {
+    flex-direction: column; /* Ubah flex menjadi kolom */
+    align-items: stretch; /* Pastikan elemen dalam satu baris */
+  }
+
+  .saldo-section, .total-section {
+    width: 100%; /* Lebar penuh pada kolom */
+    margin-bottom: 15px; /* Tambahkan jarak antar elemen */
+  }
+
+  .mesin-info {
+    flex-direction: column; /* Ubah ke kolom pada layar kecil */
+    text-align: center; /* Pusatkan teks dan elemen */
+  }
+
+  .left-contain-mesin-info {
+    margin-left: 0;
+  }
+
+  .time-info {
+    font-size: 18px;
+  }
+  
+  .mesin-type h4 {
+    font-size: 22px;
+  }
+}
+
+/* Responsif untuk layar yang lebih kecil (max-width: 677px) */
+@media (max-width: 677px) {
+  .content {
+    padding: 20px 70px 50px 30px;
+  }
+
+  .saldo-total-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .saldo-section, .total-section {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .ket-saldo {
+    width: 100%; /* Buat lebar elemen memenuhi container */
+  }
+
+  .topup-button, .buy-soap-button {
+    display: inline-block;
+    width: 48%;
+    margin: 0 1%;
+    font-size: 18px; /* Perkecil font untuk layar lebih kecil */
+    padding: 7px; /* Perkecil padding */
+  }
+
+  .ket-sisa-saldo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px; /* Sesuaikan padding */
+  }
+
+  .ket-sisa-saldo h3, .ket-sisa-saldo p {
+    font-size: 20px; /* Sesuaikan ukuran font */
+    margin: 0;
+  }
+
+  .mesin-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jalankan-button {
+    margin-top: 10px; /* Pindahkan tombol ke bawah */
+    padding: 15px 30px; /* Sesuaikan padding */
+  }
+
+  .mesin-list {
+    height: 400px; /* Sesuaikan tinggi kontainer */
+  }
+
+  .machine-number {
+    font-size: 20px; /* Perkecil ukuran font nomor mesin */
+  }
+}
+
+@media (max-width: 548px) {
+  .status-item p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 20px 70px 50px 30px;
+  }
+
+  .saldo-total-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .saldo-section, .total-section {
+    width: 100%;
+    margin-bottom: 8px; /* Sesuaikan margin */
+  }
+
+  .terpotong .p1{
+    font-weight: lighter;
+    margin: 0 10px 0 0;
+  }
+
+  .ket-saldo {
+    width: 100%; /* Buat lebar elemen memenuhi container */
+  }
+
+  .topup-button, .buy-soap-button {
+    display: inline-block;
+    width: 48%;
+    margin: 0 1%;
+    font-size: 16px; /* Perkecil lagi font */
+    padding: 5px; /* Sesuaikan padding */
+  }
+
+  .ket-sisa-saldo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 8px;
+  }
+
+  .ket-sisa-saldo h3, .ket-sisa-saldo p {
+    font-size: 18px;
+  }
+
+  .mesin-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jalankan-button {
+    margin-top: 8px;
+    padding: 10px 20px;
+  }
+
+  .mesin-list {
+    height: 400px;
+  }
+
+  .machine-number {
+    font-size: 20px;
+  }
+}

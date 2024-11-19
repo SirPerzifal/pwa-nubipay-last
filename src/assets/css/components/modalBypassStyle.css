@@ -1,0 +1,214 @@
+.modal-bypass-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 1;
+    animation: fade-in 0.3s forwards; /* Fade-in saat modal dibuka */
+  }
+.container-modal-bypass {
+    background-color: #ffcc00;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 500px;
+    text-align: center;
+    position: relative;
+}
+.scroll-bypass-data {
+    overflow-y: scroll;
+    height: 630px;
+}
+.container-modal-bypass.step2 {
+    width: 700px;
+    height: 85%;
+  }
+.container-modal-bypass h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+.container-modal-bypass p {
+    font-size: 14px;
+    font-weight: lighter;
+    margin: 5px 0 20px;
+}
+.steps-bypass {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.step-bypass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+.step-bypass .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.step-bypass .circle.active {
+    background-color: #000;
+}
+.step-bypass .circle.inactive {
+    background-color: #ffcc00;
+    border: 2px solid #000;
+    color: #000;
+}
+.line-bypass {
+    width: 50%;
+    height: 2px;
+    background-color: #000;
+    margin-top: 15px;
+}
+.reasons-bypass {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.kiri-bypass, .kanan-bypass {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 0;
+}
+.kiri-bypass p, .kanan-bypass p {
+    margin: 0;
+    font-weight: lighter !important;
+}
+.bawah-bypass {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.bawah-bypass p{
+    margin: 0;
+}
+.lighter-font-bypass {
+    font-weight: lighter !important;
+}
+.reasons-bypass label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+.reasons-bypass input[type="radio"] {
+    margin-right: 10px;
+}
+.next-button-bypass {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.close-button-bypass {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.close-button-bypass i {
+    font-size: 16px;
+}
+
+.transaction-bypass {
+    margin: 20px 0;
+}
+
+.transaction-bypass label {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.transaction-bypass input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-bypass {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-bypass {
+    font-weight: bold;
+}
+
+.submit-justify-bypass {
+ display: flex;
+ justify-content: space-between;
+}
+
+.submit-justify-bypass .kanan-bypass {
+    margin-left: 5px;
+}
+
+.submit-bypass p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navigation-bypass {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.prev-button-bypass,
+.next-button-bypass {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.prev-button-bypass {
+    background: none;
+    color: #000;
+    border: 2px solid black;
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nama": "Tersedia",
+        "require": "cekabu.webp"
+    },
+    {
+        "id": 2,
+        "nama": "Dipilih",
+        "require": "cekijo.webp"
+    },
+    {
+        "id": 3,
+        "nama": "Lagi Perbaikan",
+        "require": "xmark.webp"
+    },
+    {
+        "id": 4,
+        "nama": "Sedang Di Gunakan",
+        "require": "use.gif"
+    }
+  ]

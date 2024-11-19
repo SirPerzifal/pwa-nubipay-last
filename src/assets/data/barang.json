@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "namaBarang": "PEWANGI 19ML",
+    "harga": 1200,
+    "stok": 1311,
+    "image": "pewangi.webp"
+  },
+  {
+    "id": 2,
+    "namaBarang": "PLASTIK",
+    "harga": 1600,
+    "stok": 246,
+    "image": "plastik.webp"
+  },
+  {
+    "id": 3,
+    "namaBarang": "SABUN 40ML",
+    "harga": 1000,
+    "stok": 1096,
+    "image": "sabuncuci.webp"
+  },
+  {
+    "id": 4,
+    "namaBarang": "TAS",
+    "harga": 16000,
+    "stok": 6,
+    "image": "tas.webp"
+  }
+]

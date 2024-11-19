@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "image": "lwb.webp",
+        "nama": "Voucher 1",
+        "purpose": "Nyuci Gratis Keringkan",
+        "harga": 5000,
+        "exp": "31 Dec 2023",
+        "status": "available"
+    },
+    {
+        "id": 2,
+        "image": "lwb.webp",
+        "nama": "Voucher 2",
+        "purpose": "Nyuci 2 kali gratis 1 nyuci",
+        "harga": 5000,
+        "exp": "31 Oct 2024",
+        "status": "not available"
+    },
+    {
+        "id": 3,
+        "image": "lwb.webp",
+        "nama": "Voucher 3",
+        "purpose": "Gratis nyuci",
+        "harga": 5000,
+        "exp": "21 Nov 2024",
+        "status": "available"
+    },
+    {
+        "id": 4,
+        "image": "lwb.webp",
+        "nama": "Voucher 4",
+        "purpose": "Gratis keringkan",
+        "harga": 5000,
+        "exp": "5 Aug 2024",
+        "status": "not available"
+    },
+    {
+        "id": 5,
+        "image": "lwb.webp",
+        "nama": "Voucher 5",
+        "purpose": "Gratis nyuci",
+        "harga": 5000,
+        "exp": "21 Nov 2024",
+        "status": "available"
+    },
+    {
+        "id": 6,
+        "image": "lwb.webp",
+        "nama": "Voucher 6",
+        "purpose": "Gratis keringkan",
+        "harga": 5000,
+        "exp": "5 Aug 2024",
+        "status": "not available"
+    }
+]

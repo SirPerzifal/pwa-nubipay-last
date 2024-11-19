@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "nomor": "81234567890",
+      "nama": "John Doe",
+      "saldo": 50000,
+      "kodeOTP": 3721,
+      "status": "aktif",
+      "lokasi": "mitraraya"
+    },
+    {
+      "id": 2,
+      "nomor": "81298765432",
+      "nama": "Jane Smith",
+      "saldo": 100000,
+      "kodeOTP": 3756,
+      "status": "suspend",
+      "lokasi": "windsor"
+    },
+    {
+      "id": 3,
+      "nomor": "81387654321",
+      "nama": "Robert Johnson",
+      "saldo": 75000,
+      "kodeOTP": 3567,
+      "status": "aktif",
+      "lokasi": "seipanas"
+    }
+  ]
+  

@@ -1,0 +1,12 @@
+[
+    { "id": 1, "tipe": "mesin-tumbler", "nama": "D1", "harga": 10000, "waktu" : 25, "status": "tersedia" },
+    { "id": 2, "tipe": "mesin-tumbler", "nama": "W1", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+    { "id": 3, "tipe": "mesin-tumbler", "nama": "D2", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+    { "id": 4, "tipe": "mesin-tumbler", "nama": "W2", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 5000 },
+    { "id": 5, "tipe": "mesin-tumbler", "nama": "D3", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+    { "id": 6, "tipe": "mesin-tumbler", "nama": "W3", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 6000 },
+    { "id": 7, "tipe": "mesin-tumbler", "nama": "D4", "harga": 10000, "waktu" : 25 , "status": "perbaikan" },
+    { "id": 8, "tipe": "mesin-tumbler", "nama": "W4", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
+    { "id": 9, "tipe": "pengering", "nama": "5A", "harga": 8000, "waktu" : 35 , "status": "tersedia" },
+    { "id": 10, "tipe": "pengering", "nama": "5B", "harga": 8000, "waktu" : 35 , "status": "digunakan", "waktu-tunggu": 7000 }
+]
