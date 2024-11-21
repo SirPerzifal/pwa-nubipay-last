@@ -11,7 +11,7 @@ import {
   faRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
-import machineData from "../../assets/data/mesinCuciWindsor.json";
+import machineData from "../../assets/data/mesinCuciSeiPanas.json";
 import statusData from "../../assets/data/status.json";
 import MachineButton from "../../components/MachineButton";
 import Kupon from "../../assets/data/kupon.json"

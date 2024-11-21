@@ -4,6 +4,7 @@ const db = 'os_np_16';
 const username = 'admin';
 const password = '$g33d3@y0D';
 
+//fungsi autentikasi
 const authenticate = (): Promise<number> => {
   return new Promise((resolve, reject) => {
     const client = xmlrpc.createClient({ url: `/xmlrpc/2/common`, headers: { 'Access-Control-Allow-Origin': '*' } });
@@ -14,6 +15,7 @@ const authenticate = (): Promise<number> => {
   });
 };
 
+//fungsi cari pengguna
 const searchPartner = (uid: number, phoneNumber: string): Promise<any[]> => {
   return new Promise((resolve, reject) => {
     const client = xmlrpc.createClient({ url: `/xmlrpc/2/object`, headers: {'Access-Control-Allow-Origin': '*'}});
@@ -60,6 +62,7 @@ const fetchTransactionsByPartnerId = (uid: number, partnerId: number): Promise<a
   });
 };
 
+// Fungsi regis
 const regisPartner = (uid: number, phoneNumber: string): Promise<any[]> => {
   return new Promise((resolve, reject) => {
     const client = xmlrpc.createClient({ url: `/xmlrpc/2/object`, headers: {'Access-Control-Allow-Origin': '*'}});
@@ -167,6 +170,79 @@ const fetchBypassReasons = (uid: number): Promise<any[]> => {
       else resolve(value);
     });
   });
+};
+
+// Fungsi untuk mengambil data mesin
+const fetchMachines = (uid: number, branchId: number): Promise<any[]> => {
+  return new Promise((resolve, reject) => {
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+    client.methodCall('execute_kw', [
+      db, uid, password,
+      'sgeede.mqtt.device', 'search_read',
+      [[['branch_id', '=', branchId]]],
+      { fields: ['id', 'name', 'status'], limit: 50 }
+    ], (error, value) => {
+      if (error) reject(error);
+      else resolve(value);
+    });
+  });
+};
+
+// Fungsi untuk mengambil data promo
+const fetchPromoData = (uid: number, branchId: number): Promise<any[]> => {
+  return new Promise((resolve, reject) => {
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+    client.methodCall('execute_kw', [
+      db, uid, password,
+      'your.promo.model', 'search_read',
+      [[['branch_id', '=', branchId]]],
+      { fields: ['id', 'name', 'discount'], limit: 50 }
+    ], (error, value) => {
+      if (error) reject(error);
+      else resolve(value);
+    });
+  });
+};
+
+// Fungsi untuk mengambil transaksi
+const fetchTransactionsForMain = (uid: number, branchId: number): Promise<any[]> => {
+  return new Promise((resolve, reject) => {
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+    client.methodCall('execute_kw', [
+      db, uid, password,
+      'sgeede.mqtt.device.history', 'search_read',
+      [[['branch_id', '=', branchId]]],
+      { fields: ['date_order', 'price', 'partner_id'], limit: 50 }
+    ], (error, value) => {
+      if (error) reject(error);
+      else resolve(value);
+    });
+  });
+};
+
+// Fungsi untuk mengambil data utama
+export const fetchMainPageData = async (branchId: number): Promise<any> => {
+  try {
+    const uid = await authenticate();
+    if (uid) {
+      // Ambil data mesin
+      const machines = await fetchMachines(uid, branchId);
+      // Ambil data promo
+      const promoData = await fetchPromoData(uid, branchId);
+      // Ambil data transaksi
+      const transactions = await fetchTransactionsForMain(uid, branchId);
+
+      return {
+        machines,
+        promoData,
+        transactions,
+      };
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching main page data:', error);
+    throw error;
+  }
 };
 
 export const checkUserInOdoo = async (phoneNumber: string): Promise<{ partners: any; banned: boolean }> => {
@@ -303,3 +379,4 @@ export const fetchCrewData = async (): Promise<any> => {
     throw error;
   }
 };
+
