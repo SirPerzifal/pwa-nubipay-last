@@ -1,6 +1,6 @@
 import * as xmlrpc from 'xmlrpc';
 
-const db = 'os_np_16';
+const db = '16_OPERA_SABUN';
 const username = 'admin';
 const password = '$g33d3@y0D';
 
@@ -172,6 +172,23 @@ const fetchBypassReasons = (uid: number): Promise<any[]> => {
   });
 };
 
+// Fungsi untuk mengambil produk
+const fetchProducts = (uid: number, branchId: number): Promise<any[]> => {
+  return new Promise((resolve, reject) => {
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object`, headers: { 'Access-Control-Allow-Origin': '*' } });
+
+    client.methodCall('execute_kw', [
+      db, uid, password,
+      'product.product', 'search_read',
+      [[['product_tmpl_id.branch_ids', 'in', [branchId]]]], // Adjusted domain
+      { fields: ['id', 'name', 'image_1920', 'list_price', 'qty_available'] }
+    ], (error, value) => {
+      if (error) reject(error);
+      else resolve(value);
+    });
+  });
+};
+
 // Fungsi untuk mengambil data mesin
 const fetchMachines = (uid: number, branchId: number): Promise<any[]> => {
   return new Promise((resolve, reject) => {
@@ -245,6 +262,22 @@ export const fetchMainPageData = async (branchId: number): Promise<any> => {
   }
 };
 
+// Fungsi untuk mengambil produk berdasarkan branch
+export const fetchProductsByBranch = async (branchId: number): Promise<any[]> => {
+  try {
+    const uid = await authenticate();
+    if (uid) {
+      const products = await fetchProducts(uid, branchId); // Assuming you have a function to fetch products
+      console.log(products)
+      return products;
+    }
+    return [];
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
+};
+
 export const checkUserInOdoo = async (phoneNumber: string): Promise<{ partners: any; banned: boolean }> => {
   try {
     const uid = await authenticate();
@@ -314,7 +347,7 @@ export const fetchEmployeesAndTechnicians = async (): Promise<{
   try {
     const uid = await authenticate();
     if (uid) {
-      const branchId = 7;
+      const branchId = 6;
 
       // Ambil data karyawan dan teknisi
       const employees = await fetchEmployeesByBranch(uid, branchId);
@@ -343,7 +376,7 @@ export const fetchBypassAndTransactions = async (): Promise<{
 }> => {
   try {
     const uid = await authenticate();
-    const branch_id = 7;
+    const branch_id = 6;
     if (uid) {
       // Ambil data alasan bypass dan transaksi
       const bypassReasons = await fetchBypassReasons(uid);

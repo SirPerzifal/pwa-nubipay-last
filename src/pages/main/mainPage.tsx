@@ -11,10 +11,33 @@ import {
   faRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
-import machineData from "../../assets/data/mesinCuciSeiPanas.json";
+// import machineData from "../../assets/data/mesinCuciSadai.json";
 import statusData from "../../assets/data/status.json";
 import MachineButton from "../../components/MachineButton";
 import Kupon from "../../assets/data/kupon.json"
+
+// Define interface untuk tipe data
+interface Provider {
+  name: string;
+  label_atas: string;
+  label_bawah: string;
+  mesin_type: string;
+  mesin_name: string;
+  status_dryer: string;
+  status_washer: string;
+  end_time_top: string | number;
+  end_time_bottom: string;
+  total_machine: string;
+}
+
+// Interface untuk response API
+interface ApiResponse {
+  error: number;
+  status_code: number;
+  datas: Array<{
+    providers: Provider[];
+  }>;
+}
 
 const MainPage: React.FC = () => {
   const currencySymbol = ' ⓟ';
@@ -22,53 +45,231 @@ const MainPage: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [saldo, setSaldo] = useState<number>(0);
   const [selectedMachine, setSelectedMachine] = useState<any>(null);
-  const [machines, setMachines] = useState(machineData);
+  // const [machines, setMachines] = useState(machineData);
+  const [machinesNew, setMachinesNew] = useState<Provider[]>([]);
   const [kupon] = useState(Kupon);
   const [isLoadingMachines, setIsLoadingMachines] = useState(false);
   const [isLoadingSaldo, setIsLoadingSaldo] = useState(false); // Tambahkan state untuk saldo
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false); // Untuk animasi penutupan
   const [waktu, setWaktu] = useState<number>(0); // State untuk waktu
-  const [countdowns, setCountdowns] = useState<{ [key: number]: number }>({});
   const navigate = useNavigate();
 
+  // Fungsi untuk fetch data mesin menggunakan fetch native
+  const fetchMachines = async () => {
+    try {
+      setIsLoadingMachines(true);
+      
+      // Konstruksi body request
+      const requestBody = new URLSearchParams({
+        token: '9s8UXnLBoJqOyiB2',
+        username: 'operasabun',
+        branch_name: 'sei panas'
+      });
+
+      const response = await fetch(
+        '/api/get/public_link_data', 
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: requestBody
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data: ApiResponse = await response.json();
+
+      if (data && data.datas && data.datas[0].providers) {
+        // Transform data if needed
+        const transformedMachines = data.datas[0].providers.map(machine => ({
+          ...machine,
+          // Tambahkan transformasi tambahan jika diperlukan
+        }));
+
+        setMachinesNew(transformedMachines);
+        console.log("klikrefresh", transformedMachines)
+      }
+
+    } catch (error) {
+      console.error("Error fetching machines:", error);
+      // Fallback ke data lokal jika fetch gagal
+    } finally {
+      setIsLoadingMachines(false);
+    }
+  };
+
+  // Efek untuk load user dan fetch machines
   useEffect(() => {
+    // Load user dari session
     const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
     setUser(loggedUser);
-    setSaldo(loggedUser.total_deposit);
+    setSaldo(loggedUser.total_deposit || 0);
+
+    // Fetch machines
+    fetchMachines();
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdowns(prevCountdowns => {
-        const newCountdowns = { ...prevCountdowns };
-        machines.forEach(machine => {
-          if (machine.status === "digunakan" && machine["waktu-tunggu"]) {
-            const machineId = machine.id;
-            if (newCountdowns[machineId] === undefined) {
-              newCountdowns[machineId] = machine["waktu-tunggu"];
-            } else if (newCountdowns[machineId] > 0) {
-              newCountdowns[machineId]--;
-            }
-          }
-        });
-        return newCountdowns;
-      });
-    }, 1000);
+  const renderMachineItem = (machine: Provider) => {
+    const isPengeringA = machine.mesin_type.toLocaleLowerCase() === 'tumbler' && machine.label_atas.endsWith("A");
+    const isPengeringB = machine.mesin_type.toLocaleLowerCase() === 'tumbler' && machine.label_bawah.endsWith("B");
+    const isWasherDryerD = machine.mesin_type.toLocaleLowerCase() === 'wd' && machine.label_atas.startsWith("D");
+    const isWasherDryerW = machine.mesin_type.toLocaleLowerCase() === 'wd' && machine.label_bawah.startsWith("W");
+    // const machineType = machine.mesin_type.toLowerCase();
+    // const machineName = machine.mesin_name;
   
-    return () => clearInterval(timer);
-  }, [machines]);
-
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    if (isPengeringA) {
+      return (
+        <div className="mesin-item-wrapper" key={machine.name}>
+          <span className="machine-number">{machineCounter++}</span>
+          <div className="mesin-item machine-tumbler">
+            <img              
+              src={require(`../../assets/image/mesin/${machine.mesin_name}.webp`)}
+              alt="Pengering"
+              className="mesin-image"
+            />
+            <div className="machine-label-top">{machine.label_atas}</div>
+            <MachineButton
+              className="machine-button-a"
+              status={convertStatus(machine.status_dryer, machine.status_washer)}
+              handleClick={() => handleMachineClick(machine.label_atas)}
+              disabled={machine.status_dryer === 'bussy'}
+            />
+            {/* {machine.status === "digunakan" && (
+              <div className="waktu-mundur-mesin a">
+                <p>{formatTime(countdowns[machine.id] || 0)}</p>
+              </div>
+            )} */}
+            {isPengeringB && (
+              <>
+                <div className="machine-label-bottom">
+                  {machine.label_bawah}
+                </div>
+                <MachineButton
+                  className="machine-button-b"
+                  status={convertStatus(machine.status_dryer, machine.status_washer)}
+                  handleClick={() => handleMachineClick(machine.label_atas)}
+                  disabled={machine.status_dryer === 'bussy'}
+                />
+                {/* {matchingMachineB.status === "digunakan" && (
+                  <div className="waktu-mundur-mesin b">
+                    <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                  </div>
+                )} */}
+              </>
+            )}
+          </div>
+        </div>
+      );
+    } else if (isWasherDryerD) {                               
+      return (
+        <div className="mesin-item-wrapper" key={machine.name}>
+          <span className="machine-number">{machineCounter++}</span>
+          <div className="mesin-item machine-wd">
+            <img
+              src={require(`../../assets/image/mesin/${machine.mesin_name}.webp`)}
+              alt="Tumbler"
+              className="mesin-image"
+            />
+            <div className="machine-label-top-wd">{machine.label_atas}</div>
+            <MachineButton
+              className="machine-button-d"
+              status={convertStatus(machine.status_dryer, machine.status_washer)}
+              handleClick={() => handleMachineClick(machine.label_atas)}
+              disabled={machine.status_dryer === 'bussy'}
+            />
+            {/* {machine.status === "digunakan" && (
+              <div className="waktu-mundur-mesin d">
+                <p>{formatTime(countdowns[machine.id] || 0)}</p>
+              </div>
+            )} */}
+            {isWasherDryerW && (
+              <>
+                <div className="machine-label-bottom-wd">
+                  {machine.label_bawah}
+                </div>
+                <MachineButton
+                  className="machine-button-w"
+                  status={convertStatus(machine.status_dryer, machine.status_washer)}
+                  handleClick={() => handleMachineClick(machine.label_atas)}
+                  disabled={machine.status_dryer === 'bussy'}
+                />
+                {/* {matchingMachineW.status === "digunakan" && (
+                  <div className="waktu-mundur-mesin w">
+                    <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                  </div>
+                )} */}
+              </>
+            )}
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="mesin-item-wrapper" key={machine.name}>
+          <span className="machine-number">{machineCounter++}</span>
+          <div
+            className={`mesin-item ${getMachineClass(machine.mesin_name)}`}
+          >
+            <img
+              src={require(`../../assets/image/mesin/${machine.mesin_name}.webp`)}
+              alt={machine.name}
+              className="mesin-image"
+            />
+            <div className="machine-label">{machine.label_atas}</div>
+            <MachineButton
+              className="machine-button"
+              status={convertStatus(machine.status_dryer, machine.status_washer)}
+              handleClick={() => handleMachineClick(machine.label_atas)}
+              disabled={machine.status_dryer === 'bussy'}
+            />
+            {/* {machine.status === "digunakan" && (
+              <div className="waktu-mundur-mesin">
+                <p>{formatTime(countdowns[machine.id] || 0)}</p>
+              </div>
+            )} */}
+          </div>
+        </div>
+      );
+    }
   };
+
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCountdowns(prevCountdowns => {
+  //       const newCountdowns = { ...prevCountdowns };
+  //       machines.forEach(machine => {
+  //         if (machine.status === "digunakan" && machine["waktu-tunggu"]) {
+  //           const machineId = machine.id;
+  //           if (newCountdowns[machineId] === undefined) {
+  //             newCountdowns[machineId] = machine["waktu-tunggu"];
+  //           } else if (newCountdowns[machineId] > 0) {
+  //             newCountdowns[machineId]--;
+  //           }
+  //         }
+  //       });
+  //       return newCountdowns;
+  //     });
+  //   }, 1000);
+  
+  //   return () => clearInterval(timer);
+  // }, [machines]);
+
+  // const formatTime = (seconds: number) => {
+  //   const minutes = Math.floor(seconds / 60);
+  //   const remainingSeconds = seconds % 60;
+  //   return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  // };
 
   const handleRefreshMachinesClick = () => {
     const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
     audio.play();
     setIsLoadingMachines(true); // Ubah state menjadi loading
+    fetchMachines()
     setTimeout(() => {
       setIsLoadingMachines(false); // Kembalikan ke state semula setelah 2 detik
     }, 2000); // Delay 2 detik
@@ -84,33 +285,39 @@ const MainPage: React.FC = () => {
     }, 2000); // Delay 2 detik
   };
 
-  // Fungsi untuk handle klik tombol mesin
-  const handleMachineClick = (machineId: number) => {
-    if (selectedMachine?.id === machineId) {
-      // Membatalkan pilihan, kembalikan status ke 'tersedia'
-      setMachines((prevMachines) =>
-        prevMachines.map((machine) =>
-          machine.id === machineId
-            ? { ...machine, status: "tersedia" }
-            : machine
-        )
-      );
-      setSelectedMachine(null); // Hapus mesin yang dipilih
-    } else {
-      // Memilih mesin, dan membatalkan status 'dipilih' pada mesin lain jika ada
-      setMachines((prevMachines) =>
-        prevMachines.map((machine) =>
-          machine.id === machineId
-            ? { ...machine, status: "dipilih" }
-            : {
-                ...machine,
-                status:
-                  machine.status === "dipilih" ? "tersedia" : machine.status,
-              }
-        )
-      );
-      const machine = machines.find((m) => m.id === machineId);
-      setSelectedMachine(machine);
+  // Konversi status dari API ke status lokal
+  const convertStatus = (statusDryer: string, statusWasher: string) => {
+    if (statusDryer === 'bussy' || statusWasher === 'bussy') {
+      return 'digunakan';
+    }
+    return 'tersedia';
+  };
+
+  // Fungsi untuk menghitung harga mesin
+  const calculateMachinePrice = (machine: Provider): number => {
+    // Logika penentuan harga berdasarkan tipe mesin
+    switch (machine.mesin_type.toLowerCase()) {
+      case 'sw': return 10000; // Single Washer
+      case 'wd': return 15000; // Washer Dryer
+      case 'tumbler': return 20000; // Tumbler
+      default: return 10000; // Default harga
+    }
+  };
+
+  // Modifikasi handleMachineClick untuk bekerja dengan data baru
+  const handleMachineClick = (machineName: string) => {
+    const machine = machinesNew.find(m => 
+      m.label_atas === machineName || m.label_bawah === machineName
+    );
+    
+    if (machine) {
+      setSelectedMachine({
+        id: machine.name,
+        nama: machine.label_atas,
+        tipe: machine.mesin_type,
+        harga: calculateMachinePrice(machine), // Fungsi untuk menghitung harga
+        status: convertStatus(machine.status_dryer, machine.status_washer)
+      });
     }
   };
 
@@ -130,11 +337,11 @@ const MainPage: React.FC = () => {
 
   const getMachineClass = (machineId: string) => {
     switch (machineId) {
-      case "10KG":
+      case "Single Washer":
         return "machine-10kg";
-      case "16KG":
+      case "BC30 Kuning":
         return "machine-16kg";
-      case "21KG":
+      case "BC40 Kuning":
         return "machine-21kg";
       default:
         return "";
@@ -274,147 +481,13 @@ const MainPage: React.FC = () => {
           </h3>
           <div className="col-8 mesin-section">
             <div className="mesin-list">
-              {machines.map((machine, index) => {
-                if (
-                  machine.tipe.toLowerCase() === "pengering" &&
-                  machine.nama.endsWith("A")
-                ) {
-                  const matchingMachineB = machines.find(
-                    (m) => m.nama === `${machine.nama.slice(0, -1)}B`
-                  );
-                  return (
-                    <div className="mesin-item-wrapper" key={machine.id}>
-                      <span className="machine-number">{machineCounter++}</span>
-                      <div className="mesin-item machine-pengering">
-                        <img
-                          src={require("../../assets/image/mesin/pengering.webp")}
-                          alt="Pengering"
-                          className="mesin-image"
-                        />
-                        <div className="machine-label-top">{machine.nama}</div>
-                        <MachineButton
-                          className="machine-button-a"
-                          status={machine.status}
-                          handleClick={() => handleMachineClick(machine.id)}
-                          disabled={
-                            machine.status !== "tersedia" && machine.status !== "dipilih"
-                          }
-                        />
-                        {machine.status === "digunakan" && (
-                          <div className="waktu-mundur-mesin a">
-                            <p>{formatTime(countdowns[machine.id] || 0)}</p>
-                          </div>
-                        )}
-                        {matchingMachineB && (
-                          <>
-                            <div className="machine-label-bottom">
-                              {matchingMachineB.nama}
-                            </div>
-                            <MachineButton
-                              className="machine-button-b"
-                              status={matchingMachineB.status}
-                              handleClick={() => handleMachineClick(matchingMachineB.id)}
-                              disabled={
-                                matchingMachineB.status !== "tersedia" &&
-                                matchingMachineB.status !== "dipilih"
-                              }
-                            />
-                            {matchingMachineB.status === "digunakan" && (
-                              <div className="waktu-mundur-mesin b">
-                                <p>{formatTime(countdowns[machine.id] || 0)}</p>
-                              </div>
-                            )}
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  );
-                } else if (
-                  machine.tipe.toLowerCase() === "mesin-tumbler" &&
-                  machine.nama.startsWith("D")
-                ) {
-                  const matchingMachineW = machines.find(
-                    (m) => m.nama === `W${machine.nama.slice(1)}`
-                  );                                
-                  return (
-                    <div className="mesin-item-wrapper" key={machine.id}>
-                      <span className="machine-number">{machineCounter++}</span>
-                      <div className="mesin-item machine-tumbler">
-                        <img
-                          src={require("../../assets/image/mesin/mesin-tumbler.webp")}
-                          alt="Tumbler"
-                          className="mesin-image"
-                        />
-                        <div className="machine-label-top-tumbler">{machine.nama}</div>
-                        <MachineButton
-                          className="machine-button-d"
-                          status={machine.status}
-                          handleClick={() => handleMachineClick(machine.id)}
-                          disabled={
-                            machine.status !== "tersedia" && machine.status !== "dipilih"
-                          }
-                        />
-                        {machine.status === "digunakan" && (
-                          <div className="waktu-mundur-mesin d">
-                            <p>{formatTime(countdowns[machine.id] || 0)}</p>
-                          </div>
-                        )}
-                        {matchingMachineW && (
-                          <>
-                            <div className="machine-label-bottom-tumbler">
-                              {matchingMachineW.nama}
-                            </div>
-                            <MachineButton
-                              className="machine-button-w"
-                              status={matchingMachineW.status}
-                              handleClick={() => handleMachineClick(matchingMachineW.id)}
-                              disabled={
-                                matchingMachineW.status !== "tersedia" &&
-                                matchingMachineW.status !== "dipilih"
-                              }
-                            />
-                            {matchingMachineW.status === "digunakan" && (
-                              <div className="waktu-mundur-mesin w">
-                                <p>{formatTime(countdowns[machine.id] || 0)}</p>
-                              </div>
-                            )}
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  );
-                } else if (machine.tipe.toLowerCase() !== "pengering" && machine.tipe.toLowerCase() !== "mesin-tumbler") {
-                  return (
-                    <div className="mesin-item-wrapper" key={machine.id}>
-                      <span className="machine-number">{machineCounter++}</span>
-                      <div
-                        className={`mesin-item ${getMachineClass(machine.tipe)}`}
-                      >
-                        <img
-                          src={require(`../../assets/image/mesin/${machine.tipe}.webp`)}
-                          alt={machine.nama}
-                          className="mesin-image"
-                        />
-                        <div className="machine-label">{machine.nama}</div>
-                        <MachineButton
-                          className="machine-button"
-                          status={machine.status}
-                          handleClick={() => handleMachineClick(machine.id)}
-                          disabled={
-                            machine.status !== "tersedia" && machine.status !== "dipilih"
-                          }
-                        />
-                        {machine.status === "digunakan" && (
-                          <div className="waktu-mundur-mesin">
-                            <p>{formatTime(countdowns[machine.id] || 0)}</p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                } 
-                return null;
-              })}
+              <div className="mesin-list">
+              {isLoadingMachines ? (
+                <div>Loading...</div>
+              ) : (
+                machinesNew.map(renderMachineItem)
+              )}
+              </div>
             </div>
           </div>
 

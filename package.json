@@ -117,5 +117,5 @@
       "react-app"
     ]
   },
-  "proxy": "http://0.0.0.0:8016"
+  "proxy": "https://nubipay.id"
 }

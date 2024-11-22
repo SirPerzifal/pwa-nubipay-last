@@ -318,21 +318,21 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   width: auto;
 }
 
-/* Label untuk mesin selain Pengering */
+/* Label untuk mesin selain tumbler */
 .machine-label {
   position: absolute;
   color: black;
   font-size: 12px;
 }
 
-/* Container group for Pengering machines */
+/* Container group for tumbler machines */
 .mesin-item-group {
   display: flex;
   flex-direction: column;
 }
 
-/* Pengaturan untuk item pengering */
-.machine-pengering {
+/* Pengaturan untuk item tumbler */
+.machine-tumbler {
   width: 150px;
   height: 350px;
   position: relative;
@@ -342,7 +342,7 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   align-items: center;
 }
 
-/* Label untuk nama A di atas gambar pengering */
+/* Label untuk nama A di atas gambar tumbler */
 .machine-label-top {
   position: absolute;
   top: 10px;
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   border-radius: 3px;
 }
 
-/* Label untuk nama B di bawah gambar pengering */
+/* Label untuk nama B di bawah gambar tumbler */
 .machine-label-bottom {
   position: absolute;
   top: 187px;
@@ -466,13 +466,13 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   transform: translateX(-50%);
 }
 
-.machine-pengering .waktu-mundur-mesin.a {
+.machine-tumbler .waktu-mundur-mesin.a {
   top: 100px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.machine-pengering .waktu-mundur-mesin.b {
+.machine-tumbler .waktu-mundur-mesin.b {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
@@ -483,8 +483,8 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   height: 70px;
 }
 
-/* Pengaturan untuk item tumbler */
-.machine-tumbler {
+/* Pengaturan untuk item wd */
+.machine-wd {
   height: 350px;
   position: relative;
   display: flex;
@@ -493,8 +493,8 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   align-items: center;
 }
 
-/* Label untuk nama D di atas gambar tumbler */
-.machine-label-top-tumbler {
+/* Label untuk nama D di atas gambar wd */
+.machine-label-top-wd {
   position: absolute;
   top: 140px;
   left: 16%;
@@ -505,8 +505,8 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   border-radius: 3px;
 }
 
-/* Label untuk nama W di bawah gambar tumbler */
-.machine-label-bottom-tumbler {
+/* Label untuk nama W di bawah gambar wd */
+.machine-label-bottom-wd {
   position: absolute;
   top: 194px;
   left: 17%;
@@ -539,16 +539,24 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   cursor: pointer;
 }
 
-.machine-tumbler .waktu-mundur-mesin.d {
+.machine-wd .waktu-mundur-mesin.d {
   top: 100px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.machine-tumbler .waktu-mundur-mesin.w {
+.machine-wd .waktu-mundur-mesin.w {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.machine-wd .rotate-icon {
+  margin-bottom: 12px;
+}
+
+.machine-tumbler .rotate-icon {
+  margin-bottom: 10px;
 }
 
 /* Container untuk status mesin di bagian kanan */

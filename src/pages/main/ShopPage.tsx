@@ -3,10 +3,10 @@ import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
 
 import '../../assets/css/main/shopPageStyle.css';
-import productData from '../../assets/data/barang.json'
+import { fetchProductsByBranch } from '../../utils/ExternalAPI';
 
 const ShopPage: React.FC = () => {
-  const [products] = useState(productData); // Produk yang dimuat dari JSON
+  const [products, setProducts] = useState<any[]>([]); // State to hold products
   const [cart, setCart] = useState<{ [key: number]: number }>({});
   const [saldo, setSaldo] = useState(26400);
   const [pembelian, setPembelian] = useState(0);
@@ -18,15 +18,29 @@ const ShopPage: React.FC = () => {
     const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser') || '{}');
     setUser(loggedUser);
     setSaldo(loggedUser.total_deposit);
+
+        // Fetch products based on branch ID
+        const fetchProducts = async () => {
+          try {
+            const branchId = 6; // Assuming branch_id is stored in the loggedUser 
+            const productData = await fetchProductsByBranch(branchId);
+            setProducts(productData);
+            // console.log(productData)
+          } catch (error) {
+            console.error('Error fetching products:', error);
+          }
+        };
+    
+        fetchProducts();
   }, []);
 
   const updateCart = (productId: number, quantity: number) => {
     const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
     audio.play();
     setCart(prevCart => {
-      const newCart = { ...prevCart, [productId]: Math.max(0, (prevCart[productId] || 0) + quantity) }; // Tidak boleh negatif
+      const newCart = { ...prevCart, [productId]: Math.max(0, (prevCart[productId] || 0) + quantity) }; // Ensure no negative values
       const newPembelian = products.reduce((sum, product) => {
-        return sum + (newCart[product.id] || 0) * product.harga;
+        return sum + (newCart[product.id] || 0) * product.list_price; // Use the correct price field
       }, 0);
       setPembelian(newPembelian);
       return newCart;
@@ -39,16 +53,16 @@ const ShopPage: React.FC = () => {
       setPembelian(0);
       setCart({});
   
-      // Mengumpulkan detail produk yang dibeli dan memastikan namaBarang serta harga tidak undefined
+      // Collect product purchase details
       const purchasedProducts = products
-        .filter(product => cart[product.id] > 0 && product.namaBarang !== undefined && product.harga !== undefined)
+        .filter(product => cart[product.id] > 0)
         .map(product => ({
-          namaBarang: product.namaBarang as string,
-          harga: product.harga as number,
+          namaBarang: product.name, // Use the correct name field
+          harga: product.list_price, // Use the correct price field
           quantity: cart[product.id],
         }));
   
-      // Set showModal dan detail produk
+      // Set showModal and product details
       setShowModal({ visible: true, products: purchasedProducts });
     } else {
       alert("Saldo tidak cukup!");
@@ -64,10 +78,10 @@ const ShopPage: React.FC = () => {
         <div className="products-container">
           {products.map(product => (
             <div key={product.id} className="product-card">
-              <img src={require(`../../assets/image/barang/${product.image}`)} alt={product.namaBarang} className="product-image" />
+              <img src={require(`../../assets/image/barang/${product.name}.webp`)} alt={product.namaBarang} className="product-image" />
               <div className="product-info">
-                <h3>{product.namaBarang}</h3>
-                <p>RP. {product.harga.toLocaleString()}</p>
+                <h3>{product.name}</h3>
+                <p>RP. {product.list_price.toLocaleString()}</p>
                 <div className="quantity-control">
                   <button
                     className="quantity-button mines-button"
@@ -85,7 +99,7 @@ const ShopPage: React.FC = () => {
                     +
                   </button>
                 </div>
-                <p className="stock-info">Sisa Stok {product.stok - (cart[product.id] || 0)}</p>
+                <p className="stock-info">Sisa Stok {product.qty_available - (cart[product.id] || 0)}</p>
               </div>
             </div>
           ))}
