@@ -15,6 +15,8 @@ import {
 import statusData from "../../assets/data/status.json";
 import MachineButton from "../../components/MachineButton";
 import Kupon from "../../assets/data/kupon.json"
+import { useMachineTimer } from "../../hooks/useMachineTimer";
+import { checkUserInOdoo } from "../../utils/ExternalAPI";
 
 // Define interface untuk tipe data
 interface Provider {
@@ -114,15 +116,20 @@ const MainPage: React.FC = () => {
     fetchMachines();
   }, []);
 
+  // Komponen terpisah untuk timer
+  const MachineTimer: React.FC<{ endTime: string | number }> = ({ endTime }) => {
+    const { timeLeft } = useMachineTimer({ endTime });
+    return <>{timeLeft}</>;
+  };
+
   const renderMachineItem = (machine: Provider) => {
     const isPengeringA = machine.mesin_type.toLocaleLowerCase() === 'tumbler' && machine.label_atas.endsWith("A");
     const isPengeringB = machine.mesin_type.toLocaleLowerCase() === 'tumbler' && machine.label_bawah.endsWith("B");
     const isWasherDryerD = machine.mesin_type.toLocaleLowerCase() === 'wd' && machine.label_atas.startsWith("D");
     const isWasherDryerW = machine.mesin_type.toLocaleLowerCase() === 'wd' && machine.label_bawah.startsWith("W");
-    // const machineType = machine.mesin_type.toLowerCase();
-    // const machineName = machine.mesin_name;
   
     if (isPengeringA) {
+  
       return (
         <div className="mesin-item-wrapper" key={machine.name}>
           <span className="machine-number">{machineCounter++}</span>
@@ -135,15 +142,20 @@ const MainPage: React.FC = () => {
             <div className="machine-label-top">{machine.label_atas}</div>
             <MachineButton
               className="machine-button-a"
-              status={convertStatus(machine.status_dryer, machine.status_washer)}
+              status={convertStatus(
+                machine.status_dryer, 
+                undefined, 
+                selectedMachine?.nama, 
+                machine.label_atas
+              )}
               handleClick={() => handleMachineClick(machine.label_atas)}
-              disabled={machine.status_dryer === 'bussy'}
+              disabled={machine.status_dryer === 'bussy' || machine.status_dryer === 'offline'}
             />
-            {/* {machine.status === "digunakan" && (
+            {machine.status_dryer === "bussy" && (
               <div className="waktu-mundur-mesin a">
-                <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                <p><MachineTimer endTime={machine.end_time_top || 0} /></p>
               </div>
-            )} */}
+            )}
             {isPengeringB && (
               <>
                 <div className="machine-label-bottom">
@@ -151,21 +163,27 @@ const MainPage: React.FC = () => {
                 </div>
                 <MachineButton
                   className="machine-button-b"
-                  status={convertStatus(machine.status_dryer, machine.status_washer)}
-                  handleClick={() => handleMachineClick(machine.label_atas)}
-                  disabled={machine.status_dryer === 'bussy'}
+                  status={convertStatus(
+                    machine.status_washer, 
+                    undefined, 
+                    selectedMachine?.nama, 
+                    machine.label_bawah
+                  )}
+                  handleClick={() => handleMachineClick(machine.label_bawah)}
+                  disabled={machine.status_washer === 'bussy' || machine.status_washer === 'offline'}
                 />
-                {/* {matchingMachineB.status === "digunakan" && (
+                {machine.status_washer === "bussy" && (
                   <div className="waktu-mundur-mesin b">
-                    <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                    <p><MachineTimer endTime={machine.end_time_bottom || 0} /></p>
                   </div>
-                )} */}
+                )}
               </>
             )}
           </div>
         </div>
       );
-    } else if (isWasherDryerD) {                               
+    } else if (isWasherDryerD) {
+                           
       return (
         <div className="mesin-item-wrapper" key={machine.name}>
           <span className="machine-number">{machineCounter++}</span>
@@ -178,15 +196,20 @@ const MainPage: React.FC = () => {
             <div className="machine-label-top-wd">{machine.label_atas}</div>
             <MachineButton
               className="machine-button-d"
-              status={convertStatus(machine.status_dryer, machine.status_washer)}
+              status={convertStatus(
+                machine.status_dryer, 
+                undefined, 
+                selectedMachine?.nama, 
+                machine.label_atas
+              )}
               handleClick={() => handleMachineClick(machine.label_atas)}
-              disabled={machine.status_dryer === 'bussy'}
+              disabled={machine.status_dryer === 'bussy' || machine.status_dryer === 'offline'}
             />
-            {/* {machine.status === "digunakan" && (
+            {machine.status_dryer === "bussy" && (
               <div className="waktu-mundur-mesin d">
-                <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                <p><MachineTimer endTime={machine.end_time_top || 0} /></p>
               </div>
-            )} */}
+            )}
             {isWasherDryerW && (
               <>
                 <div className="machine-label-bottom-wd">
@@ -194,21 +217,27 @@ const MainPage: React.FC = () => {
                 </div>
                 <MachineButton
                   className="machine-button-w"
-                  status={convertStatus(machine.status_dryer, machine.status_washer)}
-                  handleClick={() => handleMachineClick(machine.label_atas)}
-                  disabled={machine.status_dryer === 'bussy'}
+                  status={convertStatus(
+                    machine.status_washer, 
+                    undefined, 
+                    selectedMachine?.nama, 
+                    machine.label_bawah
+                  )}
+                  handleClick={() => handleMachineClick(machine.label_bawah)}
+                  disabled={machine.status_washer === 'bussy' || machine.status_washer === 'offline'}
                 />
-                {/* {matchingMachineW.status === "digunakan" && (
+                {machine.status_washer === "bussy" && (
                   <div className="waktu-mundur-mesin w">
-                    <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                    <p><MachineTimer endTime={machine.end_time_bottom || 0} /></p>
                   </div>
-                )} */}
+                )}
               </>
             )}
           </div>
         </div>
       );
     } else {
+  
       return (
         <div className="mesin-item-wrapper" key={machine.name}>
           <span className="machine-number">{machineCounter++}</span>
@@ -223,47 +252,25 @@ const MainPage: React.FC = () => {
             <div className="machine-label">{machine.label_atas}</div>
             <MachineButton
               className="machine-button"
-              status={convertStatus(machine.status_dryer, machine.status_washer)}
+              status={convertStatus(
+                machine.status_dryer, 
+                machine.status_washer, 
+                selectedMachine?.nama, 
+                machine.label_atas
+              )}
               handleClick={() => handleMachineClick(machine.label_atas)}
-              disabled={machine.status_dryer === 'bussy'}
+              disabled={machine.status_dryer === 'bussy' || machine.status_dryer === 'offline'}
             />
-            {/* {machine.status === "digunakan" && (
+            {machine.status_washer === "bussy" && (
               <div className="waktu-mundur-mesin">
-                <p>{formatTime(countdowns[machine.id] || 0)}</p>
+                <p><MachineTimer endTime={machine.end_time_bottom || 0} /></p>
               </div>
-            )} */}
+            )}
           </div>
         </div>
       );
     }
   };
-
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setCountdowns(prevCountdowns => {
-  //       const newCountdowns = { ...prevCountdowns };
-  //       machines.forEach(machine => {
-  //         if (machine.status === "digunakan" && machine["waktu-tunggu"]) {
-  //           const machineId = machine.id;
-  //           if (newCountdowns[machineId] === undefined) {
-  //             newCountdowns[machineId] = machine["waktu-tunggu"];
-  //           } else if (newCountdowns[machineId] > 0) {
-  //             newCountdowns[machineId]--;
-  //           }
-  //         }
-  //       });
-  //       return newCountdowns;
-  //     });
-  //   }, 1000);
-  
-  //   return () => clearInterval(timer);
-  // }, [machines]);
-
-  // const formatTime = (seconds: number) => {
-  //   const minutes = Math.floor(seconds / 60);
-  //   const remainingSeconds = seconds % 60;
-  //   return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-  // };
 
   const handleRefreshMachinesClick = () => {
     const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
@@ -275,33 +282,141 @@ const MainPage: React.FC = () => {
     }, 2000); // Delay 2 detik
   };
 
-  // Fungsi untuk refresh saldo
-  const handleRefreshSaldoClick = () => {
-    const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
-    audio.play();
-    setIsLoadingSaldo(true); // Ubah state menjadi loading untuk saldo
-    setTimeout(() => {
-      setIsLoadingSaldo(false); // Kembalikan ke state semula setelah 2 detik
-    }, 2000); // Delay 2 detik
-  };
-
-  // Konversi status dari API ke status lokal
-  const convertStatus = (statusDryer: string, statusWasher: string) => {
-    if (statusDryer === 'bussy' || statusWasher === 'bussy') {
-      return 'digunakan';
+  const handleRefreshSaldoClick = async () => {
+    try {
+      // Ambil data user yang tersimpan
+      const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
+      
+      // Mainkan suara
+      const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
+      audio.play();
+      
+      // Ubah state menjadi loading
+      setIsLoadingSaldo(true);
+  
+      // Dapatkan nomor telepon tersimpan
+      const storedPhoneNumber = loggedUser.phone;
+  
+      // Periksa user di Odoo
+      const { partners, banned } = await checkUserInOdoo(storedPhoneNumber);
+  
+      if (partners) {
+        if (banned) {
+          // Jika user dibanned, redirect ke halaman login
+          // Misalnya:
+          // navigate('/login');
+          // atau
+          // window.location.href = '/login';
+          
+          // Tambahkan notifikasi bahwa akun dibanned
+          // toast.error('Akun Anda telah dibanned');
+        } else {
+          // sessionStorage.removeItem('dataUser.total_deposit')
+          // Simpan data user di session storage
+          sessionStorage.setItem('loggedUser', JSON.stringify(partners));
+          
+          // Log data partner (opsional)
+          console.log("Partner data:", JSON.stringify(partners.total_deposit));
+          setSaldo(partners.total_deposit)
+          // console.log(sessionStorage.getItem('dataUser'))
+          // Refresh saldo atau lakukan operasi lanjutan
+          // Misalnya:
+          // await fetchSaldo();
+        }
+      } else {
+        // Handle kasus jika partners tidak ditemukan
+        console.warn('Tidak dapat menemukan data partner');
+        // Tambahkan notifikasi atau tindakan yang sesuai
+      }
+    } catch (error) {
+      // Tangani error dengan lebih detail
+      console.error('Error saat refresh saldo:', error);
+      
+      // Tambahkan notifikasi error
+      // toast.error('Gagal memperbarui saldo');
+    } finally {
+      // Pastikan state loading dikembalikan, bahkan jika terjadi error
+      setIsLoadingSaldo(false);
     }
-    return 'tersedia';
   };
-
+  
   // Fungsi untuk menghitung harga mesin
   const calculateMachinePrice = (machine: Provider): number => {
     // Logika penentuan harga berdasarkan tipe mesin
     switch (machine.mesin_type.toLowerCase()) {
-      case 'sw': return 10000; // Single Washer
-      case 'wd': return 15000; // Washer Dryer
-      case 'tumbler': return 20000; // Tumbler
-      default: return 10000; // Default harga
+      case 'sw':
+        return 10000; // Single Washer
+      case 'wd':
+        if (waktu === 22) return 5000; // Washer Dryer, 22 menit
+        if (waktu === 44) return 10000; // Washer Dryer, 44 menit
+        if (waktu === 66) return 15000; // Washer Dryer, 66 menit
+        return 10000; // Default harga
+      case 'tumbler':
+        return Math.floor(waktu / 6) * 4000; // Tumbler, Rp 4000 per 6 menit
+      default:
+        return 10000; // Default harga
     }
+  };
+
+  // Fungsi untuk menghitung waktu mesin
+  const calculateMachineTime = (machine: Provider): number => {
+    // Logika penentuan waktu berdasarkan tipe mesin
+    switch (machine.mesin_type.toLowerCase()) {
+      case 'sw': return 25; // Single Washer
+      case 'wd':
+        return 44; // Washer Dryer, label atas
+      case 'tumbler': return 24; // Tumbler
+      default: return 25; // Default waktu
+    }
+  }
+
+  const convertStatus = (
+    statusDryer: string | undefined, 
+    statusWasher?: string | undefined,
+    selectedMachineName?: string, // Tambahkan parameter ini
+    currentMachineName?: string   // Tambahkan parameter ini
+  ) => {
+    // Untuk mesin dengan status_dryer saja
+    if (!statusWasher) {
+      if (statusDryer === 'bussy') {
+        return 'digunakan';
+      }
+      if (statusDryer === 'offline') {
+        return 'offline';
+      }
+      // Tambahkan kondisi untuk status dipilih
+      if (selectedMachineName === currentMachineName) {
+        return 'dipilih';
+      }
+      return 'tersedia';
+    }
+
+    // Untuk mesin dengan status_washer saja
+    if (!statusDryer) {
+      if (statusWasher === 'bussy') {
+        return 'digunakan';
+      }
+      if (statusWasher === 'offline') {
+        return 'offline';
+      }
+      // Tambahkan kondisi untuk status dipilih
+      if (selectedMachineName === currentMachineName) {
+        return 'dipilih';
+      }
+      return 'tersedia';
+    }
+  
+    // Untuk mesin dengan kedua status
+    if (statusDryer === 'bussy' || statusWasher === 'bussy') {
+      return 'digunakan';
+    }
+  
+    // Tambahkan kondisi untuk status dipilih
+    if (selectedMachineName === currentMachineName) {
+      return 'dipilih';
+    }
+  
+    return 'tersedia';
   };
 
   // Modifikasi handleMachineClick untuk bekerja dengan data baru
@@ -309,15 +424,83 @@ const MainPage: React.FC = () => {
     const machine = machinesNew.find(m => 
       m.label_atas === machineName || m.label_bawah === machineName
     );
-    
+  
+    // Jika mesin yang diklik sama dengan mesin yang sudah dipilih, batalkan pemilihan
+    if (selectedMachine && selectedMachine.nama === machineName) {
+      setSelectedMachine(null);
+      return;
+    }
+  
     if (machine) {
-      setSelectedMachine({
-        id: machine.name,
-        nama: machine.label_atas,
-        tipe: machine.mesin_type,
-        harga: calculateMachinePrice(machine), // Fungsi untuk menghitung harga
-        status: convertStatus(machine.status_dryer, machine.status_washer)
-      });
+      let status: string;
+      let statusField: string;
+  
+      switch (machine.mesin_type.toLowerCase()) {
+        case 'tumbler':
+          // Hanya ubah status untuk mesin yang dipilih
+          status = convertStatus(
+            machine.status_dryer, 
+            undefined, 
+            selectedMachine?.nama, 
+            machine.label_atas
+          );
+          statusField = machine.status_dryer;
+          break;
+        case 'sw':
+          // Hanya ubah status untuk mesin yang dipilih
+          status = convertStatus(
+            undefined, 
+            machine.status_washer, 
+            selectedMachine?.nama, 
+            machine.label_atas
+          );
+          statusField = machine.status_washer;
+          break;
+        case 'wd':
+          // Untuk WD, perlu logika khusus
+          status = machine.label_atas === machineName 
+            ? convertStatus(
+                machine.status_dryer, 
+                undefined, 
+                selectedMachine?.nama, 
+                machine.label_atas
+              )
+            : convertStatus(
+                undefined, 
+                machine.status_washer, 
+                selectedMachine?.nama, 
+                machine.label_bawah
+              );
+          statusField = machine.label_atas === machineName 
+            ? machine.status_dryer 
+            : machine.status_washer;
+          break;
+        default:
+          status = convertStatus(
+            machine.status_dryer, 
+            machine.status_washer, 
+            selectedMachine?.nama, 
+            machine.label_atas
+          );
+          statusField = machine.status_dryer;
+      }
+  
+      // Cek apakah mesin tersedia sebelum memilih
+      if (status === 'tersedia' || status === 'dipilih') {
+        setSelectedMachine({
+          id: machine.name,
+          nama: machineName,
+          tipe: machine.mesin_type,
+          harga: calculateMachinePrice(machine),
+          waktu: calculateMachineTime(machine),
+          status: status,
+          statusField: statusField
+        });
+      } else {
+        // Mainkan suara error
+        const errorAudio = new Audio(process.env.REACT_APP_SOUND_BUTTON_NEGATIIVE);
+        errorAudio.play();
+      }
     }
   };
 
@@ -350,6 +533,7 @@ const MainPage: React.FC = () => {
 
   useEffect(() => {
     if (selectedMachine) {
+      console.log(selectedMachine)
       setWaktu(selectedMachine.waktu); // Set waktu ke waktu dari mesin yang dipilih
     } else {
       setWaktu(0); // Set waktu default 0 jika belum ada mesin yang dipilih
@@ -513,6 +697,7 @@ const MainPage: React.FC = () => {
                       size="2x"
                       spin
                       className="rotate-icon margin-left-ownself"
+                      style={{ animationDuration: '5s' }}
                     />
                   )}
                   <p>{status.nama}</p>
@@ -544,15 +729,15 @@ const MainPage: React.FC = () => {
           <div className="left-contain-mesin-info">
             <div className="mesin-type">
               <h4>
-                MESIN {selectedMachine ? selectedMachine.tipe : "MAX 10 KG"}
+                MESIN {selectedMachine ? selectedMachine.nama : "MAX 10 KG"}
               </h4>
             </div>
             <div className="timer-control">
               <button
                 className="arrow-button left-arrow"
                 onClick={() => handleTimeChange(false)} // Kurangi waktu
-                disabled={!selectedMachine} // Disable jika belum memilih mesin
-                style={{ color: selectedMachine ? "black" : "#A5A5A5" }} // Ubah warna tombol
+                disabled={!selectedMachine || selectedMachine.tipe === 'sw'} // Disable jika belum memilih mesin
+                style={{ color: selectedMachine && selectedMachine.tipe !== 'sw' ? "black" : "#A5A5A5" }} // Ubah warna tombol
               >
                 <FontAwesomeIcon
                   icon={faCaretLeft}
@@ -565,8 +750,8 @@ const MainPage: React.FC = () => {
               <button
                 className="arrow-button right-arrow"
                 onClick={() => handleTimeChange(true)} // Tambah waktu
-                disabled={!selectedMachine} // Disable jika belum memilih mesin
-                style={{ color: selectedMachine ? "black" : "#A5A5A5" }} // Ubah warna tombol
+                disabled={!selectedMachine || selectedMachine.tipe === 'sw'} // Disable jika belum memilih mesin
+                style={{ color: selectedMachine && selectedMachine.tipe !== 'sw' ? "black" : "#A5A5A5" }} // Ubah warna tombol
               >
                 <FontAwesomeIcon
                   icon={faCaretRight}

@@ -101,6 +101,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
       }));
 
       setListTransaksi(mappedTransactions);
+      console.log(mappedTransactions)
     } catch (error) {
       console.error("Error fetching user transactions:", error);
       setError('Gagal mengambil data transaksi');

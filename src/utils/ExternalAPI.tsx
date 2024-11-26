@@ -4,6 +4,16 @@ const db = '16_OPERA_SABUN';
 const username = 'admin';
 const password = '$g33d3@y0D';
 
+interface Voucher {
+  id: number;
+  voucher_id: { name: string }; // Assuming voucher_id has a name property
+  voucher_nominal: number;
+  voucher_nominal_mode: string;
+  expired_date: string | null; // Can be null if no expiration date
+  for_washer_voucher: boolean;
+  for_dryer_voucher: boolean;
+}
+
 //fungsi autentikasi
 const authenticate = (): Promise<number> => {
   return new Promise((resolve, reject) => {
@@ -206,17 +216,94 @@ const fetchMachines = (uid: number, branchId: number): Promise<any[]> => {
 };
 
 // Fungsi untuk mengambil data promo
-const fetchPromoData = (uid: number, branchId: number): Promise<any[]> => {
+const fetchPromoData = async (uid: number, branchId: number): Promise<any> => {
   return new Promise((resolve, reject) => {
     const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
     client.methodCall('execute_kw', [
       db, uid, password,
-      'your.promo.model', 'search_read',
+      'os.promo', 'search_read',
       [[['branch_id', '=', branchId]]],
-      { fields: ['id', 'name', 'discount'], limit: 50 }
-    ], (error, value) => {
-      if (error) reject(error);
-      else resolve(value);
+      { fields: ['id', 'name', 'start_time_voucher', 'end_time_voucher', 'percent_discount', 'max_price', 'for_washer_discount', 'for_dryer_discount', 'voucher', 'is_qty_promo', 'is_tp_voucher', 'display_discount_amount'], limit: 1, order: 'id desc' }
+    ], async (error, promos) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      if (promos.length === 0) {
+        resolve({ active_voucher: false, data_promo: [] });
+        return;
+      }
+
+      const promo = promos[0];
+      const activeVoucher = promo.voucher || promo.is_qty_promo || promo.is_tp_voucher;
+
+      const todayDatetime = new Date();
+      const today = todayDatetime.toISOString().split('T')[0];
+
+      // Check voucher validity
+      const voucherData = await fetchAvailableVouchers(uid, promo.id, today);
+      const discountData = await fetchDiscountData(uid, promo.id, today, todayDatetime);
+
+      resolve({
+        active_voucher: activeVoucher,
+        data_promo: voucherData,
+        ...discountData,
+        display_discount: promo.display_discount_amount,
+      });
+    });
+  });
+};
+
+const fetchAvailableVouchers = async (uid: number, promoId: number, today: string): Promise<any[]> => {
+  return new Promise((resolve, reject) => {
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+    client.methodCall('execute_kw', [
+      db, uid, password,
+      'os.promo.voucher', 'search_read',
+      [[['promo_id', '=', promoId], ['state', '=', 'available'], ['expired_date', '>=', today]]],
+      { fields: ['id', 'voucher_id', 'voucher_nominal', 'voucher_nominal_mode', 'expired_date', 'for_washer_voucher', 'for_dryer_voucher'], order: 'expired_date ASC' }
+    ], (error, vouchers) => {
+      if (error) {
+        reject(error);
+      } else {
+        const dataPromo = vouchers.map((voucher: Voucher) => ({ // Use the Voucher type here
+          id: voucher.id,
+          name: voucher.voucher_id.name,
+          nominal: voucher.voucher_nominal,
+          type_nominal: voucher.voucher_nominal_mode,
+          expired: voucher.expired_date ? voucher.expired_date.split('T')[0] : '-',
+          for: `${voucher.for_washer_voucher ? 'washer' : ''}${voucher.for_dryer_voucher ? (voucher.for_washer_voucher ? ',dryer' : 'dryer') : ''}`,
+        }));
+        resolve(dataPromo);
+      }
+    });
+  });
+};
+
+const fetchDiscountData = async (uid: number, promoId: number, today: string, todayDatetime: Date): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+    client.methodCall('execute_kw', [
+      db, uid, password,
+      'os.promo.discount', 'search_count',
+      [[['promo_id', '=', promoId], ['get_discount_date', '=', today]]]
+    ], (error, discountCount) => {
+      if (error) {
+        reject(error);
+      } else {
+        // Implement logic to check discounts based on conditions from the original Python code
+        // This part should include the logic for discount calculation based on day conditions and max limits
+
+        resolve({
+          discount_data_washer: 0, // Placeholder for actual discount data
+          max_discount_washer: 0, // Placeholder for max discount data
+          type_machine_washer: '', // Placeholder for machine type
+          discount_data_dryer : 0, // Placeholder for actual discount data
+          max_discount_dryer: 0, // Placeholder for max discount data
+          type_machine_dryer: '', // Placeholder for machine type
+        });
+      }
     });
   });
 };
@@ -291,7 +378,7 @@ export const checkUserInOdoo = async (phoneNumber: string): Promise<{ partners: 
     }
     return { partners: null, banned: false };
   } catch (error) {
-    console.error('Error checking user in Odoo:', error);
+    console.error('Error checking user in Odoo:', JSON.stringify(error, null, 2));
     throw error;
   }
 };

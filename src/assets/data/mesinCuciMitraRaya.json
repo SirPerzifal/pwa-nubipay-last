@@ -1,21 +1,328 @@
-[
-  { "id": 1, "tipe": "sw", "nama": "W1", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 2, "tipe": "sw", "nama": "W2", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
-  { "id": 3, "tipe": "wd", "nama": "D3", "harga": 10000, "waktu" : 25, "status": "tersedia" },
-  { "id": 4, "tipe": "wd", "nama": "W3", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 5, "tipe": "wd", "nama": "D4", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 6, "tipe": "wd", "nama": "W4", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
-  { "id": 7, "tipe": "wd", "nama": "D5", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 8, "tipe": "wd", "nama": "W5", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1754 },
-  { "id": 9, "tipe": "wd", "nama": "D6", "harga": 10000, "waktu" : 25 , "status": "perbaikan" },
-  { "id": 10, "tipe": "wd", "nama": "W6", "harga": 10000, "waktu" : 25 , "status": "tersedia" },    
-  { "id": 11, "tipe": "wd", "nama": "D7", "harga": 10000, "waktu" : 25, "status": "tersedia" },
-  { "id": 12, "tipe": "wd", "nama": "W7", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 13, "tipe": "wd", "nama": "D8", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 14, "tipe": "wd", "nama": "W8", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1918 },
-  { "id": 15, "tipe": "wd", "nama": "D9", "harga": 10000, "waktu" : 25 , "status": "tersedia" },
-  { "id": 16, "tipe": "wd", "nama": "W9", "harga": 10000, "waktu" : 25 , "status": "digunakan", "waktu-tunggu": 1754 },
-  { "id": 17, "tipe": "tumbler", "nama": "10A", "harga": 8000, "waktu" : 35 ,   "status": "tersedia" },
-  { "id": 18, "tipe": "tumbler", "nama": "10B", "harga": 8000, "waktu" : 35 , "status": "digunakan", "waktu-tunggu": 1223 }
-]
-  
+{
+  "error":0,
+  "status_code":200,
+  "status_desc":"Success",
+  "description":"Available",
+  "datas":[
+     {
+        "status":"available",
+        "branch":"Sei panas",
+        "providers":[
+           {
+              "name":"1",
+              "position_label_bawah":"top:64.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:67.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "total_machine":"one",
+                           "label_atas":"W1",
+              "label_bawah":"W1",
+              "mesin_type":"sw",
+              "mesin_name":"Single Washer",
+              "status_dryer":"bussy",
+              "status_washer":"bussy",
+              "end_time_top":0,
+              "end_time_bottom":"2024-11-25 09:07:44"
+           },
+           {
+              "name":"2",
+              "position_label_bawah":"top:64.0%;bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:67.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "total_machine":"one",
+              "label_atas":"W2",
+              "label_bawah":"W2",
+              "mesin_type":"sw",
+              "mesin_name":"Single Washer",
+              "status_dryer":"bussy",
+              "status_washer":"bussy",
+              "end_time_top":0,
+              "end_time_bottom":"2024-11-25 09:24:49"
+           },
+           {
+              "name":"3",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%;left: 0.0%; right: 0.0%;",
+              "label_atas":"D3",
+              "label_bawah":"W3",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"bussy",
+              "end_time_top":"2024-11-25 08:48:02",
+              "end_time_bottom":"2024-11-25 09:09:15"
+           },
+           {
+              "name":"4",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"D4",
+              "label_bawah":"W4",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"ready",
+              "end_time_top":"2024-11-25 07:31:18",
+              "end_time_bottom":"2024-11-25 09:00:33"
+           },
+           {
+              "name":"5",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"D5",
+              "label_bawah":"W5",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"ready",
+              "end_time_top":"2024-11-25 02:46:59",
+              "end_time_bottom":"2024-11-25 08:48:49"
+           },
+           {
+              "name":"6",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"D6",
+              "label_bawah":"W6",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"ready",
+              "end_time_top":"2024-11-25 07:21:39",
+              "end_time_bottom":"2024-11-25 08:48:54"
+           },
+           {
+              "name":"7",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"D7",
+              "label_bawah":"W7",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"ready",
+              "end_time_top":"2024-11-25 08:51:48",
+              "end_time_bottom":"2024-11-25 08:48:58"
+           },
+           {
+              "name":"8",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"D8",
+              "label_bawah":"W8",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"bussy",
+              "end_time_top":"2024-11-25 06:33:40",
+              "end_time_bottom":"2024-11-25 09:09:49"
+           },
+           {
+              "name":"9",
+              "total_machine":"two",
+              "position_label_atas":"top:45.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_atas":"top:12.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:60.0%; bottom: 0.0%; left: 5.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.9%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"D9",
+              "label_bawah":"W9",
+              "mesin_type":"wd",
+              "mesin_name":"WD",
+              "status_dryer":"ready",
+              "status_washer":"ready",
+              "end_time_top":"2024-11-25 07:43:59",
+              "end_time_bottom":"2024-11-25 08:55:24"
+           },
+           {
+              "name":"10",
+              "total_machine":"two",
+              "position_label_atas":"top:10.0%; bottom: 0.0%; left: 3.0%; right: 0.0%;",
+              "position_icon_atas":"top:18.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "position_label_bawah":"top:57.5%; bottom: 0.0%; left: 3.0%; right: 0.0%;",
+              "position_icon_bawah":"top:63.0%; bottom: 0.0%; left: 0.0%; right: 0.0%;",
+              "label_atas":"10A",
+              "label_bawah":"10B",
+              "mesin_type":"tumbler",
+              "mesin_name":"Tumbler",
+              "status_dryer":"ready",
+              "status_washer":"bussy",
+              "end_time_top":"2024-11-25 08:06:16",
+              "end_time_bottom":"2024-11-25 09:16:24"
+           }
+        ],
+        "is_active_user":false,
+        "data_duration_machine":[
+           {
+              "type":"Dryer",
+              "machine_label":"D3",
+              "machine_name":"D03",
+              "total_days":30,
+              "duration":11374.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"D4",
+              "machine_name":"D04",
+              "total_days":30,
+              "duration":9196.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"D5",
+              "machine_name":"D05",
+              "total_days":30,
+              "duration":9350.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"D6",
+              "machine_name":"D06",
+              "total_days":30,
+              "duration":9768.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"D7",
+              "machine_name":"D07",
+              "total_days":30,
+              "duration":10164.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"D8",
+              "machine_name":"D08",
+              "total_days":30,
+              "duration":7810.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"D9",
+              "machine_name":"D09",
+              "total_days":30,
+              "duration":10472.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"10A",
+              "machine_name":"D10A",
+              "total_days":30,
+              "duration":15246.0
+           },
+           {
+              "type":"Dryer",
+              "machine_label":"10B",
+              "machine_name":"D10B",
+              "total_days":30,
+              "duration":19524.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W1",
+              "machine_name":"W01",
+              "total_days":30,
+              "duration":18525.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W2",
+              "machine_name":"W02",
+              "total_days":30,
+              "duration":18775.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W3",
+              "machine_name":"W03",
+              "total_days":30,
+              "duration":17000.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W4",
+              "machine_name":"W04",
+              "total_days":30,
+              "duration":16875.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W5",
+              "machine_name":"W05",
+              "total_days":30,
+              "duration":15350.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W6",
+              "machine_name":"W06",
+              "total_days":30,
+              "duration":15175.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W7",
+              "machine_name":"W07",
+              "total_days":30,
+              "duration":16225.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W8",
+              "machine_name":"W08",
+              "total_days":30,
+              "duration":13750.0
+           },
+           {
+              "type":"Washer",
+              "machine_label":"W9",
+              "machine_name":"W09",
+              "total_days":30,
+              "duration":14775.0
+           }
+        ],
+        "total_machine_perinterval":36,
+        "have_traffic":true,
+        "traffic_pertime_label":"00:00|02:00|04:00|06:00|08:00|10:00|12:00|14:00|16:00|18:00|20:00|22:00",
+        "traffic_pertime_values":[
+           90.0,
+           5.0,
+           16.0,
+           15.6,
+           14.0,
+           29.4,
+           19.0,
+           8.5,
+           30.3,
+           78.3,
+           84.4,
+           83.3
+        ],
+        "traffic_pertime_color":"#f14f51|#4d90ed|#4d90ed|#4d90ed|#3757FF|#4d90ed|#4d90ed|#4d90ed|#4d90ed|#4d90ed|#f14f51|#f14f51",
+        "traffic_perday_label":"Senin|Selasa|Rabu|Kamis|Jumat|Sabtu|Minggu",
+        "traffic_perday_values":[
+           52.4,
+           21.2,
+           13.6,
+           5.0,
+           17.4,
+           47.5,
+           90.0
+        ],
+        "traffic_perday_color":"#3757FF|#4d90ed|#4d90ed|#4d90ed|#4d90ed|#4d90ed|#f14f51"
+     }
+  ]
+}

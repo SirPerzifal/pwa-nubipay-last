@@ -33,7 +33,6 @@ const MachineButton: React.FC<MachineButtonProps> = ({ status, handleClick, clas
         type="checkbox"
         checked={status === 'dipilih'}
         onChange={handleChange}
-        disabled={disabled}
         style={{ display: 'none' }}
       />
       {status === 'tersedia' && (
@@ -58,7 +57,7 @@ const MachineButton: React.FC<MachineButtonProps> = ({ status, handleClick, clas
           }}
         />
       )}
-      {status === 'perbaikan' && (
+      {status === 'offline' && (
         <img 
           src={require("../assets/image/xmark.webp")} 
           alt="Perbaikan"
@@ -70,7 +69,7 @@ const MachineButton: React.FC<MachineButtonProps> = ({ status, handleClick, clas
         />
       )}
       {status === 'digunakan' && (
-        <FontAwesomeIcon icon={faRotate} size="2x" spin className="rotate-icon" />
+        <FontAwesomeIcon icon={faRotate} size="2x" spin className="rotate-icon" style={{ animationDuration: '4.5s' }}/>
       )}
     </label>
   );
