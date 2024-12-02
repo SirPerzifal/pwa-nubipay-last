@@ -22,7 +22,9 @@ const ShopPage: React.FC = () => {
         // Fetch products based on branch ID
         const fetchProducts = async () => {
           try {
-            const branchId = 6; // Assuming branch_id is stored in the loggedUser 
+            const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
+
+            const branchId = loggedUser.branch_id || 6; // Assuming branch_id is stored in the loggedUser 
             const productData = await fetchProductsByBranch(branchId);
             setProducts(productData);
             // console.log(productData)

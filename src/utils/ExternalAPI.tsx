@@ -200,14 +200,14 @@ const fetchProducts = (uid: number, branchId: number): Promise<any[]> => {
 };
 
 // Fungsi untuk mengambil data mesin
-const fetchMachines = (uid: number, branchId: number): Promise<any[]> => {
+const fetchMachinesPrice = (uid: number, branchId: number): Promise<any[]> => {
   return new Promise((resolve, reject) => {
     const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
     client.methodCall('execute_kw', [
       db, uid, password,
       'sgeede.mqtt.device', 'search_read',
       [[['branch_id', '=', branchId]]],
-      { fields: ['id', 'name', 'status'], limit: 50 }
+      { fields: ['machine_id', 'label_atas', 'label_bawah', 'price_top', 'price_bottom', 'duration_top', 'duration_bottom', 'inc_price_top', 'inc_price_bot', 'inc_duration_top', 'inc_duration_bot'], limit: 50 }
     ], (error, value) => {
       if (error) reject(error);
       else resolve(value);
@@ -308,38 +308,19 @@ const fetchDiscountData = async (uid: number, promoId: number, today: string, to
   });
 };
 
-// Fungsi untuk mengambil transaksi
-const fetchTransactionsForMain = (uid: number, branchId: number): Promise<any[]> => {
-  return new Promise((resolve, reject) => {
-    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
-    client.methodCall('execute_kw', [
-      db, uid, password,
-      'sgeede.mqtt.device.history', 'search_read',
-      [[['branch_id', '=', branchId]]],
-      { fields: ['date_order', 'price', 'partner_id'], limit: 50 }
-    ], (error, value) => {
-      if (error) reject(error);
-      else resolve(value);
-    });
-  });
-};
-
 // Fungsi untuk mengambil data utama
 export const fetchMainPageData = async (branchId: number): Promise<any> => {
   try {
     const uid = await authenticate();
     if (uid) {
       // Ambil data mesin
-      const machines = await fetchMachines(uid, branchId);
+      const machines = await fetchMachinesPrice(uid, branchId);
       // Ambil data promo
       const promoData = await fetchPromoData(uid, branchId);
-      // Ambil data transaksi
-      const transactions = await fetchTransactionsForMain(uid, branchId);
 
       return {
         machines,
         promoData,
-        transactions,
       };
     }
     return null;
