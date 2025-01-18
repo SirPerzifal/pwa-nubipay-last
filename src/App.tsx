@@ -6,6 +6,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/Authentication/Login';
 import MainPage from './pages/main/mainPage';
+import MainPageCrew from './pages/main/mainPageCrew';
 import ShopPage from './pages/main/ShopPage';
 import SuccessPage from './pages/main/SuccessPage';
 import TopUpCash from './pages/Payment_methode/Cash';
@@ -38,6 +39,7 @@ function AppRoutes() {
       <Route path="/fingerprint" element={isLoggedIn ? <Navigate to="/main" /> : <Fingerprint />} />
       <Route path="/kodeOTP" element={isLoggedIn ? <Navigate to="/main" /> : <KodeOTP />} />
       <Route path="/main" element={isLoggedIn ? <MainPage /> : <Navigate to="/" />} />
+      <Route path="/main/crew" element={<MainPageCrew />} />
       <Route path="/shop" element={isLoggedIn ? <ShopPage /> : <Navigate to="/" />} />
       <Route path="/success" element={isLoggedIn ? <SuccessPage /> : <Navigate to="/" />} />
       <Route path="/type/Qris" element={isLoggedIn ? <Qris /> : <Navigate to="/" />} />

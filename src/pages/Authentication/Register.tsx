@@ -12,9 +12,9 @@ const Register = () => {
 
   useEffect(() => {
     // Mengambil nomor telepon dari state jika ada
-    const state = location.state as { cleanPhoneNumber?: string };
-    if (state && state.cleanPhoneNumber) {
-      setPhoneNumber(formatPhoneNumber(state.cleanPhoneNumber));
+    const state = location.state as { modifiedPhoneNumber?: string };
+    if (state && state.modifiedPhoneNumber) {
+      setPhoneNumber(formatPhoneNumber(state.modifiedPhoneNumber));
     }
   }, [location]);
 

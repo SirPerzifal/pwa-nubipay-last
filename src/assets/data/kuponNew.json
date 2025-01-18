@@ -1,0 +1,13 @@
+{
+   "active_voucher":true,
+   "data_promo":[
+      
+   ],
+   "discount_data_washer":0,
+   "max_discount_washer":0,
+   "type_machine_washer":"",
+   "discount_data_dryer":0,
+   "max_discount_dryer":0,
+   "type_machine_dryer":"",
+   "display_discount":true
+}

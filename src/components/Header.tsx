@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../assets/css/components/headerStyle.css'; // CSS untuk header
 import DataTables from './DataTables';
-import voucherData from '../assets/data/kupon.json'; // Impor data voucher dari JSON
+// import voucherData from '../assets/data/kupon.json'; // Impor data voucher dari JSON
 import { fetchTransactions } from '../utils/ExternalAPI';
+import { fetchMainPageData } from '../utils/ExternalAPI';
 
 // Font Awesome imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,7 +48,9 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [voucherCount, setVoucherCount] = useState(voucherData.length); // Lencana jumlah voucher
+  const [voucherData, setVoucherData] = useState<Voucher[]>([]);
+  const [voucherCount, setVoucherCount] = useState(0);
+  const [isVoucherLoading, setIsVoucherLoading] = useState(false);
 
   useEffect(() => {
     const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
@@ -85,6 +88,48 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
     }
   };
 
+  const fetchVouchers = async () => {
+    try {
+      setIsVoucherLoading(true);
+      const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
+      const branchUserInside = loggedUser.branch_id;
+
+      // Fetch main page data, tapi hanya ambil promoData
+      const mainPageData = await fetchMainPageData(branchUserInside[0]);
+
+      if (mainPageData && mainPageData.promoData) {
+        // Transform data voucher jika perlu
+        const transformedVouchers: Voucher[] = mainPageData.promoData.map((voucher: any) => ({
+          id: voucher.id,
+          nama: voucher.nama || 'Voucher',
+          purpose: voucher.purpose || '',
+          harga: voucher.harga || 0,
+          exp: voucher.exp || '',
+          status: voucher.status || 'unavailable',
+          image: voucher.image // Sesuaikan dengan struktur data yang dikembalikan
+        }));
+
+        setVoucherData(transformedVouchers);
+        setVoucherCount(transformedVouchers.length);
+      }
+    } catch (error) {
+      console.error("Error fetching vouchers:", error);
+      // Fallback ke data lokal jika fetch gagal
+      // setVoucherData(require('../assets/data/kupon.json'));
+    } finally {
+      setIsVoucherLoading(false);
+    }
+  };
+
+  // Tambahkan useEffect untuk fetch vouchers
+  useEffect(() => {
+    const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
+    setPhoneNumber(loggedUser.phone);
+    
+    // Fetch vouchers
+    fetchVouchers();
+  }, []);
+
   const fetchUserTransactions = async () => {
     setIsLoading(true);
     setError(null);
@@ -102,6 +147,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
 
       setListTransaksi(mappedTransactions);
       console.log(mappedTransactions)
+      console.log(voucherCount)
     } catch (error) {
       console.error("Error fetching user transactions:", error);
       setError('Gagal mengambil data transaksi');
@@ -175,31 +221,37 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                 {/* Dropdown Voucher */}
                 {voucherDropdownOpen && (
                   <div className="dropdown-menu-voucher">
-                    {voucherData.map((voucher: Voucher) => (
-                      <div key={voucher.id} className="voucher-item">
-                        {voucher.image && (
-                          <img
-                            src={require(`../assets/image/${voucher.image}`)}
-                            alt={`${voucher.nama}`}
-                            className="voucher-image"
-                          />
-                        )}
-                        <div className="voucher-details">
-                          <p>{voucher.nama}</p>
-                          <h3>{voucher.purpose}</h3>
-                          <p>Harga: {voucher.harga} Exp: {voucher.exp}</p>
+                    {isVoucherLoading ? (
+                      <div className="voucher-loading">Memuat voucher...</div>
+                    ) : voucherData.length === 0 ? (
+                      <div className="no-vouchers">Tidak ada voucher tersedia</div>
+                    ) : (
+                      voucherData.map((voucher: Voucher) => (
+                        <div key={voucher.id} className="voucher-item">
+                          {voucher.image && (
+                            <img
+                              src={require(`../assets/image/${voucher.image}`)}
+                              alt={`${voucher.nama}`}
+                              className="voucher-image"
+                            />
+                          )}
+                          <div className="voucher-details">
+                            <p>{voucher.nama}</p>
+                            <h3>{voucher.purpose}</h3>
+                            <p>Harga: {voucher.harga} Exp: {voucher.exp}</p>
+                          </div>
+                          {voucher.status === "available" ? (
+                            <button className="voucer-pakai-button active">
+                              Pakai
+                            </button>
+                          ) : (
+                            <button className="voucer-pakai-button">
+                              Pakai
+                            </button>
+                          )}
                         </div>
-                        {voucher.status === "available" ? (
-                          <button className="voucer-pakai-button active">
-                            Pakai
-                          </button>
-                        ) : (
-                          <button className="voucer-pakai-button">
-                            Pakai
-                          </button>
-                        )}
-                      </div>
-                    ))}
+                      ))
+                    )}
                   </div>
                 )}
 

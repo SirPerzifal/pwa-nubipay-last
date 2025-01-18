@@ -1,6 +1,6 @@
 import * as xmlrpc from 'xmlrpc';
 
-const db = '16_OPERA_SABUN';
+const db = 'os_np_16';
 const username = 'admin';
 const password = '$g33d3@y0D';
 
@@ -12,6 +12,29 @@ interface Voucher {
   expired_date: string | null; // Can be null if no expiration date
   for_washer_voucher: boolean;
   for_dryer_voucher: boolean;
+}
+
+async function xmlRpcWithRetry<T>(
+  fn: () => Promise<T>, 
+  maxRetries = 3, 
+  baseDelay = 1000
+): Promise<T> {
+  let lastError: any;
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      lastError = error;
+      console.warn(`XML-RPC Attempt ${attempt} failed:`, error);
+      
+      // Exponential backoff
+      const delay = baseDelay * Math.pow(2, attempt - 1);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+
+  throw lastError;
 }
 
 //fungsi autentikasi
@@ -184,17 +207,19 @@ const fetchBypassReasons = (uid: number): Promise<any[]> => {
 
 // Fungsi untuk mengambil produk
 const fetchProducts = (uid: number, branchId: number): Promise<any[]> => {
-  return new Promise((resolve, reject) => {
-    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object`, headers: { 'Access-Control-Allow-Origin': '*' } });
-
-    client.methodCall('execute_kw', [
-      db, uid, password,
-      'product.product', 'search_read',
-      [[['product_tmpl_id.branch_ids', 'in', [branchId]]]], // Adjusted domain
-      { fields: ['id', 'name', 'image_1920', 'list_price', 'qty_available'] }
-    ], (error, value) => {
-      if (error) reject(error);
-      else resolve(value);
+  return xmlRpcWithRetry(() => {
+    return new Promise((resolve, reject) => {
+      const client = xmlrpc.createClient({ url: `/xmlrpc/2/object`, headers: { 'Access-Control-Allow-Origin': '*' } });
+  
+      client.methodCall('execute_kw', [
+        db, uid, password,
+        'product.product', 'search_read',
+        [[['product_tmpl_id.branch_ids', 'in', [branchId]]]], // Adjusted domain
+        { fields: ['id', 'name', 'image_1920', 'list_price', 'qty_available'] }
+      ], (error, value) => {
+        if (error) reject(error);
+        else resolve(value);
+      });
     });
   });
 };
@@ -306,6 +331,119 @@ const fetchDiscountData = async (uid: number, promoId: number, today: string, to
       }
     });
   });
+};
+
+// Fungsi untuk menjalankan mesin
+const statusMachine = async (machineId: number, branchId: number, statusWasher: string, statusDryer: string): Promise<any> => {
+  try {
+    const uid = await authenticate();
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+
+    // Update status washer dan dryer berdasarkan machineId dan branchId
+    const response = await new Promise((resolve, reject) => {
+      client.methodCall('execute_kw', [
+        db, uid, password,
+        'sgeede.mqtt.device', 'write',
+        [[machineId], { status_washer: statusWasher, status_dryer: statusDryer, branch_id: branchId }]
+      ], (error, value) => {
+        if (error) reject(error);
+        else resolve(value);
+      });
+    });
+    console.log('Machine ID:', machineId);
+console.log('Status Washer:', statusWasher);
+console.log('Status Dryer:', statusDryer);
+console.log('Branch ID:', branchId);
+    return response;
+  } catch (error) {
+    console.error('Error running machine:', error);
+    console.log('Machine ID:', machineId);
+console.log('Status Washer:', statusWasher);
+console.log('Status Dryer:', statusDryer);
+console.log('Branch ID:', branchId);
+    throw error;
+  }
+};
+
+// Fungsi untuk membuat data baru di sgeede.mqtt.device.history
+const DeviceHistory = async (data: {
+  device_id: number;
+  partner_id: number;
+  name: string;
+  status: string;
+  date_order: string;
+  is_tumble: boolean;
+  user_id: number;
+  outlet: string;
+  machine_type: string;
+  price: number;
+  duration: number;
+  branch_id: number;
+  machine_id: number;
+  machine_label: string;
+  currency_id: number;
+  state: string;
+  date: string;
+}): Promise<any> => {
+  try {
+    const uid = await authenticate();
+    const client = xmlrpc.createClient({ url: `/xmlrpc/2/object` });
+
+    // Menggunakan metode 'create' untuk menambahkan data baru
+    const response = await new Promise((resolve, reject) => {
+      client.methodCall('execute_kw', [
+        db, uid, password,
+        'sgeede.mqtt.device.history', 'create',
+        [{
+          device_id: data.device_id,
+          partner_id: data.partner_id,
+          name: data.name,
+          status: data.status,
+          date_order: data.date_order,
+          is_tumble: data.is_tumble,
+          user_id: data.user_id,
+          outlet: data.outlet,
+          machine_type: data.machine_type,
+          price: data.price,
+          duration: data.duration,
+          branch_id: data.branch_id,
+          machine_id: data.machine_id,
+          machine_label: data.machine_label,
+          currency_id: data.currency_id,
+          state: data.state,
+          date: data.date,
+        }]
+      ], (error, value) => {
+        if (error) reject(error);
+        else resolve(value);
+      });
+    });
+    return response;
+  } catch (error) {
+    console.error('Error creating device history:', error);
+    throw error;
+  }
+};
+
+// Fungsi untuk menjalankan mesin dan mencatat riwayat
+export const runMachine = async (machineId: number, branchId: number, statusWasher: string, statusDryer: string, historyData: any): Promise<any> => {
+  try {
+    // Jalankan mesin
+    const machineResponse = await statusMachine(machineId, branchId, statusWasher, statusDryer);
+    console.log('Machine status updated:', machineResponse);
+
+    // Buat riwayat perangkat
+    const historyResponse = await DeviceHistory(historyData);
+    console.log('Device history created:', historyResponse);
+
+    return {
+      machineResponse,
+      historyResponse,
+    };
+  } catch (error) {
+    console.error('Error in runMachine:', error);
+    throw error;
+  }
 };
 
 // Fungsi untuk mengambil data utama

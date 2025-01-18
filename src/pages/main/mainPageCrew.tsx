@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import "../../assets/css/main/mainPageStyle.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
@@ -16,12 +16,11 @@ import statusData from "../../assets/data/status.json";
 import MachineButton from "../../components/MachineButton";
 import Kupon from "../../assets/data/kupon.json"
 import { useMachineTimer } from "../../hooks/useMachineTimer";
-import { checkUserInOdoo, fetchMainPageData, runMachine } from "../../utils/ExternalAPI";
+import { fetchMainPageData } from "../../utils/ExternalAPI";
 
 // Define interface untuk tipe data
 interface Provider {
   name: string;
-  machine_id: [number, string];
   label_atas: string;
   label_bawah: string;
   mesin_type: string;
@@ -57,7 +56,7 @@ interface ApiResponse {
   }>;
 }
 
-const MainPage: React.FC = () => {
+const MainPageCrew: React.FC = () => {
   const currencySymbol = ' ⓟ';
   let machineCounter = 1; // Gunakan counter manual untuk penomoran
   const [user, setUser] = useState<any>(null);
@@ -67,32 +66,30 @@ const MainPage: React.FC = () => {
   const [machinePrice, setMachinePrice] = useState<MachinePrice[]>([]);
   const [kupon, setKupon] = useState(Kupon);
   const [isLoadingMachines, setIsLoadingMachines] = useState(false);
-  const [isLoadingSaldo, setIsLoadingSaldo] = useState(false); // Tambahkan state untuk saldo
+  //   const [isLoadingSaldo, setIsLoadingSaldo] = useState(false); // Tambahkan state untuk saldo
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false); // Untuk animasi penutupan
   const [waktu, setWaktu] = useState<number>(0); // State untuk waktu
-  const navigate = useNavigate();
+  //   const navigate = useNavigate();
   // Tambahkan state untuk menyimpan status tombol
   const [isMaxTime, setIsMaxTime] = useState(false);
   const [isMinTime, setIsMinTime] = useState(false);
 
-  // Efek untuk load user dan fetch machines
   useEffect(() => {
-    // Load user dari session
-    const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
-    setUser(loggedUser);
-    setSaldo(loggedUser.total_deposit || 0);
-    // setBranchUser(loggedUser.branch_id)
-  
-    // Fetch machines
-    fetchMachines();
+    const bypassData = sessionStorage.getItem('bypassData');
+    if (bypassData) {
+      const data = JSON.parse(bypassData);
+      console.log('Bypass Data:', data);
+      // You can now use this data as needed in your component
+      // For example, you might want to display it or use it in some logic
+    }
   }, []);
 
   // Fungsi untuk fetch data mesin menggunakan fetch native
   const fetchMachines = async () => {
     try {
       const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
-      const branchUserInside = loggedUser.branch_id
+      const branchUserInside = loggedUser.branch_id || ['6', 'sei panas'];
       // Gunakan fungsi fetchMainPageData
       const mainPageData = await fetchMainPageData(branchUserInside[0]);
 
@@ -152,6 +149,18 @@ const MainPage: React.FC = () => {
       setIsLoadingMachines(false);
     }
   };
+
+  // Efek untuk load user dan fetch machines
+  useEffect(() => {
+    // Load user dari session
+    const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
+    setUser(loggedUser);
+    setSaldo(loggedUser.total_deposit || 0);
+    // setBranchUser(loggedUser.branch_id)
+
+    // Fetch machines
+    fetchMachines();
+  }, []);
 
   // Komponen terpisah untuk timer
   const MachineTimer: React.FC<{ endTime: string | number }> = ({ endTime }) => {
@@ -319,63 +328,63 @@ const MainPage: React.FC = () => {
     }, 2000); // Delay 2 detik
   };
 
-  const handleRefreshSaldoClick = async () => {
-    try {
-      // Ambil data user yang tersimpan
-      const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
+//   const handleRefreshSaldoClick = async () => {
+//     try {
+//       // Ambil data user yang tersimpan
+//       const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
       
-      // Mainkan suara
-      const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
-      audio.play();
+//       // Mainkan suara
+//       const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
+//       audio.play();
       
-      // Ubah state menjadi loading
-      setIsLoadingSaldo(true);
+//       // Ubah state menjadi loading
+//       setIsLoadingSaldo(true);
   
-      // Dapatkan nomor telepon tersimpan
-      const storedPhoneNumber = loggedUser.phone;
+//       // Dapatkan nomor telepon tersimpan
+//       const storedPhoneNumber = loggedUser.phone;
   
-      // Periksa user di Odoo
-      const { partners, banned } = await checkUserInOdoo(storedPhoneNumber);
+//       // Periksa user di Odoo
+//       const { partners, banned } = await checkUserInOdoo(storedPhoneNumber);
   
-      if (partners) {
-        if (banned) {
-          // Jika user dibanned, redirect ke halaman login
-          // Misalnya:
-          // navigate('/login');
-          // atau
-          // window.location.href = '/login';
+//       if (partners) {
+//         if (banned) {
+//           // Jika user dibanned, redirect ke halaman login
+//           // Misalnya:
+//           // navigate('/login');
+//           // atau
+//           // window.location.href = '/login';
           
-          // Tambahkan notifikasi bahwa akun dibanned
-          // toast.error('Akun Anda telah dibanned');
-        } else {
-          // sessionStorage.removeItem('dataUser.total_deposit')
-          // Simpan data user di session storage
-          sessionStorage.setItem('loggedUser', JSON.stringify(partners));
+//           // Tambahkan notifikasi bahwa akun dibanned
+//           // toast.error('Akun Anda telah dibanned');
+//         } else {
+//           // sessionStorage.removeItem('dataUser.total_deposit')
+//           // Simpan data user di session storage
+//           sessionStorage.setItem('loggedUser', JSON.stringify(partners));
           
-          // Log data partner (opsional)
-          console.log("Partner data:", JSON.stringify(partners.total_deposit));
-          setSaldo(partners.total_deposit)
-          // console.log(sessionStorage.getItem('dataUser'))
-          // Refresh saldo atau lakukan operasi lanjutan
-          // Misalnya:
-          // await fetchSaldo();
-        }
-      } else {
-        // Handle kasus jika partners tidak ditemukan
-        console.warn('Tidak dapat menemukan data partner');
-        // Tambahkan notifikasi atau tindakan yang sesuai
-      }
-    } catch (error) {
-      // Tangani error dengan lebih detail
-      console.error('Error saat refresh saldo:', error);
+//           // Log data partner (opsional)
+//           console.log("Partner data:", JSON.stringify(partners.total_deposit));
+//           setSaldo(partners.total_deposit)
+//           // console.log(sessionStorage.getItem('dataUser'))
+//           // Refresh saldo atau lakukan operasi lanjutan
+//           // Misalnya:
+//           // await fetchSaldo();
+//         }
+//       } else {
+//         // Handle kasus jika partners tidak ditemukan
+//         console.warn('Tidak dapat menemukan data partner');
+//         // Tambahkan notifikasi atau tindakan yang sesuai
+//       }
+//     } catch (error) {
+//       // Tangani error dengan lebih detail
+//       console.error('Error saat refresh saldo:', error);
       
-      // Tambahkan notifikasi error
-      // toast.error('Gagal memperbarui saldo');
-    } finally {
-      // Pastikan state loading dikembalikan, bahkan jika terjadi error
-      setIsLoadingSaldo(false);
-    }
-  };
+//       // Tambahkan notifikasi error
+//       // toast.error('Gagal memperbarui saldo');
+//     } finally {
+//       // Pastikan state loading dikembalikan, bahkan jika terjadi error
+//       setIsLoadingSaldo(false);
+//     }
+//   };
   
   // Fungsi untuk menghitung harga mesin
 // // Fungsi untuk menghitung harga mesin
@@ -589,7 +598,6 @@ const MainPage: React.FC = () => {
       // Cek apakah mesin tersedia sebelum memilih
       if (status === 'tersedia' || status === 'dipilih') {
         setSelectedMachine({
-          device_id: machine.machine_id,
           id: machine.name,
           nama: machineName,
           tipe: machine.mesin_type,
@@ -643,73 +651,21 @@ const MainPage: React.FC = () => {
     }
   }, [selectedMachine]);
 
-  const playButtonSound = () => {
-    const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
-    audio.play();
-  };
+//   const playButtonSound = () => {
+//     const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
+//     audio.play();
+//   };
   
-  const jalankanMesin = async () => {
+  const jalankanMesin = () => {
     if (selectedMachine) {
       const audio = new Audio(process.env.REACT_APP_SOUND_GOOD_RESULT);
       audio.play();
-      const loggedUser  = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
-      const branchUser  = loggedUser.branch_id;
-  
-      // Periksa apakah branchUser  valid
-      if (!branchUser  || branchUser.length === 0) {
-        console.error('Branch user is not defined or empty');
-        alert('Branch user tidak valid.');
-        return;
-      }
-  
-      const machineId = selectedMachine.device_id; // ID mesin
-      const branchId = branchUser[0]; // Ambil branch_id dari branchUser 
-      const statusWasher = 'bussy'; // Status yang ingin diatur
-      const statusDryer = 'bussy'; // Status yang ingin diatur
-  
-      // Debugging: Cek ID yang digunakan
-      console.log('Running machine with ID:', machineId);
-      console.log('Branch ID:', branchId);
-      console.log('Status Washer:', statusWasher);
-      console.log('Status Dryer:', statusDryer);
-  
-      try {
-        // Panggil fungsi untuk menjalankan mesin
-        const result = await runMachine(machineId, branchId, statusWasher, statusDryer, {
-          device_id: machineId,
-          partner_id: selectedMachine.partner_id,
-          name: selectedMachine.nama,
-          status: 'running', // Status saat mesin dijalankan
-          date_order: new Date().toISOString(), // Tanggal saat ini
-          is_tumble: selectedMachine.tipe.toLowerCase() === 'tumbler', // Cek apakah mesin tumbler
-          user_id: loggedUser.id, // ID pengguna yang menjalankan mesin
-          outlet: selectedMachine.outlet,
-          machine_type: selectedMachine.mesin_type,
-          price: selectedMachine.harga,
-          duration: selectedMachine.waktu,
-          branch_id: branchId,
-          machine_id: machineId,
-          machine_label: selectedMachine.label_atas || selectedMachine.label_bawah,
-          currency_id: 1, // Ganti dengan ID mata uang yang sesuai
-          state: 'running', // Status saat mesin dijalankan
-          date: new Date().toISOString(), // Tanggal transaksi
-        });
-  
-        console.log('Machine run result:', result);
-  
-        // Tambahkan logika untuk menangani hasil dari API
-        if (result) {
-          alert('Mesin berhasil dijalankan dan history tercatat!');
-        }
-      } catch (error) {
-        console.error('Error running machine or creating history:', error);
-        alert('Gagal menjalankan mesin atau mencatat history. Silakan coba lagi.');
-      }
+      // Tambahkan logika lain yang diperlukan saat mesin dijalankan
     } else {
       const errorAudio = new Audio(process.env.REACT_APP_SOUND_BAD_MACHINE);
       errorAudio.play();
     }
-  };
+  }
 
   // Fungsi untuk menambah atau mengurangi waktu
   const handleTimeChange = (increment: boolean) => {
@@ -809,72 +765,6 @@ const MainPage: React.FC = () => {
     <div className="main-page">
       <Header user={user} />
       <div className="content">
-        {/* Bagian atas untuk saldo dan total */}
-        <div className="row">
-          <div className="saldo-total-container">
-            <div className="saldo-section">
-              <div className="saldo-box saldo-total-container">
-                <div className="ket-saldo">
-                  <h3>Poin Anda:</h3>
-                  <p>{saldo.toLocaleString()} {currencySymbol}</p>
-                  {!isLoadingSaldo ? (
-                    <button
-                      className="refresh-button"
-                      onClick={handleRefreshSaldoClick}
-                    >
-                      <FontAwesomeIcon
-                        icon={faSyncAlt}
-                        className="refresh-icon"
-                      />
-                    </button>
-                  ) : (
-                    <div className="loader-saldo"></div>
-                  )}
-                </div>
-                <div>
-                  <button className="topup-button" onClick={toggleModal}>
-                    <strong>+ Top Up</strong>
-                  </button>
-                  <button
-                    className="buy-soap-button"
-                    onClick={() => {
-                      playButtonSound(); 
-                      navigate("/shop");
-                    }}
-                  >
-                    <strong>Beli Sabun</strong>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="total-section">
-              <div className="total-box saldo-total-container">
-                <div className="ket-total-belanja">
-                  <h3>TOTAL BELANJA</h3>
-                  <div className="terpotong">
-                    <p className="p1">Poin Terpotong</p>
-                    <p className="p2">
-                      {" "}
-                      {selectedMachine
-                        ? selectedMachine.harga.toLocaleString()
-                        : 0} {currencySymbol}
-                    </p>
-                  </div>
-                </div>
-                <div className="ket-sisa-saldo">
-                  <h3>SISA POIN</h3>
-                  <p>
-                    {" "}
-                    {(
-                      saldo - (selectedMachine ? selectedMachine.harga : 0)
-                    ).toLocaleString()} {currencySymbol}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Bagian mesin cuci */}
         <div className="mesin-status-container">
@@ -999,7 +889,7 @@ const MainPage: React.FC = () => {
               <div className="price-info">
                 <span>
                   {selectedMachine
-                    ? `Rp ${selectedMachine.harga.toLocaleString()}`
+                    ? `${currencySymbol} ${selectedMachine.harga.toLocaleString()}`
                     : "Rp 0"}
                 </span>
               </div>
@@ -1048,4 +938,4 @@ const MainPage: React.FC = () => {
   );
 };
 
-export default MainPage;
+export default MainPageCrew;

@@ -24,7 +24,7 @@ const ShopPage: React.FC = () => {
           try {
             const loggedUser = JSON.parse(sessionStorage.getItem("loggedUser") || "{}");
 
-            const branchId = loggedUser.branch_id || 6; // Assuming branch_id is stored in the loggedUser 
+            const branchId = loggedUser.branch_id[0] || 6; // Assuming branch_id is stored in the loggedUser 
             const productData = await fetchProductsByBranch(branchId);
             setProducts(productData);
             // console.log(productData)

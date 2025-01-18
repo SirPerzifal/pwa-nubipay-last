@@ -18,6 +18,10 @@ const Fingerprint: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+      window.location.href = "Fingerprintin:";
+  })
+
+  useEffect(() => {
     const state = location.state as { cleanPhoneNumber?: string; phoneNumber?: string; partners?: Partner[] } | null;
     const storedIsRegistered = sessionStorage.getItem('isRegistered');
     const storedStatusOtpWhatsapp = sessionStorage.getItem('dataUser ');

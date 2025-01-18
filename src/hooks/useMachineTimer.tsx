@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 interface MachineTimerProps {
   endTime: string | number;
   position?: 'top' | 'bottom';
+  onTimerComplete?: () => void; // Tambahkan parameter ini
 }
 
-export const useMachineTimer = ({ endTime }: MachineTimerProps) => {
+export const useMachineTimer = ({ endTime, onTimerComplete }: MachineTimerProps) => {
   const [timeLeft, setTimeLeft] = useState<string>('00 : 00');
   const [isReady, setIsReady] = useState<boolean>(false);
 
@@ -31,6 +32,9 @@ export const useMachineTimer = ({ endTime }: MachineTimerProps) => {
       if (remainingTime < 1) {
         setTimeLeft('00 : 00');
         setIsReady(true);
+        if (onTimerComplete) {
+          onTimerComplete(); // Panggil callback jika waktu habis
+        }
         return;
       }
 
@@ -60,7 +64,7 @@ export const useMachineTimer = ({ endTime }: MachineTimerProps) => {
     calculateTimeLeft(); // Initial call
 
     return () => clearInterval(timer);
-  }, [endTime]);
+  }, [endTime, onTimerComplete]);
 
   return { timeLeft, isReady };
 };

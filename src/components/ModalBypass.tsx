@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 import { fetchBypassAndTransactions } from '../utils/ExternalAPI';
 import '../assets/css/components/modalBypassStyle.css';
@@ -40,6 +41,7 @@ const ModalBypass: React.FC<ModalBypassProps> = ({ onClose, buttonName }) => {
   const [fulldata, setFulldata] = useState<any>(null);
   const [listTransaksi, setListTransaksi] = useState<MappedTransaction[]>([]);
   const [bypassReasons, setBypassReasons] = useState<BypassReason[]>([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleNext = () => {
     // Tambahkan validasi untuk alasan
@@ -97,6 +99,16 @@ const ModalBypass: React.FC<ModalBypassProps> = ({ onClose, buttonName }) => {
       ...fulldata,
       namaPemilih: buttonName
     }, null, 2)}`);
+
+    // Save data to session storage
+    sessionStorage.setItem('bypassData', JSON.stringify({
+      alasan: fulldata.alasan,
+      transaksi: fulldata.transaksi,
+      namaPemilih: fulldata.namaPemilih,
+    }));
+
+    // Navigate to MainPageCrew
+    navigate('/main/crew'); // Adjust the path as necessary
   };
   
   const fetchWithRetry = async (
