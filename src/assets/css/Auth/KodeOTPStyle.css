@@ -1,5 +1,5 @@
 /* Set global font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 .otp-page {
   position: fixed;
@@ -111,7 +111,7 @@
   font-size: 36px;
   font-weight: bold;
   background-color: #000;
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -125,7 +125,10 @@
 
 /* Efek active (tekan): tombol lebih turun ke sudut kanan bawah */
 .keypad-button-otp:active {
-  transform: translate(5px, 5px); /* Tombol bergerak lebih jauh ke kanan bawah */
+  transform: translate(
+    5px,
+    5px
+  ); /* Tombol bergerak lebih jauh ke kanan bawah */
 }
 
 /* Efek hover dan active untuk tombol CLEAR dan BACKSPACE */
@@ -236,15 +239,15 @@
   background-color: #ffffff;
 }
 .container-modal-sk::-webkit-scrollbar {
-width: 10px; /* Ukuran scroll bar */
+  width: 10px; /* Ukuran scroll bar */
 }
 
 .container-modal-sk::-webkit-scrollbar-thumb {
-background-color: #777777; /* Warna scroll bar */
+  background-color: #777777; /* Warna scroll bar */
 }
 
 .container-modal-sk::-webkit-scrollbar-track {
-background-color: none; /* Background track scroll bar */
+  background-color: none; /* Background track scroll bar */
 }
 .content-modal-sk {
   justify-content: flex-start;
@@ -329,6 +332,9 @@ hr .solid-hr-sk {
 
 .right-section i {
   color: rgb(205, 59, 59);
+  font-weight: 600;
+  font-size: 17px !important;
+  font-style: italic;
 }
 
 .button-container-otp {
@@ -343,7 +349,7 @@ hr .solid-hr-sk {
   padding: 20px;
   font-size: 24px;
   background-color: #000;
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -381,7 +387,7 @@ hr .solid-hr-sk {
 }
 
 .additional-svg {
-  width: 150px;
+  width: 190px;
   height: auto;
 }
 
@@ -428,7 +434,7 @@ hr .solid-hr-sk {
     width: 70px;
     margin-right: 10px; /* Jarak antara help-icon dan SVG */
   }
-  
+
   .additional-svg {
     width: 200px;
     height: auto;
@@ -468,7 +474,7 @@ hr .solid-hr-sk {
     font-weight: 530 !important;
     margin: 0;
   }
-  
+
   .country-code {
     display: block;
     background-color: white;
@@ -480,12 +486,12 @@ hr .solid-hr-sk {
     width: 55px;
     border-radius: 10px;
   }
-  
+
   .country-code p {
     margin-top: 15px;
     font-size: 15px;
   }
-  
+
   .phone-input {
     background-color: white;
     padding: 10px;
@@ -497,7 +503,7 @@ hr .solid-hr-sk {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-    line-height: 52px
+    line-height: 52px;
   }
 
   .illustrasi-background-otp {

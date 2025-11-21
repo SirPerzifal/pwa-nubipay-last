@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100%;
-  background: linear-gradient(139deg, #FCC812 0%, #FFB800 100%) !important;
+  height: 100vh;
+  background: linear-gradient(139deg, #fcc812 0%, #ffb800 100%) !important;
 }
 
 .header-success {
-  width: 70%;
+  width: 90%;
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
@@ -17,7 +17,7 @@
 }
 
 .logo-success {
-  width: 150px;
+  width: 350px;
 }
 
 .content-success {
@@ -31,13 +31,15 @@
   width: 70%;
 }
 
-.h1-success { /* Perhatikan tanda titik (.) sebelum selector */
+.h1-success {
+  /* Perhatikan tanda titik (.) sebelum selector */
   font-size: 48px;
   margin-bottom: 0;
   color: black;
 }
 
-.p-success { /* Perhatikan tanda titik (.) sebelum selector */
+.p-success {
+  /* Perhatikan tanda titik (.) sebelum selector */
   margin-top: 0;
   font-size: 16px;
   color: #333;
@@ -65,7 +67,7 @@
 }
 
 .info-box-success {
-  background-color: #FFF;
+  background-color: #fff;
   padding: 40px;
   border-radius: 10px;
   margin: 20px 0;
@@ -73,7 +75,8 @@
   text-align: left; /* Kotak pembelian rata kiri */
 }
 
-.h2-success { /* Perhatikan tanda titik (.) sebelum selector */
+.h2-success {
+  /* Perhatikan tanda titik (.) sebelum selector */
   font-size: 25px;
   color: black;
 }
@@ -122,9 +125,9 @@
   background-color: black;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 20px 40px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 24px;
   cursor: pointer;
   margin-top: 20px;
 }

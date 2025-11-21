@@ -1,14 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
-h1, h2, h3, h4, h5, h6, p, span, button {
-  font-family: 'Poppins', sans-serif; /* Terapkan Poppins ke semua heading, paragraph, span, dan tombol */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button {
+  font-family: "Poppins", sans-serif; /* Terapkan Poppins ke semua heading, paragraph, span, dan tombol */
   font-weight: bold; /* Terapkan bold ke semua teks */
 }
 
 ::-webkit-scrollbar {
-  width: 10px; /* Ukuran scroll bar */
+  height: 90px; /* Ukuran scroll bar */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -30,7 +38,7 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 
@@ -42,7 +50,8 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   width: 50%;
 }
 
-.saldo-box, .total-box {
+.saldo-box,
+.total-box {
   background-color: white;
   padding: 20px;
   display: flex; /* Menambahkan display flex */
@@ -50,17 +59,17 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   justify-content: space-between; /* Membuat elemen di dalamnya rata atas-bawah */
   border-radius: 25px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   height: 120px;
   align-items: center;
 }
 
 .ket-saldo {
-  background-color: #F5F5F5; /* Warna abu-abu */
+  background-color: #f5f5f5; /* Warna abu-abu */
   padding: 15px;
   border-radius: 25px;
-  position: relative; /* Agar refresh-icon bisa diatur posisinya relatif ke ket-saldo */  
+  position: relative; /* Agar refresh-icon bisa diatur posisinya relatif ke ket-saldo */
   box-sizing: border-box; /* Pastikan padding dihitung dalam lebar elemen */
   width: 50%; /* Buat lebar elemen memenuhi container */
   overflow: hidden; /* Hindari elemen melampaui container */
@@ -82,7 +91,7 @@ h1, h2, h3, h4, h5, h6, p, span, button {
 
 .refresh-button {
   position: absolute;
-  top: 10px;   /* Sesuaikan posisi vertikal */
+  top: 10px; /* Sesuaikan posisi vertikal */
   right: 10px; /* Sesuaikan posisi horizontal */
   border: none;
   background: none;
@@ -111,7 +120,8 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   transform: translateZ(0);
 }
 
-.topup-button, .buy-soap-button {
+.topup-button,
+.buy-soap-button {
   display: block;
   height: 69px;
   width: 239px;
@@ -124,7 +134,7 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   cursor: pointer;
   font-weight: bold;
   font-size: 24px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .ket-sisa-saldo {
@@ -135,7 +145,7 @@ h1, h2, h3, h4, h5, h6, p, span, button {
 }
 
 .ket-total-belanja h3 {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 800;
   font-size: 40px; /* Ukuran untuk TOTAL BELANJA */
   font-style: normal;
@@ -153,17 +163,17 @@ h1, h2, h3, h4, h5, h6, p, span, button {
   text-align: left;
 }
 
-.terpotong .p1{
+.terpotong .p1 {
   font-weight: lighter;
   margin: 0 140px 0 0;
 }
 
-.terpotong .p2{
+.terpotong .p2 {
   margin: 0;
 }
 
 .ket-sisa-saldo h3 {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 800;
   font-size: 30px; /* Ukuran untuk TOTAL BELANJA */
   font-style: normal;
@@ -213,28 +223,36 @@ h1, h2, h3, h4, h5, h6, p, span, button {
 @keyframes mulShdSpin {
   0%,
   100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
   }
   12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
   }
   25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0,
+      0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
   }
   37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em,
+      0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
   }
   50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em,
+      0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
   }
   62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
   }
   75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
   }
   87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
 }
 
@@ -592,9 +610,9 @@ h1, h2, h3, h4, h5, h6, p, span, button {
 
 .rotate-icon {
   background-color: #3498db; /* Warna background */
-  padding: 10px;            /* Jarak di dalam background */
-  border-radius: 50%;       /* Membuat background menjadi lingkaran */
-  display: inline-flex;      /* Agar konten tetap di tengah */
+  padding: 10px; /* Jarak di dalam background */
+  border-radius: 50%; /* Membuat background menjadi lingkaran */
+  display: inline-flex; /* Agar konten tetap di tengah */
   justify-content: center;
   align-items: center;
   font-size: 40px;
@@ -644,8 +662,8 @@ select:focus {
   border-color: transparent;
 }
 .select-container-main::after {
-  content: '\f078';
-  font-family: 'Font Awesome 5 Free';
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   position: absolute;
   right: 20px;
@@ -663,8 +681,11 @@ select:focus {
   position: relative;
 }
 
-.mesin-info, .mesin-type, .timer-control, .price-info {
-  font-family: 'Poppins', sans-serif;
+.mesin-info,
+.mesin-type,
+.timer-control,
+.price-info {
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 
@@ -734,7 +755,7 @@ select:focus {
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .jalankan-button.disabled {
@@ -757,7 +778,7 @@ select:focus {
 }
 
 .modal-content-main-page {
-  background-color: #FCC812;
+  background-color: #fcc812;
   padding: 20px;
   border-radius: 10px;
   width: 85%;
@@ -863,7 +884,7 @@ select:focus {
   }
 
   .ket-saldo p {
-  font-size: 22px;
+    font-size: 22px;
   }
 }
 
@@ -882,12 +903,14 @@ select:focus {
     width: 100%; /* Buat lebar elemen memenuhi container */
   }
 
-  .saldo-section, .total-section {
+  .saldo-section,
+  .total-section {
     width: 100%; /* Lebar penuh untuk masing-masing section */
     margin-bottom: 20px; /* Tambahkan sedikit jarak di antara section */
   }
 
-  .saldo-box, .total-box {
+  .saldo-box,
+  .total-box {
     width: 100%; /* Lebar penuh untuk masing-masing box */
     height: auto; /* Biarkan tingginya otomatis mengikuti konten */
   }
@@ -927,7 +950,8 @@ select:focus {
     align-items: center;
   }
 
-  .mesin-type, .timer-control {
+  .mesin-type,
+  .timer-control {
     margin: 0;
     width: 100%;
   }
@@ -944,7 +968,8 @@ select:focus {
     max-height: 400px; /* Batasi tinggi maksimal jika diperlukan */
   }
 
-  .topup-button, .buy-soap-button {
+  .topup-button,
+  .buy-soap-button {
     display: inline-block;
     width: 48%; /* Bagikan lebar agar keduanya berada di satu baris */
     margin: 0 1%; /* Tambahkan margin di antara tombol */
@@ -956,7 +981,8 @@ select:focus {
     align-items: center; /* Pastikan vertikal align */
   }
 
-  .ket-sisa-saldo h3, .ket-sisa-saldo p {
+  .ket-sisa-saldo h3,
+  .ket-sisa-saldo p {
     margin: 0; /* Buang margin default */
   }
 
@@ -965,7 +991,8 @@ select:focus {
     align-items: stretch; /* Pastikan elemen dalam satu baris */
   }
 
-  .saldo-section, .total-section {
+  .saldo-section,
+  .total-section {
     width: 100%; /* Lebar penuh pada kolom */
     margin-bottom: 15px; /* Tambahkan jarak antar elemen */
   }
@@ -982,7 +1009,7 @@ select:focus {
   .time-info {
     font-size: 18px;
   }
-  
+
   .mesin-type h4 {
     font-size: 22px;
   }
@@ -999,7 +1026,8 @@ select:focus {
     align-items: stretch;
   }
 
-  .saldo-section, .total-section {
+  .saldo-section,
+  .total-section {
     width: 100%;
     margin-bottom: 10px;
   }
@@ -1008,7 +1036,8 @@ select:focus {
     width: 100%; /* Buat lebar elemen memenuhi container */
   }
 
-  .topup-button, .buy-soap-button {
+  .topup-button,
+  .buy-soap-button {
     display: inline-block;
     width: 48%;
     margin: 0 1%;
@@ -1024,7 +1053,8 @@ select:focus {
     padding: 10px; /* Sesuaikan padding */
   }
 
-  .ket-sisa-saldo h3, .ket-sisa-saldo p {
+  .ket-sisa-saldo h3,
+  .ket-sisa-saldo p {
     font-size: 20px; /* Sesuaikan ukuran font */
     margin: 0;
   }
@@ -1064,12 +1094,13 @@ select:focus {
     align-items: stretch;
   }
 
-  .saldo-section, .total-section {
+  .saldo-section,
+  .total-section {
     width: 100%;
     margin-bottom: 8px; /* Sesuaikan margin */
   }
 
-  .terpotong .p1{
+  .terpotong .p1 {
     font-weight: lighter;
     margin: 0 10px 0 0;
   }
@@ -1078,7 +1109,8 @@ select:focus {
     width: 100%; /* Buat lebar elemen memenuhi container */
   }
 
-  .topup-button, .buy-soap-button {
+  .topup-button,
+  .buy-soap-button {
     display: inline-block;
     width: 48%;
     margin: 0 1%;
@@ -1094,7 +1126,8 @@ select:focus {
     padding: 8px;
   }
 
-  .ket-sisa-saldo h3, .ket-sisa-saldo p {
+  .ket-sisa-saldo h3,
+  .ket-sisa-saldo p {
     font-size: 18px;
   }
 

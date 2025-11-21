@@ -1,0 +1,6254 @@
+[
+  {
+    "_id": "68ef22a4de255002894da4f8",
+    "controlId": "40536811232132354",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 101,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT020VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 3",
+    "LQI": 43,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 212,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 0,
+        "MACaddress": "08:d1:f9:a6:ec:3c",
+        "connetionUpTimeCounter": 625975,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "IN_USE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 1342,
+      "powerfails": 18,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-09-30T20:26:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:51 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600249          ",
+    "nodeNumber": 3,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 75
+          },
+          {
+            "id": "2",
+            "price": 75
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 75
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 75
+          },
+          {
+            "id": "2",
+            "price": 75
+          },
+          {
+            "id": "4",
+            "price": 75
+          },
+          {
+            "id": "8",
+            "price": 75
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 150
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 10000
+          },
+          {
+            "id": "2",
+            "price": 10000
+          },
+          {
+            "id": "3",
+            "price": 300
+          },
+          {
+            "id": "4",
+            "price": 300
+          },
+          {
+            "id": "5",
+            "price": 300
+          },
+          {
+            "id": "6",
+            "price": 300
+          },
+          {
+            "id": "7",
+            "price": 300
+          },
+          {
+            "id": "8",
+            "price": 300
+          },
+          {
+            "id": "9",
+            "price": 300
+          },
+          {
+            "id": "10",
+            "price": 300
+          },
+          {
+            "id": "11",
+            "price": 300
+          },
+          {
+            "id": "12",
+            "price": 300
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 300
+          },
+          {
+            "id": "15",
+            "price": 75
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:41.364Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef2313de255002894da508",
+    "controlId": "40541208507153666",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 33,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BTT30LVX1RXS6N0000  ",
+    "machineName": "Machine Node - 101",
+    "LQI": 52,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "14.1.0/14.1.0",
+      "wifiStatus": {
+        "signalStrength": 203,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "80:64:6f:0a:f1:cc",
+        "connetionUpTimeCounter": 625969,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": false,
+      "remainingVend": 4500,
+      "remainingTimeInSeconds": 360,
+      "powerfails": 42,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 707,
+        "lastProgrammingFailDate": "2025-09-30T17:50:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "HIGH"
+        },
+        "selectedCycleModifier": {
+          "Id": 0,
+          "Name": "NONE"
+        }
+      },
+      "firmware": {
+        "con": "14.1.0",
+        "hmi": "14.1.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:53:14 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600372          ",
+    "nodeNumber": 101,
+    "extra": {
+      "modifiers": {
+        "mods": [
+          {
+            "id": 0,
+            "name": "NONE"
+          }
+        ]
+      },
+      "cycles": [
+        {
+          "Id": 1,
+          "Name": "High",
+          "Enabled": true
+        },
+        {
+          "Id": 2,
+          "Name": "Low",
+          "Enabled": true
+        },
+        {
+          "Id": 3,
+          "Name": "No Heat",
+          "Enabled": true
+        },
+        {
+          "Id": 4,
+          "Name": "Medium",
+          "Enabled": true
+        },
+        {
+          "Id": 5,
+          "Name": "Delicate",
+          "Enabled": true
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 4000
+          },
+          {
+            "id": "2",
+            "price": 4000
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "16",
+            "price": 0
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 4500
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          },
+          {
+            "id": "10",
+            "price": 0
+          },
+          {
+            "id": "11",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "price": 0
+          },
+          {
+            "id": "13",
+            "price": 0
+          },
+          {
+            "id": "14",
+            "price": 0
+          },
+          {
+            "id": "15",
+            "price": 4000
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:47.254Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": true,
+    "topoffFullyDisabled": false,
+    "topoffPrice": 4500,
+    "topoffTimeInSeconds": 360
+  },
+  {
+    "_id": "68ef2374de255002894da516",
+    "controlId": "40536808564620546",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 103,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT030VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 4",
+    "LQI": 42,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 213,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:18:c8",
+        "connetionUpTimeCounter": 625978,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": true,
+      "remainingVend": 13500,
+      "remainingTimeInSeconds": 1442,
+      "powerfails": 15,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-10-02T22:53:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:25 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600258          ",
+    "nodeNumber": 4,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 100
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 100
+          },
+          {
+            "id": "8",
+            "price": 100
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 125
+          },
+          {
+            "id": "2",
+            "price": 200
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 13500
+          },
+          {
+            "id": "2",
+            "price": 13500
+          },
+          {
+            "id": "3",
+            "price": 400
+          },
+          {
+            "id": "4",
+            "price": 400
+          },
+          {
+            "id": "5",
+            "price": 400
+          },
+          {
+            "id": "6",
+            "price": 400
+          },
+          {
+            "id": "7",
+            "price": 400
+          },
+          {
+            "id": "8",
+            "price": 400
+          },
+          {
+            "id": "9",
+            "price": 400
+          },
+          {
+            "id": "10",
+            "price": 400
+          },
+          {
+            "id": "11",
+            "price": 400
+          },
+          {
+            "id": "12",
+            "price": 400
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 400
+          },
+          {
+            "id": "15",
+            "price": 100
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:49.800Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef23a6de255002894da51b",
+    "controlId": "40536808078081282",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 103,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT030VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 5",
+    "LQI": 53,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 202,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:16:64",
+        "connetionUpTimeCounter": 625981,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": true,
+      "remainingVend": 13500,
+      "remainingTimeInSeconds": 1442,
+      "powerfails": 15,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-10-03T02:03:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:20 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600259          ",
+    "nodeNumber": 5,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 100
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 100
+          },
+          {
+            "id": "8",
+            "price": 100
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 125
+          },
+          {
+            "id": "2",
+            "price": 200
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 13500
+          },
+          {
+            "id": "2",
+            "price": 13500
+          },
+          {
+            "id": "3",
+            "price": 400
+          },
+          {
+            "id": "4",
+            "price": 400
+          },
+          {
+            "id": "5",
+            "price": 400
+          },
+          {
+            "id": "6",
+            "price": 400
+          },
+          {
+            "id": "7",
+            "price": 400
+          },
+          {
+            "id": "8",
+            "price": 400
+          },
+          {
+            "id": "9",
+            "price": 400
+          },
+          {
+            "id": "10",
+            "price": 400
+          },
+          {
+            "id": "11",
+            "price": 400
+          },
+          {
+            "id": "12",
+            "price": 400
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 400
+          },
+          {
+            "id": "15",
+            "price": 100
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:48.312Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef23cdde255002894da51d",
+    "controlId": "40536808061304066",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 103,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT030VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 6",
+    "LQI": 45,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 210,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:17:34",
+        "connetionUpTimeCounter": 625964,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": true,
+      "remainingVend": 13500,
+      "remainingTimeInSeconds": 1442,
+      "powerfails": 35,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-10-02T22:45:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:26 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600257          ",
+    "nodeNumber": 6,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 100
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 100
+          },
+          {
+            "id": "8",
+            "price": 100
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 125
+          },
+          {
+            "id": "2",
+            "price": 200
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 13500
+          },
+          {
+            "id": "2",
+            "price": 13500
+          },
+          {
+            "id": "3",
+            "price": 400
+          },
+          {
+            "id": "4",
+            "price": 400
+          },
+          {
+            "id": "5",
+            "price": 400
+          },
+          {
+            "id": "6",
+            "price": 400
+          },
+          {
+            "id": "7",
+            "price": 400
+          },
+          {
+            "id": "8",
+            "price": 400
+          },
+          {
+            "id": "9",
+            "price": 400
+          },
+          {
+            "id": "10",
+            "price": 400
+          },
+          {
+            "id": "11",
+            "price": 400
+          },
+          {
+            "id": "12",
+            "price": 400
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 400
+          },
+          {
+            "id": "15",
+            "price": 100
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:45.913Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef23f3de255002894da528",
+    "controlId": "40536809353149698",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 103,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT030VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 7",
+    "LQI": 39,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 216,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:18:b0",
+        "connetionUpTimeCounter": 625966,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": true,
+      "remainingVend": 13500,
+      "remainingTimeInSeconds": 1442,
+      "powerfails": 11,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-10-03T20:53:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:10 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600266          ",
+    "nodeNumber": 7,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 100
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 100
+          },
+          {
+            "id": "8",
+            "price": 100
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 125
+          },
+          {
+            "id": "2",
+            "price": 200
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 13500
+          },
+          {
+            "id": "2",
+            "price": 13500
+          },
+          {
+            "id": "3",
+            "price": 400
+          },
+          {
+            "id": "4",
+            "price": 400
+          },
+          {
+            "id": "5",
+            "price": 400
+          },
+          {
+            "id": "6",
+            "price": 400
+          },
+          {
+            "id": "7",
+            "price": 400
+          },
+          {
+            "id": "8",
+            "price": 400
+          },
+          {
+            "id": "9",
+            "price": 400
+          },
+          {
+            "id": "10",
+            "price": 400
+          },
+          {
+            "id": "11",
+            "price": 400
+          },
+          {
+            "id": "12",
+            "price": 400
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 400
+          },
+          {
+            "id": "15",
+            "price": 100
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:40.494Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef242fde255002894da53e",
+    "controlId": "40536809806134530",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 101,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT020VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 2",
+    "LQI": 44,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 211,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:17:8c",
+        "connetionUpTimeCounter": 625968,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": false,
+      "remainingVend": 10000,
+      "remainingTimeInSeconds": 1442,
+      "powerfails": 13,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-09-30T20:58:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:51:51 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600251          ",
+    "nodeNumber": 2,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 75
+          },
+          {
+            "id": "2",
+            "price": 75
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 75
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 75
+          },
+          {
+            "id": "2",
+            "price": 75
+          },
+          {
+            "id": "4",
+            "price": 75
+          },
+          {
+            "id": "8",
+            "price": 75
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 150
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 10000
+          },
+          {
+            "id": "2",
+            "price": 10000
+          },
+          {
+            "id": "3",
+            "price": 300
+          },
+          {
+            "id": "4",
+            "price": 300
+          },
+          {
+            "id": "5",
+            "price": 300
+          },
+          {
+            "id": "6",
+            "price": 300
+          },
+          {
+            "id": "7",
+            "price": 300
+          },
+          {
+            "id": "8",
+            "price": 300
+          },
+          {
+            "id": "9",
+            "price": 300
+          },
+          {
+            "id": "10",
+            "price": 300
+          },
+          {
+            "id": "11",
+            "price": 300
+          },
+          {
+            "id": "12",
+            "price": 300
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 300
+          },
+          {
+            "id": "15",
+            "price": 75
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:37.748Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef24f2de255002894da58c",
+    "controlId": "40536809879008002",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 104,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT040VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 9",
+    "LQI": 29,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 226,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:17:5c",
+        "connetionUpTimeCounter": 625969,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "IN_USE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 1079,
+      "powerfails": 18,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-10-09T06:38:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:27 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600751          ",
+    "nodeNumber": 9,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 150
+          },
+          {
+            "id": "2",
+            "price": 150
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 150
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 150
+          },
+          {
+            "id": "2",
+            "price": 150
+          },
+          {
+            "id": "4",
+            "price": 150
+          },
+          {
+            "id": "8",
+            "price": 150
+          },
+          {
+            "id": "16",
+            "price": 75
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 200
+          },
+          {
+            "id": "2",
+            "price": 300
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 17000
+          },
+          {
+            "id": "2",
+            "price": 17000
+          },
+          {
+            "id": "3",
+            "price": 18000
+          },
+          {
+            "id": "4",
+            "price": 18000
+          },
+          {
+            "id": "5",
+            "price": 18000
+          },
+          {
+            "id": "6",
+            "price": 18000
+          },
+          {
+            "id": "7",
+            "price": 18000
+          },
+          {
+            "id": "8",
+            "price": 18000
+          },
+          {
+            "id": "9",
+            "price": 18000
+          },
+          {
+            "id": "10",
+            "price": 18000
+          },
+          {
+            "id": "11",
+            "price": 18000
+          },
+          {
+            "id": "12",
+            "price": 18000
+          },
+          {
+            "id": "13",
+            "price": 18000
+          },
+          {
+            "id": "14",
+            "price": 18000
+          },
+          {
+            "id": "15",
+            "price": 150
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:48.724Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef2697de255002894da5c7",
+    "controlId": "40536809873243394",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 101,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT020VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 1",
+    "LQI": 36,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 219,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:16:34",
+        "connetionUpTimeCounter": 625997,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "IN_USE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 801,
+      "powerfails": 13,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-09-30T20:57:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:39 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600252          ",
+    "nodeNumber": 1,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 75
+          },
+          {
+            "id": "2",
+            "price": 75
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 75
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 75
+          },
+          {
+            "id": "2",
+            "price": 75
+          },
+          {
+            "id": "4",
+            "price": 75
+          },
+          {
+            "id": "8",
+            "price": 75
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 150
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 10000
+          },
+          {
+            "id": "2",
+            "price": 10000
+          },
+          {
+            "id": "3",
+            "price": 300
+          },
+          {
+            "id": "4",
+            "price": 300
+          },
+          {
+            "id": "5",
+            "price": 300
+          },
+          {
+            "id": "6",
+            "price": 300
+          },
+          {
+            "id": "7",
+            "price": 300
+          },
+          {
+            "id": "8",
+            "price": 300
+          },
+          {
+            "id": "9",
+            "price": 300
+          },
+          {
+            "id": "10",
+            "price": 300
+          },
+          {
+            "id": "11",
+            "price": 300
+          },
+          {
+            "id": "12",
+            "price": 300
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 300
+          },
+          {
+            "id": "15",
+            "price": 75
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:46.670Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef2759de255002894da5f3",
+    "controlId": "40541208758811906",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 33,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BTT30LVX1RXS6N0000  ",
+    "machineName": "Machine Node - 122",
+    "LQI": 36,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "14.1.0/14.1.0",
+      "wifiStatus": {
+        "signalStrength": 219,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "d0:ef:76:65:7a:8c",
+        "connetionUpTimeCounter": 625996,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "IN_USE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 1740,
+      "powerfails": 13,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 707,
+        "lastProgrammingFailDate": "2025-10-03T23:03:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "HIGH"
+        },
+        "selectedCycleModifier": {
+          "Id": 0,
+          "Name": "NONE"
+        }
+      },
+      "firmware": {
+        "con": "14.1.0",
+        "hmi": "14.1.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:54 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600375          ",
+    "nodeNumber": 122,
+    "extra": {
+      "modifiers": {
+        "mods": [
+          {
+            "id": 0,
+            "name": "NONE"
+          }
+        ]
+      },
+      "cycles": [
+        {
+          "Id": 1,
+          "Name": "High",
+          "Enabled": true
+        },
+        {
+          "Id": 2,
+          "Name": "Low",
+          "Enabled": true
+        },
+        {
+          "Id": 3,
+          "Name": "No Heat",
+          "Enabled": true
+        },
+        {
+          "Id": 4,
+          "Name": "Medium",
+          "Enabled": true
+        },
+        {
+          "Id": 5,
+          "Name": "Delicate",
+          "Enabled": true
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 4000
+          },
+          {
+            "id": "2",
+            "price": 4000
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "16",
+            "price": 0
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 4500
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          },
+          {
+            "id": "10",
+            "price": 0
+          },
+          {
+            "id": "11",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "price": 0
+          },
+          {
+            "id": "13",
+            "price": 0
+          },
+          {
+            "id": "14",
+            "price": 0
+          },
+          {
+            "id": "15",
+            "price": 4000
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:45.760Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": true,
+    "topoffFullyDisabled": false,
+    "topoffPrice": 4500,
+    "topoffTimeInSeconds": 360
+  },
+  {
+    "_id": "68ef27dfde255002894da617",
+    "controlId": "40541208658148610",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 33,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BTT30LVX1RXS6N0000  ",
+    "machineName": "Machine Node - 121",
+    "LQI": 42,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "14.1.0/14.1.0",
+      "wifiStatus": {
+        "signalStrength": 213,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "d0:ef:76:65:b0:60",
+        "connetionUpTimeCounter": 625976,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": true,
+      "remainingVend": 4500,
+      "remainingTimeInSeconds": 360,
+      "powerfails": 14,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 707,
+        "lastProgrammingFailDate": "2025-10-03T23:05:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "HIGH"
+        },
+        "selectedCycleModifier": {
+          "Id": 0,
+          "Name": "NONE"
+        }
+      },
+      "firmware": {
+        "con": "14.1.0",
+        "hmi": "14.1.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:53:01 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600375          ",
+    "nodeNumber": 121,
+    "extra": {
+      "modifiers": {
+        "mods": [
+          {
+            "id": 0,
+            "name": "NONE"
+          }
+        ]
+      },
+      "cycles": [
+        {
+          "Id": 1,
+          "Name": "High",
+          "Enabled": true
+        },
+        {
+          "Id": 2,
+          "Name": "Low",
+          "Enabled": true
+        },
+        {
+          "Id": 3,
+          "Name": "No Heat",
+          "Enabled": true
+        },
+        {
+          "Id": 4,
+          "Name": "Medium",
+          "Enabled": true
+        },
+        {
+          "Id": 5,
+          "Name": "Delicate",
+          "Enabled": true
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 4000
+          },
+          {
+            "id": "2",
+            "price": 4000
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "16",
+            "price": 0
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 4500
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          },
+          {
+            "id": "10",
+            "price": 0
+          },
+          {
+            "id": "11",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "price": 0
+          },
+          {
+            "id": "13",
+            "price": 0
+          },
+          {
+            "id": "14",
+            "price": 0
+          },
+          {
+            "id": "15",
+            "price": 4000
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:41.535Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": true,
+    "topoffFullyDisabled": false,
+    "topoffPrice": 4500,
+    "topoffTimeInSeconds": 360
+  },
+  {
+    "_id": "68ef294fde255002894da66b",
+    "controlId": "40536808094858498",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 103,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BCT030VX1VXB60J0D0  ",
+    "machineName": "Machine Node - 8",
+    "LQI": 34,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        13,
+        2,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        13,
+        0,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "13.2.0/13.0.0",
+      "wifiStatus": {
+        "signalStrength": 221,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "c4:d8:d5:74:18:24",
+        "connetionUpTimeCounter": 625975,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": true,
+      "remainingVend": 13500,
+      "remainingTimeInSeconds": 1442,
+      "powerfails": 15,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 769,
+        "lastProgrammingFailDate": "2025-10-04T01:32:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "NORMAL"
+        },
+        "selectedCycleModifier": {
+          "id": 0,
+          "bundle": 0,
+          "temp": 1
+        }
+      },
+      "firmware": {
+        "con": "13.2.0",
+        "hmi": "13.0.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:40 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600269          ",
+    "nodeNumber": 8,
+    "extra": {
+      "modifiers": {
+        "mods": {
+          "prewash": false,
+          "extraRinse": false,
+          "speed": false,
+          "ozone": false
+        },
+        "extras": {
+          "extraTime": false,
+          "warmRinse": false,
+          "increasedWaterLevel": false,
+          "highSpeedSpin": false,
+          "dispenseSoap": false,
+          "dispenseBleach": false,
+          "dispenseSoftener": false
+        },
+        "bundles": [
+          {
+            "enabled": true,
+            "isDefault": true,
+            "id": "0",
+            "name": "NONE",
+            "includes": {
+              "prewash": false,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false,
+              "dispenseSoap": false,
+              "speed": false,
+              "ozone": false,
+              "dispenseBleach": false,
+              "dispenseSoftener": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "1",
+            "name": "MEDIUM_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": false,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          },
+          {
+            "enabled": false,
+            "isDefault": false,
+            "id": "2",
+            "name": "HEAVY_SOIL",
+            "includes": {
+              "prewash": true,
+              "extraRinse": true,
+              "extraTime": false,
+              "warmRinse": false,
+              "increasedWaterLevel": false,
+              "highSpeedSpin": false
+            }
+          }
+        ],
+        "tempInFahrenheit": true
+      },
+      "cycles": [
+        {
+          "id": "1",
+          "name": "NORMAL",
+          "enabled": true,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "2",
+          "name": "SYNTHETICS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "3",
+          "name": "DELICATES_BULKY",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1,
+            2,
+            3
+          ],
+          "defaultTemperature": 2
+        },
+        {
+          "id": "4",
+          "name": "COLORS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "defaultTemperature": 7
+        },
+        {
+          "id": "5",
+          "name": "WHITES",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "6",
+          "name": "MIX",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "7",
+          "name": "WOOLENS",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5
+          ],
+          "defaultTemperature": 5
+        },
+        {
+          "id": "8",
+          "name": "DELICATE",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6
+          ],
+          "defaultTemperature": 6
+        },
+        {
+          "id": "9",
+          "name": "BEDDING",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "10",
+          "name": "HOT_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            10
+          ],
+          "defaultTemperature": 10
+        },
+        {
+          "id": "11",
+          "name": "WARM_WASH",
+          "enabled": false,
+          "temperaturesAllowed": [
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "12",
+          "name": "COTTON",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "defaultTemperature": 9
+        },
+        {
+          "id": "13",
+          "name": "HIGH_SPEED_SPIN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "14",
+          "name": "PRE_CLEAN",
+          "enabled": false,
+          "temperaturesAllowed": [
+            4
+          ],
+          "defaultTemperature": 4
+        },
+        {
+          "id": "15",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "16",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "17",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "18",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        },
+        {
+          "id": "19",
+          "name": "Custom",
+          "enabled": false,
+          "temperaturesAllowed": [
+            1
+          ],
+          "defaultTemperature": 1
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 100
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 100
+          },
+          {
+            "id": "2",
+            "price": 100
+          },
+          {
+            "id": "4",
+            "price": 100
+          },
+          {
+            "id": "8",
+            "price": 100
+          },
+          {
+            "id": "16",
+            "price": 50
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 125
+          },
+          {
+            "id": "2",
+            "price": 200
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 13500
+          },
+          {
+            "id": "2",
+            "price": 13500
+          },
+          {
+            "id": "3",
+            "price": 400
+          },
+          {
+            "id": "4",
+            "price": 400
+          },
+          {
+            "id": "5",
+            "price": 400
+          },
+          {
+            "id": "6",
+            "price": 400
+          },
+          {
+            "id": "7",
+            "price": 400
+          },
+          {
+            "id": "8",
+            "price": 400
+          },
+          {
+            "id": "9",
+            "price": 400
+          },
+          {
+            "id": "10",
+            "price": 400
+          },
+          {
+            "id": "11",
+            "price": 400
+          },
+          {
+            "id": "12",
+            "price": 400
+          },
+          {
+            "id": "13",
+            "price": 25
+          },
+          {
+            "id": "14",
+            "price": 400
+          },
+          {
+            "id": "15",
+            "price": 100
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:50.318Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": false,
+    "topoffFullyDisabled": true,
+    "topoffPrice": 0,
+    "topoffTimeInSeconds": 0
+  },
+  {
+    "_id": "68ef2a6fde255002894da6c3",
+    "controlId": "40541208691703042",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 33,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BTT30LVX1RXS6N0000  ",
+    "machineName": "Machine Node - 111",
+    "LQI": 45,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "14.1.0/14.1.0",
+      "wifiStatus": {
+        "signalStrength": 210,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "a0:b7:65:d9:72:e8",
+        "connetionUpTimeCounter": 625974,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "IN_USE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 1440,
+      "powerfails": 28,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 707,
+        "lastProgrammingFailDate": "2025-09-30T18:37:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "HIGH"
+        },
+        "selectedCycleModifier": {
+          "Id": 0,
+          "Name": "NONE"
+        }
+      },
+      "firmware": {
+        "con": "14.1.0",
+        "hmi": "14.1.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:56 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600374          ",
+    "nodeNumber": 111,
+    "extra": {
+      "modifiers": {
+        "mods": [
+          {
+            "id": 0,
+            "name": "NONE"
+          }
+        ]
+      },
+      "cycles": [
+        {
+          "Id": 1,
+          "Name": "High",
+          "Enabled": true
+        },
+        {
+          "Id": 2,
+          "Name": "Low",
+          "Enabled": true
+        },
+        {
+          "Id": 3,
+          "Name": "No Heat",
+          "Enabled": true
+        },
+        {
+          "Id": 4,
+          "Name": "Medium",
+          "Enabled": true
+        },
+        {
+          "Id": 5,
+          "Name": "Delicate",
+          "Enabled": true
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 4000
+          },
+          {
+            "id": "2",
+            "price": 4000
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "16",
+            "price": 0
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 4500
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          },
+          {
+            "id": "10",
+            "price": 0
+          },
+          {
+            "id": "11",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "price": 0
+          },
+          {
+            "id": "13",
+            "price": 0
+          },
+          {
+            "id": "14",
+            "price": 0
+          },
+          {
+            "id": "15",
+            "price": 4000
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:51.184Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": true,
+    "topoffFullyDisabled": false,
+    "topoffPrice": 4500,
+    "topoffTimeInSeconds": 360
+  },
+  {
+    "_id": "68ef2a80de255002894da6c5",
+    "controlId": "40541208557485314",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 33,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BTT30LVX1RXS6N0000  ",
+    "machineName": "Machine Node - 112",
+    "LQI": 40,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "14.1.0/14.1.0",
+      "wifiStatus": {
+        "signalStrength": 215,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "80:64:6f:0d:78:28",
+        "connetionUpTimeCounter": 625975,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "AVAILABLE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 540,
+      "powerfails": 30,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 707,
+        "lastProgrammingFailDate": "2025-09-30T18:20:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "HIGH"
+        },
+        "selectedCycleModifier": {
+          "Id": 0,
+          "Name": "NONE"
+        }
+      },
+      "firmware": {
+        "con": "14.1.0",
+        "hmi": "14.1.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:52 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600374          ",
+    "nodeNumber": 112,
+    "extra": {
+      "modifiers": {
+        "mods": [
+          {
+            "id": 0,
+            "name": "NONE"
+          }
+        ]
+      },
+      "cycles": [
+        {
+          "Id": 1,
+          "Name": "High",
+          "Enabled": true
+        },
+        {
+          "Id": 2,
+          "Name": "Low",
+          "Enabled": true
+        },
+        {
+          "Id": 3,
+          "Name": "No Heat",
+          "Enabled": true
+        },
+        {
+          "Id": 4,
+          "Name": "Medium",
+          "Enabled": true
+        },
+        {
+          "Id": 5,
+          "Name": "Delicate",
+          "Enabled": true
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 4000
+          },
+          {
+            "id": "2",
+            "price": 4000
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "16",
+            "price": 0
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 4500
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          },
+          {
+            "id": "10",
+            "price": 0
+          },
+          {
+            "id": "11",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "price": 0
+          },
+          {
+            "id": "13",
+            "price": 0
+          },
+          {
+            "id": "14",
+            "price": 0
+          },
+          {
+            "id": "15",
+            "price": 4000
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:50.817Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": true,
+    "topoffFullyDisabled": false,
+    "topoffPrice": 4500,
+    "topoffTimeInSeconds": 360
+  },
+  {
+    "_id": "68ef2cb2de255002894da75e",
+    "controlId": "40541208423267586",
+    "machineId": null,
+    "totalVueId": null,
+    "generation": "Midas_Vended",
+    "auditTypeId": 57,
+    "machineTypeId": 33,
+    "connectivityTypeId": 3,
+    "isInternational": false,
+    "modelNumber": "BTT30LVX1RXS6N0000  ",
+    "machineName": "Machine Node - 102",
+    "LQI": 44,
+    "status": {
+      "canRestart": false,
+      "forceUpdate": false,
+      "firmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "hmiFirmwareVersion": [
+        14,
+        1,
+        0
+      ],
+      "firmwareUpdateStatus": 0,
+      "displayFWVersion": "14.1.0/14.1.0",
+      "wifiStatus": {
+        "signalStrength": 211,
+        "region": "EU",
+        "howRegionWasSet": 0,
+        "txPower": 7,
+        "MACaddress": "d0:ef:76:65:ae:4c",
+        "connetionUpTimeCounter": 625970,
+        "wifiDisconnects": 2,
+        "bindingStatus": 1,
+        "wifiMachineType": "MIDAS"
+      },
+      "nineBitStatus": {},
+      "controlStatus": "IN_USE",
+      "isDoorOpen": false,
+      "remainingVend": 0,
+      "remainingTimeInSeconds": 221,
+      "powerfails": 42,
+      "programming": {
+        "programCount": 0,
+        "validityCheckType": 208,
+        "validityFailedByte": 707,
+        "lastProgrammingFailDate": "2025-09-30T18:32:00.000Z"
+      },
+      "options": {
+        "selectedCycle": {
+          "Id": 1,
+          "Name": "HIGH"
+        },
+        "selectedCycleModifier": {
+          "Id": 0,
+          "Name": "NONE"
+        }
+      },
+      "firmware": {
+        "con": "14.1.0",
+        "hmi": "14.1.0"
+      },
+      "lastKnownTime": "Tue Nov 11 2025 14:52:21 GMT+0000 (Coordinated Universal Time)",
+      "displayStatus": {
+        "id": "0",
+        "error": ""
+      }
+    },
+    "serialNumber": "2410600372          ",
+    "nodeNumber": 102,
+    "extra": {
+      "modifiers": {
+        "mods": [
+          {
+            "id": 0,
+            "name": "NONE"
+          }
+        ]
+      },
+      "cycles": [
+        {
+          "Id": 1,
+          "Name": "High",
+          "Enabled": true
+        },
+        {
+          "Id": 2,
+          "Name": "Low",
+          "Enabled": true
+        },
+        {
+          "Id": 3,
+          "Name": "No Heat",
+          "Enabled": true
+        },
+        {
+          "Id": 4,
+          "Name": "Medium",
+          "Enabled": true
+        },
+        {
+          "Id": 5,
+          "Name": "Delicate",
+          "Enabled": true
+        }
+      ],
+      "prices": {
+        "mods": [
+          {
+            "id": "1",
+            "price": 4000
+          },
+          {
+            "id": "2",
+            "price": 4000
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          }
+        ],
+        "extras": [
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "16",
+            "price": 0
+          }
+        ],
+        "bundles": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          }
+        ],
+        "temperatures": [
+          {
+            "id": "0",
+            "price": 0
+          },
+          {
+            "id": "1",
+            "price": 0
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          }
+        ],
+        "cycles": [
+          {
+            "id": "1",
+            "price": 4500
+          },
+          {
+            "id": "2",
+            "price": 0
+          },
+          {
+            "id": "3",
+            "price": 0
+          },
+          {
+            "id": "4",
+            "price": 0
+          },
+          {
+            "id": "5",
+            "price": 0
+          },
+          {
+            "id": "6",
+            "price": 0
+          },
+          {
+            "id": "7",
+            "price": 0
+          },
+          {
+            "id": "8",
+            "price": 0
+          },
+          {
+            "id": "9",
+            "price": 0
+          },
+          {
+            "id": "10",
+            "price": 0
+          },
+          {
+            "id": "11",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "price": 0
+          },
+          {
+            "id": "13",
+            "price": 0
+          },
+          {
+            "id": "14",
+            "price": 0
+          },
+          {
+            "id": "15",
+            "price": 4000
+          }
+        ]
+      },
+      "updated": "2025-11-11T07:45:50.914Z"
+    },
+    "isOpl": false,
+    "topoffEnabled": true,
+    "topoffFullyDisabled": false,
+    "topoffPrice": 4500,
+    "topoffTimeInSeconds": 360
+  }
+]

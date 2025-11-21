@@ -1,6 +1,5 @@
 body {
-  background: linear-gradient(139deg, #FCC812 0%, #FFB800 100%) !important;
-  font-family: 'Poppins', sans-serif; /* Terapkan Poppins ke seluruh body */
+  font-family: "Poppins", sans-serif; /* Terapkan Poppins ke seluruh body */
   font-weight: bold; /* Semua teks secara default bold */
 }
 
@@ -13,7 +12,6 @@ body {
   padding: 35px 20px;
   height: 70px; /* Sesuaikan tinggi header */
   z-index: 999; /* Ensure this is less than the dropdown menu */
-  background: linear-gradient(139deg, #FCC812 0%, #FFB800 100%) !important;
 }
 
 .left-header .logo {
@@ -59,7 +57,7 @@ body {
 .user-number-dropdown,
 .history-button-dropdown,
 .logout-button-dropdown {
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -69,7 +67,7 @@ body {
   font-size: 20px;
   display: flex;
   align-items: center;
-  background-color: #FF3B30; /* Warna merah untuk tombol logout */
+  background-color: #ff3b30; /* Warna merah untuk tombol logout */
   padding: 10px 15px;
   border-radius: 20px;
   color: white;
@@ -195,7 +193,7 @@ body {
 
 /* Modal Content dengan animasi slide dari atas */
 .modal-content {
-  background-color: #FCC812; /* Latar belakang kuning */
+  background-color: #fcc812; /* Latar belakang kuning */
   padding: 20px 20px 70px 20px;
   border-radius: 10px;
   width: 85%;
@@ -219,8 +217,12 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error-message-log-history {
@@ -303,7 +305,9 @@ body {
 
 /* Responsif: menyembunyikan elemen pada layar kecil */
 @media only screen and (max-width: 866px) {
-  .user-number, .history-button, .profile-button-show {
+  .user-number,
+  .history-button,
+  .profile-button-show {
     display: none; /* Sembunyikan pada layar kecil */
   }
 

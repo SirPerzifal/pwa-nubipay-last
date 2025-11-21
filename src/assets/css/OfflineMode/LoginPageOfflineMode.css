@@ -1,0 +1,191 @@
+#div-root {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.left-section-login-offline-mode {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#logo-offline-mode img {
+  margin: 40px 40px 0 50px;
+}
+
+#greetings-offline-mode {
+  width: 100%;
+  text-align: center;
+}
+
+#greetings-offline-mode p {
+  font-size: 55px;
+  margin: 0 !important;
+}
+
+#greetings-offline-mode h1 {
+  font-size: 102px;
+  line-height: 55px !important;
+  margin: 0 !important;
+}
+
+/* .right-section-login-offline-mode {
+  width: 40%;
+} */
+
+.right-section-login-offline-mode h1 {
+  text-align: left;
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-bottom: 20px !important;
+  font-size: 45px;
+}
+
+#number-input-field-offline-mode {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+  width: 100%;
+}
+
+.country-code-offline-mode {
+  display: block;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  padding: 10px;
+  height: 85px;
+  width: 115px;
+  border-radius: 14px;
+}
+
+.country-code-offline-mode p {
+  font-size: 25px;
+}
+
+.phone-input-offline-mode {
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  max-width: 460px;
+  height: 85px;
+  border-radius: 14px;
+  border: none;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 52px;
+}
+
+#error-message-offline-mode {
+  margin-top: 20px;
+  height: 60px;
+}
+
+#error-message-offline-mode p {
+  color: red;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 100px !important;
+}
+
+#keypad-offline-mode {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+  margin-left: 100px;
+  width: fit-content;
+}
+
+.keypad-button-offline-mode {
+  max-height: 111px;
+  height: 111px;
+  width: 200px;
+  padding: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Transisi untuk smooth effect */
+}
+
+/* Efek hover: tombol bergerak ke sudut kanan bawah */
+.keypad-button-offline-mode:hover {
+  transform: translate(3px, 3px); /* Tombol bergerak ke kanan bawah */
+}
+
+/* Efek active (tekan): tombol lebih turun ke sudut kanan bawah */
+.keypad-button-offline-mode:active {
+  transform: translate(
+    5px,
+    5px
+  ); /* Tombol bergerak lebih jauh ke kanan bawah */
+}
+
+.clear-button-offline-mode,
+.backspace-button-offline-mode {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+/* Efek hover untuk tombol CLEAR dan BACKSPACE */
+.clear-button-offline-mode:hover,
+.backspace-button-offline-mode:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Efek active untuk tombol CLEAR dan BACKSPACE */
+.clear-button-offline-mode:active,
+.backspace-button-offline-mode:active {
+  transform: translate(5px, 5px);
+}
+
+.delete-img-offline-mode {
+  margin-top: 10px;
+  width: 108px;
+  height: auto;
+}
+
+#lanjut-button-offline-mode {
+  margin: 0 !important;
+  margin-left: 100px !important;
+}
+
+.submit-button-offline-mode {
+  height: 92px;
+  width: 620px;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 35px;
+  transition: all 0.2s ease;
+}
+
+/* Tombol submit saat hover */
+.submit-button-offline-mode:hover {
+  transform: translate(3px, 3px);
+}
+
+/* Tombol submit saat ditekan */
+.submit-button-offline-mode:active {
+  transform: translate(5px, 5px);
+}

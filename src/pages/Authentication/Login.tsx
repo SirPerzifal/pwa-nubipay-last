@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
@@ -15,7 +15,7 @@ const Login = () => {
   const [isModalSKClosing, setIsModalSKClosing] = useState(false); // Untuk animasi penutupan
   const [isModalHelpOpen, setIsModalHelpOpen] = useState(false);
   const [isModalSuspendOpen, setIsModalSuspendOpen] = useState(false);
-  const [animationClass, setAnimationClass] = useState<string>(''); // State animasi
+  const [animationClass, setAnimationClass] = useState<string>(""); // State animasi
   const navigate = useNavigate();
 
   // Function untuk menangani input nomor dari keypad
@@ -83,9 +83,9 @@ const Login = () => {
 
   function prependZeroIfNeeded(phoneNumber: string) {
     // Check if the phoneNumber starts with '0'
-    if (!phoneNumber.startsWith('0')) {
+    if (!phoneNumber.startsWith("0")) {
       // Prepend '0' to the phoneNumber
-      phoneNumber = '0' + phoneNumber;
+      phoneNumber = "0" + phoneNumber;
     }
     return phoneNumber; // Return the modified phoneNumber
   }
@@ -95,48 +95,52 @@ const Login = () => {
     const audio = new Audio(process.env.REACT_APP_SOUND_BUTTON_PRESSED);
     audio.play();
     event.preventDefault();
-  
+
     if (phoneNumber === "") {
-        setErrorMessage("Nomor telepon harus diisi");
-        return;
+      setErrorMessage("Nomor telepon harus diisi");
+      return;
     }
-  
+
     const cleanPhoneNumber = phoneNumber.replace(/\D/g, "");
-  
+
     if (cleanPhoneNumber.length < 8) {
-        setErrorMessage("Nomor telepon minimal 8 digit");
-        return;
+      setErrorMessage("Nomor telepon minimal 8 digit");
+      return;
     }
-  
+
     if (cleanPhoneNumber.length > 14) {
-        setErrorMessage("Nomor telepon maksimal 14 digit");
-        return;
+      setErrorMessage("Nomor telepon maksimal 14 digit");
+      return;
     }
-  
+
     try {
       const modifiedPhoneNumber = prependZeroIfNeeded(cleanPhoneNumber);
       const { partners, banned } = await checkUserInOdoo(modifiedPhoneNumber); // Memanggil fungsi dengan cleanPhoneNumber
-  
+
       if (partners) {
-          // Memeriksa status is_ban
-          if (banned) { // Jika pengguna dibanned
-              setIsModalSuspendOpen(true); // Buka modal suspend
-          } else {
-              console.log("Nomor Telepon yang diinput:", modifiedPhoneNumber);
-              sessionStorage.setItem('isRegistered', 'true'); // Tandai sebagai terdaftar
-              sessionStorage.setItem('dataUser', JSON.stringify(partners));
-              console.log("partner", JSON.stringify(partners))
-              // sessionStorage.setItem('loggedUser', JSON.stringify(partners));
-              navigate('/fingerprint', { state: { partners } }); // Arahkan ke halaman fingerprint
-          }
+        // Memeriksa status is_ban
+        if (banned) {
+          // Jika pengguna dibanned
+          setIsModalSuspendOpen(true); // Buka modal suspend
+        } else {
+          console.log("Nomor Telepon yang diinput:", modifiedPhoneNumber);
+          sessionStorage.setItem("isRegistered", "true"); // Tandai sebagai terdaftar
+          sessionStorage.setItem("dataUser", JSON.stringify(partners));
+          console.log("partner", JSON.stringify(partners));
+          // sessionStorage.setItem('loggedUser', JSON.stringify(partners));
+          navigate("/fingerprint", { state: { partners } }); // Arahkan ke halaman fingerprint
+        }
       } else {
-          console.log("Nomor Telepon yang diinput (tidak terdaftar):", modifiedPhoneNumber);
-          sessionStorage.setItem('isRegistered', 'false'); // Tandai sebagai tidak terdaftar
-          navigate('/register', { state: { modifiedPhoneNumber } }); // Arahkan ke halaman pendaftaran
+        console.log(
+          "Nomor Telepon yang diinput (tidak terdaftar):",
+          modifiedPhoneNumber
+        );
+        sessionStorage.setItem("isRegistered", "false"); // Tandai sebagai tidak terdaftar
+        navigate("/register", { state: { modifiedPhoneNumber } }); // Arahkan ke halaman pendaftaran
       }
     } catch (error) {
-        console.error('Error during user check:', error);
-        setErrorMessage("Terjadi kesalahan saat memeriksa nomor telepon"); // Tampilkan pesan kesalahan
+      console.error("Error during user check:", error);
+      setErrorMessage("Terjadi kesalahan saat memeriksa nomor telepon"); // Tampilkan pesan kesalahan
     }
   };
 
@@ -155,21 +159,21 @@ const Login = () => {
   const modalHelp = () => {
     if (isModalHelpOpen) {
       // Jika modal sedang terbuka, tambahkan kelas slide-up
-      setAnimationClass('slide-up-help');
+      setAnimationClass("slide-up-help");
       // Tunggu animasi selesai sebelum menutup modal
       setTimeout(() => setIsModalHelpOpen(false), 300); // Durasi animasi (300ms)
     } else {
       // Jika modal tertutup, langsung buka dengan kelas slide-down
       setIsModalHelpOpen(true);
-      setAnimationClass('slide-down-help');
+      setAnimationClass("slide-down-help");
     }
   };
 
   const modalSuspend = () => {
     if (isModalSuspendOpen) {
-      setIsModalSuspendOpen(false)
+      setIsModalSuspendOpen(false);
     }
-  }
+  };
 
   return (
     <div className="login-page">
@@ -188,7 +192,12 @@ const Login = () => {
         <h2 className="command-text">MASUKKAN NOMOR TELEPON</h2>
         <div className="phone-input-container">
           <div className="country-code">
-            <p><span role="img" aria-label="ID Flag">🇮🇩</span> +62</p>
+            <p>
+              <span role="img" aria-label="ID Flag">
+                🇮🇩
+              </span>{" "}
+              +62
+            </p>
           </div>
           <input
             type="tel"
@@ -230,6 +239,9 @@ const Login = () => {
             />
           </button>
         </div>
+        <button type="submit" className="submit-button" onClick={handleSubmit}>
+          Lanjut
+        </button>
         <p className="SK">
           Dengan mengklik 'Lanjut', Anda setuju dengan{" "}
           <button className="buttonSK" onClick={modalSK}>
@@ -237,12 +249,9 @@ const Login = () => {
           </button>{" "}
           aplikasi ini.
         </p>
-        <button type="submit" className="submit-button" onClick={handleSubmit}>
-          Lanjut
-        </button>
         <div className="footer">
           <img
-            src={require("../../assets/image/v1_39.png")}
+            src={require("../../assets/image/Powered_by_Nubipay.png")}
             alt="Powered by SGEDEE"
             className="copyright"
           />
@@ -267,8 +276,11 @@ const Login = () => {
         alt="Mascot"
         className="mascot-background"
       />
-      <button className="bypass-button-login" onClick={() => window.location.href= "/bypass"}>
-      tes
+      <button
+        className="bypass-button-login"
+        onClick={() => (window.location.href = "/test-micro-controller")}
+      >
+        tes
       </button>
       {/* Modal SK */}
       {isModalSKOpen && (
@@ -356,40 +368,42 @@ const Login = () => {
         </div>
       )}
 
-      {isModalHelpOpen && 
-        <Modal isModalHelpOpen={isModalHelpOpen} toggleModal={modalHelp} animationClass={animationClass} />
-      }
-      {isModalSuspendOpen && 
+      {isModalHelpOpen && (
+        <Modal
+          isModalHelpOpen={isModalHelpOpen}
+          toggleModal={modalHelp}
+          animationClass={animationClass}
+        />
+      )}
+      {isModalSuspendOpen && (
         <div className="overlay-modal-suspend">
           <div className="container-modal-suspend">
-          <button className="close-modal-suspend" onClick={modalSuspend}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
-          <div className="error-title-suspend">
-          ERROR!!!
+            <button className="close-modal-suspend" onClick={modalSuspend}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+            <div className="error-title-suspend">ERROR!!!</div>
+            <div className="error-message-supend">
+              NOMOR ANDA SEDANG DI SUSPEND
+            </div>
+            <div className="error-submessage-suspend">
+              Mohon Konfirmasi dengan Admin Kami
+            </div>
+            <div className="illustration-suspend">
+              <img
+                alt="Illustration-suspend of a person with a headset sitting at a desk with a laptop and a notepad"
+                className="illusadmin-suspend"
+                src={require("../../assets/image/CHARACTER ADMINs 3.webp")}
+              />
+            </div>
+            <button className="contact-button-suspend">
+              <FontAwesomeIcon className="icon-suspend" icon={faWhatsapp} />
+              HUBUNGI KAMI
+            </button>
           </div>
-          <div className="error-message-supend">
-          NOMOR ANDA SEDANG DI SUSPEND
-          </div>
-          <div className="error-submessage-suspend">
-          Mohon Konfirmasi dengan Admin Kami
-          </div>
-          <div className="illustration-suspend">
-          <img 
-            alt="Illustration-suspend of a person with a headset sitting at a desk with a laptop and a notepad"
-            className="illusadmin-suspend"
-            src={require("../../assets/image/CHARACTER ADMINs 3.webp")}
-          />
-          </div>
-          <button className="contact-button-suspend">
-          <FontAwesomeIcon className="icon-suspend" icon={faWhatsapp} />
-          HUBUNGI KAMI
-          </button>
-          </div>
-      </div>
-      }
-      </div>
-        );
-      };
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Login;
